@@ -540,64 +540,7 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
   /*****************************************
    * MULTI-COLUMN BLOG LAYOUT
    *****************************************/
-  async function initMultiColumnBlog() {
-    const featuredEl = qs('#featured-post');
-    const recentEl = qs('#recent-posts');
-    
-    if (!featuredEl || !recentEl) return;
-
-    try {
-      // Fetch real blog posts from Jekyll API
-      const response = await fetch('/api/posts.json');
-      const blogData = await response.json();
-      const posts = blogData.posts || [];
-
-      if (posts.length === 0) {
-        // Fallback to sample data if no posts exist
-        await initMultiColumnBlogWithSampleData();
-        return;
-      }
-
-      // Find featured post or use the first post
-      const featured = posts.find(p => p.featured) || posts[0];
-      
-      featuredEl.innerHTML = `
-        <div class="featured-badge mb-16" style="display: inline-block; padding: 4px 12px; background: rgba(255, 0, 81, 0.2); border: 1px solid var(--color-crimson); border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--color-crimson);">Featured</div>
-        <h4 style="color: var(--color-text-primary); margin: 0 0 16px 0; font-size: 1.4rem; line-height: 1.3;">
-          <a href="${featured.url}" style="color: inherit; text-decoration: none;">${featured.title}</a>
-        </h4>
-        <div class="post-meta mb-16" style="color: var(--color-text-muted); font-size: 0.9rem;">
-          ${new Date(featured.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </div>
-        <p style="color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px;">${featured.excerpt}</p>
-        <div class="post-tags flex flex-wrap gap-8">
-          ${(featured.tags || []).map(tag => `<span class="blog-tag" style="padding: 3px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 10px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
-        </div>
-        <a href="${featured.url}" class="btn btn--sm btn--outline mt-16">Read Full Post →</a>
-      `;
-
-      // Recent posts (excluding featured)
-      const recentPosts = posts.filter(p => p.url !== featured.url).slice(0, 3);
-      recentEl.innerHTML = recentPosts.map((post, i) => `
-        <div class="recent-post-item animate-slide-in-right" style="animation-delay: ${i * 0.1}s;">
-          <h5 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1rem; line-height: 1.3;">
-            <a href="${post.url}" style="color: inherit; text-decoration: none;">${post.title}</a>
-          </h5>
-          <div style="color: var(--color-text-muted); font-size: 0.8rem; margin-bottom: 12px;">
-            ${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-          </div>
-          <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; margin: 0;">${post.excerpt.substring(0, 100)}...</p>
-        </div>
-      `).join('');
-
-    } catch (error) {
-      console.warn('Failed to fetch blog posts, using sample data:', error);
-      await initMultiColumnBlogWithSampleData();
-    }
-  }
-
-  // Fallback function with sample data
-  async function initMultiColumnBlogWithSampleData() {
+  function initMultiColumnBlog() {
     const featuredEl = qs('#featured-post');
     const recentEl = qs('#recent-posts');
     
@@ -607,7 +550,9 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     const featured = data.blog_posts.find(p => p.featured) || data.blog_posts[0];
     featuredEl.innerHTML = `
       <div class="featured-badge mb-16" style="display: inline-block; padding: 4px 12px; background: rgba(255, 0, 81, 0.2); border: 1px solid var(--color-crimson); border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--color-crimson);">Featured</div>
-      <h4 style="color: var(--color-text-primary); margin: 0 0 16px 0; font-size: 1.4rem; line-height: 1.3;">${featured.title}</h4>
+      <h4 style="color: var(--color-text-primary); margin: 0 0 16px 0; font-size: 1.4rem; line-height: 1.3;">
+        <a href="/blog/" style="color: inherit; text-decoration: none;">${featured.title}</a>
+      </h4>
       <div class="post-meta mb-16" style="color: var(--color-text-muted); font-size: 0.9rem;">
         ${new Date(featured.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       </div>
@@ -615,13 +560,16 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       <div class="post-tags flex flex-wrap gap-8">
         ${featured.tags.map(tag => `<span class="blog-tag" style="padding: 3px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 10px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
       </div>
+      <a href="/blog/" class="btn btn--sm btn--outline mt-16">Read Full Post →</a>
     `;
 
     // Recent posts
     const recentPosts = data.blog_posts.filter(p => !p.featured).slice(0, 3);
     recentEl.innerHTML = recentPosts.map((post, i) => `
       <div class="recent-post-item animate-slide-in-right" style="animation-delay: ${i * 0.1}s;">
-        <h5 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1rem; line-height: 1.3;">${post.title}</h5>
+        <h5 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1rem; line-height: 1.3;">
+          <a href="/blog/" style="color: inherit; text-decoration: none;">${post.title}</a>
+        </h5>
         <div style="color: var(--color-text-muted); font-size: 0.8rem; margin-bottom: 12px;">
           ${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
         </div>
