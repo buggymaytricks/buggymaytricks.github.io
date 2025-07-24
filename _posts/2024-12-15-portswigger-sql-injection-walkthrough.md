@@ -5,7 +5,6 @@ date: 2024-12-15 10:00:00 +0000
 categories: [Web Security, Penetration Testing]
 tags: [sql injection, web security, portswigger, burp suite]
 excerpt: "Deep dive into advanced SQL injection techniques with practical examples from PortSwigger labs. Covering union-based, blind, and time-based injection methods."
-featured: true
 ---
 
 # PortSwigger Web Security Academy: Complete SQL Injection Walkthrough
