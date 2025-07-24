@@ -42,6 +42,52 @@ assets/js/dist
 .DS_Store
 Thumbs.db
 
-
 # Backup files
 *.backup
+*.orig
+*.rej
+*~
+.#*
+#*#
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.cache
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+._*
+
+# Development and debug files
+debug.js
+*.debug
+*.test.js
+coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Archives
+*.tar
+*.tar.gz
+*.rar
+*.zip
+*.7z
