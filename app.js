@@ -113,7 +113,21 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       github: '@buggymaytricks',
       email: 'contact@buggy.security',
       linkedin: '@buggymaytricks'
-    }
+    },
+    cybersec_quotes: [
+      "\"The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room.\" - Gene Spafford",
+      "\"Security is not a product, but a process.\" - Bruce Schneier",
+      "\"Hackers are breaking the systems for profit. Before, it was about intellectual curiosity and pursuit of knowledge.\" - Kevin Mitnick",
+      "\"The weakest link in the security chain is the human element.\" - Kevin Mitnick",
+      "\"There are two types of companies: those that have been hacked, and those that will be.\" - Robert Mueller",
+      "\"Privacy is not something that I'm merely entitled to, it's an absolute prerequisite.\" - Marlon Brando",
+      "\"Data is a precious thing and will last longer than the systems themselves.\" - Tim Berners-Lee",
+      "\"Security is always excessive until it's not enough.\" - Robbie Sinclair",
+      "\"Trust, but verify.\" - Ronald Reagan",
+      "\"In cybersecurity, the more systems change, the more they stay vulnerable.\" - Anonymous",
+      "\"The price of freedom is eternal vigilance.\" - Thomas Jefferson",
+      "\"Cybersecurity is much more than a matter of IT.\" - Stephane Nappo"
+    ]
   };
 
   /*****************************************
@@ -228,6 +242,50 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     }
     
     setTimeout(typeStep, 800);
+  }
+
+  /*****************************************
+   * ANIMATED CYBERSECURITY QUOTES
+   *****************************************/
+  function initAnimatedQuotes() {
+    const quoteEl = qs('#cyber-quote');
+    if (!quoteEl) return;
+
+    let currentQuoteIndex = 0;
+    const quotes = data.cybersec_quotes;
+    
+    function showQuote() {
+      const quote = quotes[currentQuoteIndex];
+      quoteEl.style.opacity = '0';
+      quoteEl.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        quoteEl.innerHTML = `
+          <div class="quote-text" style="
+            font-style: italic; 
+            color: var(--color-text-secondary); 
+            font-size: 1.1rem; 
+            line-height: 1.6; 
+            max-width: 800px; 
+            margin: 0 auto;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          ">
+            ${quote}
+          </div>
+        `;
+        quoteEl.style.opacity = '1';
+        quoteEl.style.transform = 'translateY(0)';
+      }, 300);
+      
+      currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    }
+
+    // Show first quote after initial delay
+    setTimeout(() => {
+      showQuote();
+      // Continue cycling quotes every 6 seconds
+      setInterval(showQuote, 6000);
+    }, 2000);
   }
 
   /*****************************************
@@ -889,6 +947,7 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     // Core functionality
     initEnhancedCursor();
     initEnhancedTyping();
+    initAnimatedQuotes();
     initAnimatedStats();
     initSkillsWithAnimations();
     initMultiColumnTools();
