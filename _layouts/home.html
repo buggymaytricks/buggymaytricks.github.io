@@ -1,0 +1,128 @@
+---
+layout: default
+---
+
+<div class="blog-home">
+  <h1>Technical Blog</h1>
+  <p>Deep dives into vulnerability research and red team techniques</p>
+
+  <div class="posts-list">
+    {% for post in site.posts %}
+      <article class="post-preview">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="post-meta">
+          {{ post.date | date: "%B %d, %Y" }}
+          {% if post.categories.size > 0 %}
+            • {{ post.categories | join: ", " }}
+          {% endif %}
+        </div>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% if post.tags.size > 0 %}
+          <div class="post-tags">
+            {% for tag in post.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.blog-home {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.posts-list {
+  margin-top: 2rem;
+}
+
+.post-preview {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.post-preview h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.post-preview h2 a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+  text-decoration: underline;
+}
+
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.post-tags {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  color: #00d4ff;
+  margin-right: 0.5rem;
+}
+
+.blog-header {
+  background: #1a1a1a;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.blog-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blog-header h1 a {
+  color: #00d4ff;
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.blog-header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.blog-header nav a:hover {
+  color: #00d4ff;
+}
+
+.blog-footer {
+  background: #1a1a1a;
+  padding: 2rem 0;
+  border-top: 1px solid #333;
+  margin-top: 4rem;
+}
+
+.blog-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  color: #888;
+}
+</style>
