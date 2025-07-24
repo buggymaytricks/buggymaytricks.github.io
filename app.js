@@ -104,26 +104,26 @@ Always eager to learn new techniques, share knowledge with the community, and he
     ],
     blog_posts: [
       {
-        slug: 'portswigger-sql-injection-complete',
-        title: 'PortSwigger Web Security Academy: Complete SQL Injection Walkthrough',
-        date: '2024-12-15',
-        excerpt: 'Deep dive into advanced SQL injection techniques with practical examples from PortSwigger labs. Covering union-based, blind, and time-based injection methods.',
-        tags: ['sql injection', 'web security', 'portswigger'],
+        slug: 'building-home-cybersecurity-lab',
+        title: 'Building a Home Cybersecurity Lab: Complete Setup Guide',
+        date: '2025-07-22',
+        excerpt: 'Building a Home Cybersecurity Lab: Complete Setup Guide',
+        tags: ['homelab', 'virtualization', 'security-testing'],
         featured: true
       },
       {
-        slug: 'red-team-opsec-enterprise',
-        title: 'Red Team OPSEC: Staying Ghost in Enterprise Networks',
-        date: '2024-11-28',
-        excerpt: 'Operational security principles for maintaining persistence without detection in enterprise environments.',
-        tags: ['red team', 'opsec', 'persistence']
+        slug: 'sql-injection-fundamentals',
+        title: 'SQL Injection Fundamentals and Advanced Techniques',
+        date: '2025-07-21',
+        excerpt: 'Comprehensive guide to SQL injection attack vectors, exploitation techniques, and defensive strategies.',
+        tags: ['sql-injection', 'web-security', 'testing']
       },
       {
-        slug: 'esp32-wifi-pineapple-build',
-        title: 'ESP32 WiFi Pineapple: Building Custom Hardware for Security Testing',
-        date: '2024-10-20',
-        excerpt: 'Hardware hacking tutorial for creating portable penetration testing devices using ESP32 microcontrollers.',
-        tags: ['esp32', 'wifi', 'hardware']
+        slug: 'essential-cybersecurity-tools',
+        title: 'Essential Cybersecurity Tools for Security Professionals',
+        date: '2025-07-20',
+        excerpt: 'Essential Cybersecurity Tools for Security Professionals',
+        tags: ['cybersecurity', 'tools', 'nmap', 'wireshark', 'burp-suite']
       }
     ],
     social: {
@@ -591,7 +591,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
       // Load excluded repositories
       let excludedRepos = [];
       try {
-        const excludeResponse = await fetch('/.excluded-repos');
+        const excludeResponse = await fetch('excluded-repos.txt');
         if (excludeResponse.ok) {
           const excludeText = await excludeResponse.text();
           excludedRepos = excludeText
@@ -616,9 +616,18 @@ Always eager to learn new techniques, share knowledge with the community, and he
       const repos = await response.json();
       
       if (Array.isArray(repos)) {
+        console.log('📦 Total repos fetched:', repos.length);
+        console.log('🚫 Excluded repos list:', excludedRepos);
+        
         // Filter out excluded repos and get detailed info
         const filteredRepos = repos
-          .filter(repo => !excludedRepos.includes(repo.name))
+          .filter(repo => {
+            const isExcluded = excludedRepos.includes(repo.name);
+            if (isExcluded) {
+              console.log('❌ Excluding repo:', repo.name);
+            }
+            return !isExcluded;
+          })
           .filter(repo => !repo.fork) // Exclude forked repos
           .filter(repo => repo.size > 0) // Exclude empty repos
           .sort((a, b) => {
@@ -629,6 +638,8 @@ Always eager to learn new techniques, share knowledge with the community, and he
             return new Date(b.updated_at) - new Date(a.updated_at);
           })
           .slice(0, 6);
+
+        console.log('✅ Final filtered repos:', filteredRepos.map(r => r.name));
 
         // Fetch comprehensive details for each repository
         const projectsWithDetails = await Promise.all(
@@ -651,7 +662,6 @@ Always eager to learn new techniques, share knowledge with the community, and he
                   month: 'short', 
                   day: 'numeric' 
                 }),
-                is_active: (Date.now() - new Date(repo.updated_at)) < (90 * 24 * 60 * 60 * 1000), // Updated in last 90 days
                 size_mb: Math.round(repo.size / 1024 * 100) / 100 // Convert KB to MB
               };
             } catch (error) {
@@ -664,7 +674,6 @@ Always eager to learn new techniques, share knowledge with the community, and he
                   month: 'short', 
                   day: 'numeric' 
                 }),
-                is_active: (Date.now() - new Date(repo.updated_at)) < (90 * 24 * 60 * 60 * 1000),
                 size_mb: Math.round(repo.size / 1024 * 100) / 100
               };
             }
@@ -673,8 +682,6 @@ Always eager to learn new techniques, share knowledge with the community, and he
 
         const projectsHTML = projectsWithDetails.map((repo, i) => {
           const description = repo.description || 'A repository by buGGy';
-          const activityStatus = repo.is_active ? 'Active' : 'Stable';
-          const activityColor = repo.is_active ? '#00ff41' : '#ffaa00';
           
           return `
             <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
@@ -682,9 +689,6 @@ Always eager to learn new techniques, share knowledge with the community, and he
                 <div class="project-header mb-16">
                   <div class="flex justify-between items-start mb-8">
                     <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${repo.name}</h4>
-                    <div class="project-status">
-                      <span style="background: ${activityColor}; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${activityStatus}</span>
-                    </div>
                   </div>
                   
                   <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
@@ -732,9 +736,6 @@ Always eager to learn new techniques, share knowledge with the community, and he
           <div class="project-header mb-16">
             <div class="flex justify-between items-start mb-8">
               <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${project.name}</h4>
-              <div class="project-status">
-                <span style="background: ${project.status_color}; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${project.status}</span>
-              </div>
             </div>
             
             <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
@@ -767,7 +768,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
 
     try {
       // Try to fetch recent posts from Jekyll blog
-      const response = await fetch('/blog/feed.json');
+      const response = await fetch('/feed.json');
       let posts = [];
       
       if (response.ok) {
@@ -823,7 +824,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
       <div class="blog-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
         <div class="blog-header mb-16">
           <h4 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1.2rem; line-height: 1.3;">
-            <a href="/blog/" style="color: inherit; text-decoration: none;">${post.title}</a>
+            <a href="/posts/${post.slug}/" style="color: inherit; text-decoration: none;">${post.title}</a>
           </h4>
           <div style="color: var(--color-text-muted); font-size: 0.85rem;">
             ${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -835,7 +836,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
         <div class="blog-tags flex flex-wrap gap-6 mb-16">
           ${post.tags.slice(0, 3).map(tag => `<span class="blog-tag" style="padding: 2px 8px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
         </div>
-        <a href="/blog/" class="btn btn--sm btn--outline">Read More →</a>
+        <a href="/posts/${post.slug}/" class="btn btn--sm btn--outline">Read More →</a>
       </div>
     `).join('');
     
