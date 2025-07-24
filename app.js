@@ -616,8 +616,14 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     
     navLinks.forEach(link => {
       link.addEventListener('click', e => {
-        e.preventDefault();
         const targetId = link.getAttribute('href');
+        
+        // Skip external links and page navigation (don't prevent default)
+        if (!targetId.startsWith('#')) {
+          return; // Let the browser handle the navigation
+        }
+        
+        e.preventDefault();
         const section = qs(targetId);
         
         if (section) {
@@ -649,7 +655,11 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       });
       
       navLinks.forEach(link => {
-        link.classList.toggle('nav__link--active', link.getAttribute('href') === `#${current}`);
+        const href = link.getAttribute('href');
+        // Only highlight anchor links, not external page links
+        if (href.startsWith('#')) {
+          link.classList.toggle('nav__link--active', href === `#${current}`);
+        }
       });
     }
     
