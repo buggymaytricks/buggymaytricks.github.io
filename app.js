@@ -7,13 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     personal: {
       name: 'buGGy',
       handle: '@buggymaytricks',
-      title: 'Cybersecurity Enthusiast & Red Team Operator',
-      experience_years: 3,
-      vulnerabilities_found: 47,
-      tools_mastered: 25,
-      bio: `Passionate red team operator with 3+ years of experience in offensive security. Specializing in web application security, network penetration testing, and custom tool development. My approach combines technical precision with operational security, ensuring maximum impact while maintaining stealth.
+      title: 'Cybersecurity Enthusiast & Penetration Tester',
+      experience_years: 2,
+      vulnerabilities_found: 12,
+      tools_mastered: 24,
+      bio: `Passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security. Currently pursuing advanced certifications while actively participating in bug bounty programs and CTF competitions.
 
-I've discovered 47+ vulnerabilities across various organizations and built multiple custom tools used by security professionals worldwide. Currently pursuing advanced certifications and expanding expertise in binary exploitation and cloud security.`
+My journey began with a fascination for understanding how systems work and where they can fail. I specialize in web application security, network enumeration, and developing custom security tools. Through continuous learning and practical application, I've discovered 12+ vulnerabilities across various platforms and contributed to several open-source security projects.
+
+Always eager to learn new techniques, share knowledge with the community, and help organizations improve their security posture through ethical hacking practices.`
     },
     taglines: [
       'Penetrating systems, not defenses',
@@ -24,64 +26,80 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       'Security through offensive thinking'
     ],
     skills: [
-      { name: 'Web Application Security', level: 95 },
-      { name: 'Network Penetration Testing', level: 88 },
-      { name: 'Binary Exploitation', level: 82 },
-      { name: 'Social Engineering', level: 75 },
-      { name: 'Wireless Security', level: 78 },
-      { name: 'Cloud Security', level: 85 }
+      { name: 'Web Application Security', level: 80 },
+      { name: 'Network Penetration Testing', level: 75 },
+      { name: 'Linux Systems', level: 85 },
+      { name: 'Python Scripting', level: 75 },
+      { name: 'OSINT & Reconnaissance', level: 70 },
+      { name: 'Vulnerability Assessment', level: 80 }
     ],
     tools: [
-      { name: 'BurpSuite Professional', level: 'Expert', icon: '🔍', category: 'Web Security' },
-      { name: 'Nmap & Nessus', level: 'Expert', icon: '🌐', category: 'Network' },
-      { name: 'FFUF & Gobuster', level: 'Expert', icon: '📁', category: 'Enumeration' },
-      { name: 'Hydra & John the Ripper', level: 'Advanced', icon: '🔐', category: 'Cracking' },
-      { name: 'Metasploit Framework', level: 'Advanced', icon: '💥', category: 'Exploitation' },
-      { name: 'ESP32 Development', level: 'Advanced', icon: '📟', category: 'Hardware' },
-      { name: 'Python & Bash Scripting', level: 'Expert', icon: '🐍', category: 'Development' },
-      { name: 'Linux/Unix Systems', level: 'Expert', icon: '🐧', category: 'Systems' }
+      { name: 'BurpSuite Pro', level: 'Expert', icon: '🔍', category: 'Web Security' },
+      { name: 'Nmap', level: 'Expert', icon: '🌐', category: 'Network' },
+      { name: 'Metasploit', level: 'Advanced', icon: '💥', category: 'Exploitation' },
+      { name: 'Python/Bash', level: 'Expert', icon: '🐍', category: 'Development' },
+      { name: 'Linux Systems', level: 'Expert', icon: '🐧', category: 'Systems' },
+      { name: 'FFUF/Gobuster', level: 'Expert', icon: '🔎', category: 'Enumeration' },
+      { name: 'Wireshark', level: 'Advanced', icon: '🦈', category: 'Network Analysis' },
+      { name: 'John the Ripper', level: 'Advanced', icon: '🔓', category: 'Password Cracking' },
+      { name: 'Hashcat', level: 'Advanced', icon: '⚡', category: 'Password Cracking' },
+      { name: 'Nikto', level: 'Intermediate', icon: '🔍', category: 'Web Scanning' },
+      { name: 'SQLMap', level: 'Advanced', icon: '💉', category: 'Database Testing' },
+      { name: 'Aircrack-ng', level: 'Intermediate', icon: '📡', category: 'Wireless Security' },
+      { name: 'Nessus', level: 'Advanced', icon: '🛡️', category: 'Vulnerability Scanner' },
+      { name: 'OpenVAS', level: 'Intermediate', icon: '🔒', category: 'Vulnerability Scanner' },
+      { name: 'Cobalt Strike', level: 'Learning', icon: '🎯', category: 'Red Team' },
+      { name: 'BloodHound', level: 'Intermediate', icon: '🐕', category: 'AD Enumeration' },
+      { name: 'Mimikatz', level: 'Intermediate', icon: '🔑', category: 'Post-Exploitation' },
+      { name: 'Responder', level: 'Advanced', icon: '📢', category: 'Network Poisoning' },
+      { name: 'Empire', level: 'Learning', icon: '👑', category: 'Post-Exploitation' },
+      { name: 'Crackmapexec', level: 'Advanced', icon: '🗺️', category: 'Network Assessment' },
+      { name: 'Impacket', level: 'Advanced', icon: '📦', category: 'Network Protocols' },
+      { name: 'Nuclei', level: 'Intermediate', icon: '⚛️', category: 'Vulnerability Scanner' },
+      { name: 'Subfinder', level: 'Advanced', icon: '🔍', category: 'Subdomain Enum' },
+      { name: 'Amass', level: 'Intermediate', icon: '🌊', category: 'Asset Discovery' }
     ],
     certifications: [
-      { name: 'eJPT (eLearnSecurity)', status: 'In Progress', progress: 75, year: '2024' },
-      { name: 'eCPPT (eLearnSecurity)', status: 'Planned', progress: 15, year: '2025' },
-      { name: 'OSCP (Offensive Security)', status: 'Goal', progress: 5, year: '2025' }
+      { name: 'eJPT (eLearnSecurity)', status: 'In Progress', progress: 60, year: '2025' },
+      { name: 'CEH (EC-Council)', status: 'Planned', progress: 25, year: '2025' },
+      { name: 'OSCP (Offensive Security)', status: 'Goal', progress: 10, year: '2026' }
     ],
     projects: [
       {
         name: 'Hash-Verify',
         status: 'Stable',
         status_color: '#00ff41',
-        description: 'Multi-algorithm hash verification tool with rainbow table protection and collision detection.',
+        description: 'A simple script to verify the integrity of downloaded files using multiple hash algorithms.',
         tech: ['Python', 'Cryptography', 'CLI'],
-        features: ['SHA-256/512 support', 'MD5 legacy support', 'Real-time clustering', 'Rainbow table detection'],
-        github: 'https://github.com/buggymaytricks/hash-verify'
+        features: ['SHA-256/512 support', 'MD5 legacy support', 'File integrity verification', 'Multiple hash formats'],
+        github: 'https://github.com/buggymaytricks/Hash-Verify'
       },
       {
-        name: 'ESP32 WiFi Auditor',
-        status: 'Beta',
-        status_color: '#ffaa00',
-        description: 'Hardware-based wireless security assessment toolkit for 2.4GHz reconnaissance.',
-        tech: ['C++', 'ESP32', 'WiFi'],
-        features: ['Deauth attacks', 'WPA handshake capture', 'WPS testing', 'Packet analysis'],
-        github: 'https://github.com/buggymaytricks/esp32-wifi-auditor'
-      },
-      {
-        name: 'Web Enum Framework',
-        status: 'Alpha',
-        status_color: '#ff0051',
-        description: 'Modular web application enumeration pipeline with FFUF and Nuclei integration.',
-        tech: ['Python', 'Asyncio', 'Threading'],
-        features: ['Directory discovery', 'Subdomain enumeration', 'Port scanning', 'Vulnerability detection'],
-        github: 'https://github.com/buggymaytricks/web-enum-framework'
-      },
-      {
-        name: 'Steganography Toolkit',
-        status: 'Stable',
+        name: 'ECSIP Botnet Simulation',
+        status: 'Active',
         status_color: '#00ff41',
-        description: 'Advanced data hiding and extraction utilities for OSINT and red team operations.',
-        tech: ['Python', 'PIL', 'Cryptography'],
-        features: ['Image steganography', 'Audio embedding', 'File extraction', 'Encryption support'],
-        github: 'https://github.com/buggymaytricks/stego-toolkit'
+        description: 'Basic botnet simulation and analysis framework for educational cybersecurity research.',
+        tech: ['Python', 'Network Security', 'Research'],
+        features: ['Botnet simulation', 'Network analysis', 'Security research', 'Educational framework'],
+        github: 'https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis'
+      },
+      {
+        name: 'Bug Bounty Blog List',
+        status: 'Forked',
+        status_color: '#ffaa00',
+        description: 'Curated collection of bug bounty blogs and security research resources.',
+        tech: ['Research', 'OSINT', 'Bug Bounty'],
+        features: ['Blog compilation', 'Security research', 'Community resources', 'OSINT gathering'],
+        github: 'https://github.com/buggymaytricks/bugbountybloglist'
+      },
+      {
+        name: 'Engineering Notes',
+        status: 'Personal',
+        status_color: '#0099ff',
+        description: 'Personal collection of engineering and cybersecurity notes and documentation.',
+        tech: ['Documentation', 'Notes', 'Learning'],
+        features: ['Technical notes', 'Learning resources', 'Personal documentation', 'Knowledge base'],
+        github: 'https://github.com/buggymaytricks/Engineering-Notes'
       }
     ],
     blog_posts: [
@@ -110,23 +128,38 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     ],
     social: {
       twitter: '@buggymaytricks',
-      github: '@buggymaytricks',
-      email: 'contact@buggy.security',
-      linkedin: '@buggymaytricks'
+      github: 'buggymaytricks',
+      email: 'contact@buggymaytricks.page',
+      linkedin: 'buggymaytricks',
+      discord: 'buggy#7823',
+      signal: '+1-XXX-XXX-XXXX'
     },
     cybersec_quotes: [
-      "\"The only truly secure system is one that is powered off, cast in a block of concrete and sealed in a lead-lined room.\" - Gene Spafford",
-      "\"Security is not a product, but a process.\" - Bruce Schneier",
-      "\"Hackers are breaking the systems for profit. Before, it was about intellectual curiosity and pursuit of knowledge.\" - Kevin Mitnick",
-      "\"The weakest link in the security chain is the human element.\" - Kevin Mitnick",
-      "\"There are two types of companies: those that have been hacked, and those that will be.\" - Robert Mueller",
-      "\"Privacy is not something that I'm merely entitled to, it's an absolute prerequisite.\" - Marlon Brando",
-      "\"Data is a precious thing and will last longer than the systems themselves.\" - Tim Berners-Lee",
-      "\"Security is always excessive until it's not enough.\" - Robbie Sinclair",
-      "\"Trust, but verify.\" - Ronald Reagan",
-      "\"In cybersecurity, the more systems change, the more they stay vulnerable.\" - Anonymous",
-      "\"The price of freedom is eternal vigilance.\" - Thomas Jefferson",
-      "\"Cybersecurity is much more than a matter of IT.\" - Stephane Nappo"
+      "Breaking systems to build better defenses",
+      "Security through offensive thinking",
+      "Every system has a backdoor - find it first",
+      "Red teams reveal what blue teams can't see",
+      "Penetration testing: Making the impossible possible",
+      "Exploiting trust, not people",
+      "The best defense understands offense",
+      "Vulnerability research drives innovation",
+      "Think like an attacker, defend like a guardian",
+      "Code is poetry, exploits are art",
+      "OPSEC first, payload second",
+      "Social engineering: The human firewall fails",
+      "Binary exploitation: Where logic meets creativity",
+      "Web security: Every input is an opportunity",
+      "Network penetration: Mapping the invisible",
+      "Zero-days are born from curiosity",
+      "Reverse engineering unlocks digital mysteries",
+      "Privilege escalation: From user to admin",
+      "Persistence is the key to lasting access",
+      "Steganography: Hiding in plain sight",
+      "Cryptography: Making secrets unbreakable",
+      "Forensics: Digital detective work",
+      "Incident response: Racing against time",
+      "Bug bounties: Ethical hacking pays",
+      "Purple teams: Where red meets blue"
     ]
   };
 
@@ -249,43 +282,84 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
    *****************************************/
   function initAnimatedQuotes() {
     const quoteEl = qs('#cyber-quote');
-    if (!quoteEl) return;
-
-    let currentQuoteIndex = 0;
-    const quotes = data.cybersec_quotes;
-    
-    function showQuote() {
-      const quote = quotes[currentQuoteIndex];
-      quoteEl.style.opacity = '0';
-      quoteEl.style.transform = 'translateY(20px)';
-      
-      setTimeout(() => {
-        quoteEl.innerHTML = `
-          <div class="quote-text" style="
-            font-style: italic; 
-            color: var(--color-text-secondary); 
-            font-size: 1.1rem; 
-            line-height: 1.6; 
-            max-width: 800px; 
-            margin: 0 auto;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-          ">
-            ${quote}
-          </div>
-        `;
-        quoteEl.style.opacity = '1';
-        quoteEl.style.transform = 'translateY(0)';
-      }, 300);
-      
-      currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    if (!quoteEl) {
+      console.log('❌ Quote element not found');
+      return;
     }
 
-    // Show first quote after initial delay
-    setTimeout(() => {
-      showQuote();
-      // Continue cycling quotes every 6 seconds
-      setInterval(showQuote, 6000);
-    }, 2000);
+    console.log('✅ Starting quotes animation');
+    let currentQuoteIndex = 0;
+    let isTyping = false;
+    const quotes = data.cybersec_quotes;
+    
+    function typewriterEffect(text, callback) {
+      if (isTyping) return;
+      isTyping = true;
+      
+      let charIndex = 0;
+      const speed = 50;
+      const backspaceSpeed = 30;
+      const pauseDuration = 2000;
+      
+      // Clear and setup
+      quoteEl.innerHTML = `
+        <div class="quote-text" style="
+          font-style: italic; 
+          color: var(--color-primary); 
+          font-size: 1.3rem; 
+          line-height: 1.6; 
+          max-width: 800px; 
+          margin: 0 auto;
+          min-height: 2em;
+          opacity: 1;
+          visibility: visible;
+          display: block;
+        ">
+          <span id="typing-quote"></span><span class="cursor-blink">|</span>
+        </div>
+      `;
+      
+      const typingSpan = qs('#typing-quote');
+      if (!typingSpan) return;
+      
+      function typeChar() {
+        if (charIndex < text.length) {
+          typingSpan.textContent += text.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeChar, speed + Math.random() * 20);
+        } else {
+          setTimeout(startBackspace, pauseDuration);
+        }
+      }
+      
+      function startBackspace() {
+        function deleteChar() {
+          if (charIndex > 0) {
+            typingSpan.textContent = text.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(deleteChar, backspaceSpeed + Math.random() * 10);
+          } else {
+            isTyping = false;
+            if (callback) callback();
+          }
+        }
+        deleteChar();
+      }
+      
+      typeChar();
+    }
+    
+    function showNextQuote() {
+      const quote = quotes[currentQuoteIndex];
+      console.log(`📝 Showing quote: ${quote}`);
+      typewriterEffect(quote, () => {
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        setTimeout(showNextQuote, 500);
+      });
+    }
+    
+    // Start immediately
+    setTimeout(showNextQuote, 1000);
   }
 
   /*****************************************
@@ -341,17 +415,40 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
   /*****************************************
    * SKILLS RADAR & ANIMATED PROGRESS BARS
    *****************************************/
-  function initSkillsWithAnimations() {
+  async function initSkillsWithAnimations() {
+    // Load skills from external config file ONLY
+    let skillsData = [];
+    
+    try {
+      const skillsResponse = await fetch('/skills-config.json');
+      if (skillsResponse.ok) {
+        const skillsConfig = await skillsResponse.json();
+        skillsData = skillsConfig.skills;
+        console.log('✅ Skills loaded from config file:', skillsData.length, 'skills');
+      } else {
+        console.error('❌ Failed to load skills-config.json');
+        return;
+      }
+    } catch (error) {
+      console.error('❌ Error loading skills config:', error);
+      return;
+    }
+
+    if (skillsData.length === 0) {
+      console.error('❌ No skills data available');
+      return;
+    }
+
     // Enhanced Radar Chart
     const ctx = qs('#skills-chart');
     if (ctx) {
       new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: data.skills.map(s => s.name),
+          labels: skillsData.map(s => s.name),
           datasets: [{
             label: 'Skill Level',
-            data: data.skills.map(s => s.level),
+            data: skillsData.map(s => s.level),
             fill: true,
             backgroundColor: 'rgba(0, 212, 255, 0.15)',
             borderColor: '#00d4ff',
@@ -401,42 +498,7 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       });
     }
 
-    // Animated Progress Bars
-    const list = qs('#skills-list');
-    if (list) {
-      list.innerHTML = data.skills.map((skill, i) => `
-        <div class="skill-item animate-slide-in-right" style="animation-delay: ${i * 0.1}s;">
-          <div class="skill-header flex justify-between items-center mb-8">
-            <span class="skill-name" style="font-weight: 600; color: var(--color-text-primary);">${skill.name}</span>
-            <span class="skill-level" style="font-weight: 700; color: var(--color-electric-blue);">${skill.level}%</span>
-          </div>
-          <div class="skill-progress-container" style="width: 100%; height: 8px; background: var(--color-bg-tertiary); border-radius: 4px; overflow: hidden; position: relative;">
-            <div class="skill-progress-fill" 
-                 data-width="${skill.level}%" 
-                 style="width: 0; height: 100%; background: linear-gradient(90deg, var(--color-electric-blue), var(--color-crimson)); transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
-              <div class="progress-shine" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shine 2s ease-in-out infinite;"></div>
-            </div>
-          </div>
-        </div>
-      `).join('');
-
-      // Trigger progress bar animations
-      const progressObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const bar = entry.target.querySelector('.skill-progress-fill');
-            if (bar) {
-              setTimeout(() => {
-                bar.style.width = bar.dataset.width;
-              }, 200);
-            }
-            progressObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      qsa('.skill-item', list).forEach(item => progressObserver.observe(item));
-    }
+    // Skills list removed - only showing radar chart
   }
 
   /*****************************************
@@ -446,22 +508,31 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     const grid = qs('#tools-grid');
     if (!grid) return;
     
-    grid.innerHTML = data.tools.map((tool, i) => `
-      <div class="tool-item animate-fade-in" style="animation-delay: ${i * 0.1}s;">
-        <div class="tool-header flex items-center gap-16 mb-12">
+    // Create horizontal scrolling marquee with all tools
+    const toolCards = data.tools.map((tool, i) => `
+      <div class="tool-item-marquee" style="--delay: ${i};">
+        <div class="tool-header flex items-center gap-8 mb-6">
           <span class="tool-icon" style="font-size: 1.8rem; width: 40px; text-align: center;">${tool.icon}</span>
           <div class="tool-info flex flex-col">
-            <span class="tool-name" style="font-weight: 600; color: var(--color-text-primary); font-size: 1.1rem;">${tool.name}</span>
-            <span class="tool-category" style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">${tool.category}</span>
+            <span class="tool-name" style="font-weight: 600; color: var(--color-text-primary); font-size: 1rem; line-height: 1.1;">${tool.name}</span>
+            <span class="tool-category" style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em;">${tool.category}</span>
           </div>
         </div>
         <div class="tool-level-container">
-          <span class="tool-level tool-level--${tool.level.toLowerCase()}" style="padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">
+          <span class="tool-level tool-level--${tool.level.toLowerCase()}" style="padding: 3px 8px; border-radius: 8px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">
             ${tool.level}
           </span>
         </div>
       </div>
     `).join('');
+    
+    // Create the marquee structure - duplicate tools for seamless loop
+    grid.innerHTML = `
+      <div class="tools-track">
+        ${toolCards}
+        ${toolCards}
+      </div>
+    `;
   }
 
   /*****************************************
@@ -510,72 +581,240 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
   }
 
   /*****************************************
-   * ENHANCED PROJECTS GRID
+   * DYNAMIC PROJECTS FROM GITHUB
    *****************************************/
-  function initEnhancedProjects() {
+  async function initDynamicProjects() {
+    const grid = qs('#projects-grid');
+    if (!grid) return;
+
+    try {
+      // Load excluded repositories
+      let excludedRepos = [];
+      try {
+        const excludeResponse = await fetch('/.excluded-repos');
+        if (excludeResponse.ok) {
+          const excludeText = await excludeResponse.text();
+          excludedRepos = excludeText
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line && !line.startsWith('#'));
+          console.log('✅ Excluded repos loaded:', excludedRepos);
+        }
+      } catch (e) {
+        console.log('⚠️ No excluded repos file found, showing all repos');
+      }
+
+      // Fetch repositories from GitHub API with comprehensive details
+      const response = await fetch('https://api.github.com/users/buggymaytricks/repos?sort=updated&direction=desc&per_page=30');
+      const repos = await response.json();
+      
+      if (Array.isArray(repos)) {
+        // Filter out excluded repos and get detailed info
+        const filteredRepos = repos
+          .filter(repo => !excludedRepos.includes(repo.name))
+          .filter(repo => !repo.fork) // Exclude forked repos
+          .filter(repo => repo.size > 0) // Exclude empty repos
+          .sort((a, b) => {
+            // Sort by stars (descending), then by updated date (descending)
+            if (b.stargazers_count !== a.stargazers_count) {
+              return b.stargazers_count - a.stargazers_count;
+            }
+            return new Date(b.updated_at) - new Date(a.updated_at);
+          })
+          .slice(0, 6);
+
+        // Fetch comprehensive details for each repository
+        const projectsWithDetails = await Promise.all(
+          filteredRepos.map(async (repo) => {
+            try {
+              // Fetch languages
+              const languagesResponse = await fetch(`https://api.github.com/repos/buggymaytricks/${repo.name}/languages`);
+              const languages = await languagesResponse.json();
+              
+              // Get top languages by bytes of code
+              const sortedLanguages = Object.entries(languages)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 4) // Show top 4 languages
+                .map(([lang]) => lang);
+              
+              return {
+                ...repo,
+                languages: sortedLanguages.length > 0 ? sortedLanguages : ['Repository'],
+                last_updated: new Date(repo.updated_at).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'short', 
+                  day: 'numeric' 
+                }),
+                is_active: (Date.now() - new Date(repo.updated_at)) < (90 * 24 * 60 * 60 * 1000), // Updated in last 90 days
+                size_mb: Math.round(repo.size / 1024 * 100) / 100 // Convert KB to MB
+              };
+            } catch (error) {
+              console.log(`Failed to fetch details for ${repo.name}:`, error);
+              return {
+                ...repo,
+                languages: repo.language ? [repo.language] : ['Repository'],
+                last_updated: new Date(repo.updated_at).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'short', 
+                  day: 'numeric' 
+                }),
+                is_active: (Date.now() - new Date(repo.updated_at)) < (90 * 24 * 60 * 60 * 1000),
+                size_mb: Math.round(repo.size / 1024 * 100) / 100
+              };
+            }
+          })
+        );
+
+        const projectsHTML = projectsWithDetails.map((repo, i) => {
+          const description = repo.description || 'A repository by buGGy';
+          const activityStatus = repo.is_active ? 'Active' : 'Stable';
+          const activityColor = repo.is_active ? '#00ff41' : '#ffaa00';
+          
+          return `
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+              <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+                <div class="project-header mb-16">
+                  <div class="flex justify-between items-start mb-8">
+                    <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${repo.name}</h4>
+                    <div class="project-status">
+                      <span style="background: ${activityColor}; color: #000; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${activityStatus}</span>
+                    </div>
+                  </div>
+                  
+                  <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
+                    ${repo.stargazers_count > 0 ? `<span>⭐ ${repo.stargazers_count}</span>` : ''}
+                    ${repo.forks_count > 0 ? `<span>🍴 ${repo.forks_count}</span>` : ''}
+                    ${repo.size_mb > 0 ? `<span>📦 ${repo.size_mb} MB</span>` : ''}
+                  </div>
+                  
+                  <p style="color: var(--color-text-secondary); line-height: 1.6; margin: 0 0 12px 0; font-size: 0.95rem;">${description}</p>
+                  
+                  <div class="project-meta flex justify-between items-center" style="font-size: 0.7rem; color: var(--color-text-muted);">
+                    <span>Updated: ${repo.last_updated}</span>
+                  </div>
+                </div>
+                
+                <div class="project-tech flex flex-wrap gap-8">
+                  ${repo.languages.map(lang => `<span class="tech-badge" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue); font-family: 'JetBrains Mono', monospace;">${lang}</span>`).join('')}
+                </div>
+              </div>
+            </a>
+          `;
+        }).join('');
+        
+        grid.innerHTML = projectsHTML;
+        console.log('✅ Projects loaded with comprehensive details');
+      } else {
+        // Fallback to static data if API fails
+        initStaticProjects();
+      }
+    } catch (error) {
+      console.log('❌ GitHub API failed, using static projects:', error);
+      initStaticProjects();
+    }
+  }
+  
+  function initStaticProjects() {
     const grid = qs('#projects-grid');
     if (!grid) return;
     
-    grid.innerHTML = data.projects.map((project, i) => `
-      <div class="project-card animate-slide-up" style="animation-delay: ${i * 0.2}s;">
-        <div class="project-header flex justify-between items-start mb-20">
-          <h4 class="project-title" style="color: var(--color-text-primary); margin: 0; font-size: 1.3rem;">${project.name}</h4>
-          <span class="project-status project-status--${project.status.toLowerCase()}" 
-                style="padding: 6px 14px; border-radius: 16px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(${project.status === 'Stable' ? '0, 255, 65' : project.status === 'Beta' ? '255, 170, 0' : '255, 0, 81'}, 0.2); color: ${project.status_color}; border: 1px solid ${project.status_color};">
-            ${project.status}
-          </span>
+    grid.innerHTML = data.projects.slice(0, 6).map((project, i) => `
+      <a href="${project.github}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+        <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+          <div class="project-header mb-16">
+            <h4 style="color: var(--color-text-primary); margin: 0 0 12px 0; font-size: 1.2rem; line-height: 1.3;">${project.name}</h4>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin: 0;">${project.description}</p>
+          </div>
+          <div class="project-tech flex flex-wrap gap-8">
+            ${project.tech.map(tech => `<span class="tech-badge" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue); font-family: 'JetBrains Mono', monospace;">${tech}</span>`).join('')}
+          </div>
         </div>
-        <p class="project-description mb-20" style="color: var(--color-text-secondary); line-height: 1.6;">${project.description}</p>
-        <div class="project-tech flex flex-wrap gap-8 mb-20">
-          ${project.tech.map(tech => `<span class="tech-tag" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 12px; font-size: 0.75rem; color: var(--color-electric-blue);">${tech}</span>`).join('')}
-        </div>
-        <ul class="project-features mb-24" style="list-style: none; padding: 0; margin: 0;">
-          ${project.features.map(feature => `<li style="padding: 6px 0; color: var(--color-text-secondary); position: relative; padding-left: 20px;"><span style="position: absolute; left: 0; color: var(--color-electric-blue);">▸</span>${feature}</li>`).join('')}
-        </ul>
-        <a href="${project.github}" target="_blank" class="btn btn--sm btn--primary btn-glow">View Source ↗</a>
-      </div>
+      </a>
     `).join('');
   }
 
   /*****************************************
-   * MULTI-COLUMN BLOG LAYOUT
+   * DYNAMIC BLOG POSTS
    *****************************************/
-  function initMultiColumnBlog() {
-    const featuredEl = qs('#featured-post');
-    const recentEl = qs('#recent-posts');
+  async function initDynamicBlog() {
+    const blogGrid = qs('#blog-grid');
+    if (!blogGrid) return;
+
+    try {
+      // Try to fetch recent posts from Jekyll blog
+      const response = await fetch('/blog/feed.json');
+      let posts = [];
+      
+      if (response.ok) {
+        const feedData = await response.json();
+        posts = feedData.items ? feedData.items.slice(0, 3) : [];
+      } else {
+        // Fallback to static data
+        posts = data.blog_posts.slice(0, 3);
+      }
+      
+      const blogHTML = posts.map((post, i) => {
+        const title = post.title || post.title;
+        const excerpt = post.content_text || post.excerpt || '';
+        const date = post.date_published || post.date;
+        const url = post.url || '/blog/';
+        const tags = post.tags || ['cybersecurity'];
+        
+        return `
+          <div class="blog-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+            <div class="blog-header mb-16">
+              <h4 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1.2rem; line-height: 1.3;">
+                <a href="${url}" style="color: inherit; text-decoration: none;">${title}</a>
+              </h4>
+              <div style="color: var(--color-text-muted); font-size: 0.85rem;">
+                ${new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </div>
+            </div>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              ${excerpt.substring(0, 150)}${excerpt.length > 150 ? '...' : ''}
+            </p>
+            <div class="blog-tags flex flex-wrap gap-6 mb-16">
+              ${tags.slice(0, 3).map(tag => `<span class="blog-tag" style="padding: 2px 8px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
+            </div>
+            <a href="${url}" class="btn btn--sm btn--outline">Read More →</a>
+          </div>
+        `;
+      }).join('');
+      
+      blogGrid.innerHTML = blogHTML;
+      
+    } catch (error) {
+      console.log('Blog API failed, using static posts:', error);
+      initStaticBlog();
+    }
+  }
+  
+  function initStaticBlog() {
+    const blogGrid = qs('#blog-grid');
+    if (!blogGrid) return;
     
-    if (!featuredEl || !recentEl) return;
-
-    // Featured post
-    const featured = data.blog_posts.find(p => p.featured) || data.blog_posts[0];
-    featuredEl.innerHTML = `
-      <div class="featured-badge mb-16" style="display: inline-block; padding: 4px 12px; background: rgba(255, 0, 81, 0.2); border: 1px solid var(--color-crimson); border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--color-crimson);">Featured</div>
-      <h4 style="color: var(--color-text-primary); margin: 0 0 16px 0; font-size: 1.4rem; line-height: 1.3;">
-        <a href="/blog/" style="color: inherit; text-decoration: none;">${featured.title}</a>
-      </h4>
-      <div class="post-meta mb-16" style="color: var(--color-text-muted); font-size: 0.9rem;">
-        ${new Date(featured.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </div>
-      <p style="color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 20px;">${featured.excerpt}</p>
-      <div class="post-tags flex flex-wrap gap-8">
-        ${featured.tags.map(tag => `<span class="blog-tag" style="padding: 3px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 10px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
-      </div>
-      <a href="/blog/" class="btn btn--sm btn--outline mt-16">Read Full Post →</a>
-    `;
-
-    // Recent posts
-    const recentPosts = data.blog_posts.filter(p => !p.featured).slice(0, 3);
-    recentEl.innerHTML = recentPosts.map((post, i) => `
-      <div class="recent-post-item animate-slide-in-right" style="animation-delay: ${i * 0.1}s;">
-        <h5 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1rem; line-height: 1.3;">
-          <a href="/blog/" style="color: inherit; text-decoration: none;">${post.title}</a>
-        </h5>
-        <div style="color: var(--color-text-muted); font-size: 0.8rem; margin-bottom: 12px;">
-          ${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+    const posts = data.blog_posts.slice(0, 3);
+    const blogHTML = posts.map((post, i) => `
+      <div class="blog-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+        <div class="blog-header mb-16">
+          <h4 style="color: var(--color-text-primary); margin: 0 0 8px 0; font-size: 1.2rem; line-height: 1.3;">
+            <a href="/blog/" style="color: inherit; text-decoration: none;">${post.title}</a>
+          </h4>
+          <div style="color: var(--color-text-muted); font-size: 0.85rem;">
+            ${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
         </div>
-        <p style="color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.5; margin: 0;">${post.excerpt.substring(0, 100)}...</p>
+        <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+          ${post.excerpt.substring(0, 150)}${post.excerpt.length > 150 ? '...' : ''}
+        </p>
+        <div class="blog-tags flex flex-wrap gap-6 mb-16">
+          ${post.tags.slice(0, 3).map(tag => `<span class="blog-tag" style="padding: 2px 8px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue);">${tag}</span>`).join('')}
+        </div>
+        <a href="/blog/" class="btn btn--sm btn--outline">Read More →</a>
       </div>
     `).join('');
+    
+    blogGrid.innerHTML = blogHTML;
   }
 
   /*****************************************
@@ -590,47 +829,53 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
       aboutText.innerHTML = data.personal.bio;
     }
 
+    // Define channels in chronological/priority order with proper icons
     const channels = [
-      { 
-        name: 'Secure Email', 
+      {
+        name: 'Email', 
         handle: data.social.email, 
         url: `mailto:${data.social.email}`,
         icon: '📧',
-        description: 'PGP encrypted communications'
+        priority: 'Primary',
+        description: 'Best for formal communications and inquiries'
       },
-      { 
+      {
         name: 'GitHub', 
-        handle: data.social.github, 
-        url: `https://github.com/${data.social.github.replace('@','')}`,
-        icon: '🐱',
-        description: 'Open source projects & contributions'
+        handle: `@${data.social.github}`, 
+        url: `https://github.com/${data.social.github}`,
+        icon: '⚡',
+        priority: 'Code',
+        description: 'Open source projects and contributions'
       },
-      { 
-        name: 'Twitter/X', 
+      {
+        name: 'LinkedIn', 
+        handle: `@${data.social.linkedin}`, 
+        url: `https://linkedin.com/in/${data.social.linkedin}`,
+        icon: '💼',
+        priority: 'Professional',
+        description: 'Professional networking and opportunities'
+      },
+      {
+        name: 'Twitter', 
         handle: data.social.twitter, 
         url: `https://twitter.com/${data.social.twitter.replace('@','')}`,
-        icon: '🐦',
-        description: 'Security insights & research updates'
-      },
-      { 
-        name: 'LinkedIn', 
-        handle: data.social.linkedin, 
-        url: `https://linkedin.com/in/${data.social.linkedin.replace('@','')}`,
-        icon: '💼',
-        description: 'Professional networking'
+        icon: '�',
+        priority: 'Updates',
+        description: 'Security insights and research updates'
       }
     ];
 
-    channelsList.innerHTML = channels.map((ch, i) => `
-      <li class="contact-channel animate-slide-in-right" style="animation-delay: ${i * 0.1}s; padding: 16px; background: var(--color-bg-card); border: 1px solid var(--color-border-primary); border-radius: var(--border-radius); transition: all var(--animation-fast) var(--ease-out-cubic);">
-        <div class="channel-header flex items-center gap-12 mb-8">
-          <span style="font-size: 1.5rem;">${ch.icon}</span>
-          <div>
-            <strong style="color: var(--color-text-primary); font-size: 1rem;">${ch.name}</strong>
-            <div style="color: var(--color-text-muted); font-size: 0.8rem;">${ch.description}</div>
+    channelsList.innerHTML = channels.map((channel, i) => `
+      <li class="contact-channel animate-slide-in-right" style="animation-delay: ${i * 0.05}s;">
+        <a href="${channel.url}" class="contact-card" ${channel.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+          <div class="contact-header">
+            <span class="contact-icon">${channel.icon}</span>
+            <div class="contact-info">
+              <h5 class="contact-name">${channel.name} <span class="contact-priority">${channel.priority}</span></h5>
+              <p class="contact-handle">${channel.handle}</p>
+            </div>
           </div>
-        </div>
-        <a href="${ch.url}" target="_blank" style="color: var(--color-electric-blue); font-weight: 600; font-size: 0.9rem;">${ch.handle}</a>
+        </a>
       </li>
     `).join('');
   }
@@ -765,114 +1010,6 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
   }
 
   /*****************************************
-   * CMS FUNCTIONALITY
-   *****************************************/
-  function initCMS() {
-    const overlay = qs('#cms-interface');
-    if (!overlay) return;
-
-    function showCMS() {
-      overlay.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      
-      const postsList = qs('#cms-posts-list');
-      if (postsList) {
-        postsList.innerHTML = data.blog_posts.map((p, i) => 
-          `<div class="cms-post-item" data-idx="${i}">
-            <div style="font-weight: 600; margin-bottom: 4px;">${p.title}</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-muted);">${new Date(p.date).toLocaleDateString()}</div>
-           </div>`
-        ).join('');
-      }
-
-      const editorForm = qs('#cms-post-form');
-      const welcome = qs('#cms-welcome');
-
-      function openEditor(post = null) {
-        if (welcome) welcome.classList.add('hidden');
-        if (editorForm) editorForm.classList.remove('hidden');
-        
-        if (post) {
-          const inputs = {
-            title: qs('#cms-title'),
-            excerpt: qs('#cms-excerpt'),
-            tags: qs('#cms-tags'),
-            content: qs('#cms-content')
-          };
-          
-          if (inputs.title) inputs.title.value = post.title || '';
-          if (inputs.excerpt) inputs.excerpt.value = post.excerpt || '';
-          if (inputs.tags) inputs.tags.value = post.tags ? post.tags.join(', ') : '';
-          if (inputs.content) inputs.content.value = post.content || post.excerpt || '';
-        } else {
-          qsa('#cms-post-form input, #cms-post-form textarea').forEach(input => input.value = '');
-        }
-      }
-
-      // Event bindings
-      qs('#cms-new-post')?.addEventListener('click', () => openEditor());
-      
-      postsList?.addEventListener('click', e => {
-        const item = e.target.closest('.cms-post-item');
-        if (item) {
-          const idx = parseInt(item.dataset.idx);
-          openEditor(data.blog_posts[idx]);
-        }
-      });
-
-      qs('#cms-save-post')?.addEventListener('click', () => {
-        const formData = {
-          title: qs('#cms-title')?.value || '',
-          excerpt: qs('#cms-excerpt')?.value || '',
-          tags: qs('#cms-tags')?.value || '',
-          content: qs('#cms-content')?.value || ''
-        };
-        
-        console.log('CMS - Saving Post:', formData);
-        
-        // Show success feedback
-        const saveBtn = qs('#cms-save-post');
-        const originalText = saveBtn.textContent;
-        saveBtn.textContent = '✓ Saved';
-        saveBtn.style.background = 'var(--color-status-stable)';
-        
-        setTimeout(() => {
-          saveBtn.textContent = originalText;
-          saveBtn.style.background = '';
-          overlay.classList.add('hidden');
-          document.body.style.overflow = '';
-        }, 1500);
-      });
-
-      qs('#cms-cancel-edit')?.addEventListener('click', () => {
-        if (editorForm) editorForm.classList.add('hidden');
-        if (welcome) welcome.classList.remove('hidden');
-      });
-
-      qs('#cms-close')?.addEventListener('click', () => {
-        overlay.classList.add('hidden');
-        document.body.style.overflow = '';
-      });
-    }
-
-    // Check for CMS access
-    function checkCMSAccess() {
-      const url = window.location.href;
-      return url.includes('k3y9p7gQcmS') || url.includes('#cms') || window.location.hash === '#cms';
-    }
-
-    window.addEventListener('hashchange', () => {
-      if (checkCMSAccess()) showCMS();
-    });
-
-    if (checkCMSAccess()) showCMS();
-    
-    // Global access
-    window.openCMS = showCMS;
-    console.log('🔐 CMS Access: Add #cms to URL or navigate to /k3y9p7gQcmS');
-  }
-
-  /*****************************************
    * PERFORMANCE MONITORING
    *****************************************/
   function initPerformanceMonitoring() {
@@ -892,6 +1029,11 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
   function init() {
     console.log('🚀 Initializing Enhanced Cybersecurity Portfolio...');
     
+    // Check if basic elements exist
+    const typedEl = qs('#typed-text');
+    const introEl = qs('#intro-text');
+    console.log('Element check - typed-text:', !!typedEl, 'intro-text:', !!introEl);
+    
     // Core functionality
     initEnhancedCursor();
     initEnhancedTyping();
@@ -899,16 +1041,13 @@ I've discovered 47+ vulnerabilities across various organizations and built multi
     initAnimatedStats();
     initSkillsWithAnimations();
     initMultiColumnTools();
-    initAnimatedCertifications();
-    initEnhancedProjects();
-    initMultiColumnBlog();
+    initDynamicProjects();
+    initDynamicBlog();
     initMultiColumnContact();
     
     // Interactive features
-    initEnhancedForm();
     initSmoothNavigation();
     initStaggeredRevealAnimations();
-    initCMS();
     initPerformanceMonitoring();
     
     console.log('✅ All systems loaded and operational');

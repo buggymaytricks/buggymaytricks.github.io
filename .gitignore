@@ -22,6 +22,26 @@ package-lock.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 
+# Development containers
+.devcontainer
+
+# Git files
+.gitmodules
+.gitattributes
+
+# Editor config
+.editorconfig
+
+# Empty directories
+api/
+
 # Misc
 _sass/vendors
 assets/js/dist
+*.log
+.DS_Store
+Thumbs.db
+
+
+# Backup files
+*.backup

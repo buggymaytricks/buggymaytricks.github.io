@@ -1,0 +1,46 @@
+<!--
+  The navigation tabs in sidebar.
+  v2.0
+  https://github.com/cotes2020/jekyll-theme-chirpy
+  © 2019 Cotes Chung
+  MIT License
+-->
+
+<nav id="sidebar-nav" class="nav flex-column">
+
+  <ul class="nav-item">
+    <a href="{{ '/blog/' | relative_url }}" class="nav-link{% if page.url == '/blog/' %} active{% endif %}">
+      <i class="fa-fw fas fa-home"></i>
+      <span>HOME</span>
+    </a>
+  </ul> <!-- .nav-item -->
+
+  <ul class="nav-item">
+    <a href="{{ '/categories/' | relative_url }}" class="nav-link{% if page.url == '/categories/' %} active{% endif %}">
+      <i class="fa-fw fas fa-stream"></i>
+      <span>CATEGORIES</span>
+    </a>
+  </ul>
+
+  <ul class="nav-item">
+    <a href="{{ '/tags/' | relative_url }}" class="nav-link{% if page.url == '/tags/' %} active{% endif %}">
+      <i class="fa-fw fas fa-tags"></i>
+      <span>TAGS</span>
+    </a>
+  </ul>
+
+  <ul class="nav-item">
+    <a href="{{ '/archives/' | relative_url }}" class="nav-link{% if page.url == '/archives/' %} active{% endif %}">
+      <i class="fa-fw fas fa-archive"></i>
+      <span>ARCHIVES</span>
+    </a>
+  </ul>
+
+  <ul class="nav-item">
+    <a href="{{ '/about/' | relative_url }}" class="nav-link{% if page.url == '/about/' %} active{% endif %}">
+      <i class="fa-fw fas fa-info-circle"></i>
+      <span>ABOUT</span>
+    </a>
+  </ul>
+
+</nav>

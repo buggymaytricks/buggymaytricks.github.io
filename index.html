@@ -26,53 +26,6 @@ permalink: /
   <div class="bg-grid"></div>
   <div class="bg-gradient"></div>
 
-  <!-- Secret CMS Interface -->
-  <div id="cms-interface" class="cms-interface hidden">
-    <div class="cms-container">
-      <div class="cms-header">
-        <h2>Blog Management System</h2>
-        <button id="cms-close" class="btn btn--sm btn--outline">Close</button>
-      </div>
-      <div class="cms-content">
-        <div class="cms-sidebar">
-          <h3>Actions</h3>
-          <button id="cms-new-post" class="btn btn--primary btn--full-width">New Post</button>
-          <h4 class="mt-24">Existing Posts</h4>
-          <div id="cms-posts-list" class="cms-posts-list"></div>
-        </div>
-        <div class="cms-editor">
-          <div id="cms-post-form" class="cms-post-form hidden">
-            <div class="form-group">
-              <label for="cms-title" class="form-label">Title</label>
-              <input type="text" id="cms-title" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="cms-excerpt" class="form-label">Excerpt</label>
-              <textarea id="cms-excerpt" class="form-control" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="cms-tags" class="form-label">Tags (comma separated)</label>
-              <input type="text" id="cms-tags" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="cms-content" class="form-label">Content</label>
-              <textarea id="cms-content" class="form-control" rows="12"></textarea>
-            </div>
-            <div class="flex gap-16">
-              <button id="cms-save-post" class="btn btn--primary">Save Post</button>
-              <button id="cms-cancel-edit" class="btn btn--outline">Cancel</button>
-            </div>
-          </div>
-          <div id="cms-welcome" class="cms-welcome">
-            <h3>Welcome to Blog CMS</h3>
-            <p class="mt-16">Select "New Post" to create a blog post, or click on an existing post to edit it.</p>
-            <p class="mt-16">This is a secure interface for managing blog content.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Header -->
   <header class="container flex justify-between items-center py-24 header-nav" id="topNav" role="navigation" aria-label="Primary">
     <h1 class="logo flex items-center gap-4 animate-slide-in">buGGy<span class="logo__underscore">_</span></h1>
@@ -90,13 +43,15 @@ permalink: /
     <!-- Hero / Home Section -->
     <section id="home" class="hero container flex flex-col items-center justify-center py-48" aria-labelledby="hero-heading">
       <h2 id="hero-heading" class="sr-only">buGGy – Cybersecurity Enthusiast & Red Team Operator</h2>
-      <p class="hero__typing animate-fade-in" aria-live="polite"><span id="typed-text"></span><span class="cursor">▌</span></p>
-      <p class="intro mt-24 text-center animate-fade-in" id="intro-text" style="animation-delay: 1s"></p>
+      
+      <p class="hero__typing animate-fade-in" aria-live="polite" style="animation-delay: 0.8s"><span id="typed-text"></span><span class="cursor">▌</span></p>
       
       <!-- Animated Cybersecurity Quotes -->
-      <div class="quotes-container mt-32 animate-fade-in" style="animation-delay: 1.8s">
+      <div class="quotes-container mt-12 animate-fade-in" style="animation-delay: 1.2s">
         <div id="cyber-quote" class="cyber-quote text-center"></div>
       </div>
+      
+      <p class="intro mt-16 text-center animate-fade-in" id="intro-text" style="animation-delay: 1.8s"></p>
       
       <div id="stats-grid" class="stats-grid mt-40 animate-slide-up" style="animation-delay: 2.2s"></div>
       <div class="hero__cta flex gap-24 mt-40 animate-slide-up" style="animation-delay: 2.5s">
@@ -113,9 +68,6 @@ permalink: /
       <div class="about-grid mt-32">
         <div class="about-content animate-slide-in-left">
           <p id="about-text" class="about-bio"></p>
-          
-          <h4 class="mt-48">Certifications Journey</h4>
-          <div id="certifications-list" class="certifications-list mt-24 flex flex-col gap-24"></div>
         </div>
         
         <div class="about-skills animate-slide-in-right">
@@ -123,9 +75,6 @@ permalink: /
           <div class="chart-container mt-24" style="position: relative; height: 350px; width: 100%;">
             <canvas id="skills-chart"></canvas>
           </div>
-          
-          <h4 class="mt-32">Core Competencies</h4>
-          <div id="skills-list" class="skills-list mt-24 flex flex-col gap-20"></div>
         </div>
       </div>
 
@@ -145,80 +94,24 @@ permalink: /
 
     <!-- Blog Section -->
     <section id="blog" class="container py-48" aria-labelledby="blog-heading">
-      <h3 id="blog-heading" class="animate-title">Technical Blog</h3>
-      <p class="section-subtitle mt-16 animate-fade-in">Deep dives into vulnerability research and red team techniques</p>
+      <h3 id="blog-heading" class="animate-title">Recent Posts</h3>
+      <p class="section-subtitle mt-16 animate-fade-in">Latest insights from cybersecurity research and red team operations</p>
       
-      <!-- Two-column blog layout -->
-      <div class="blog-layout mt-32">
-        <div class="blog-main">
-          <div id="featured-post" class="featured-post animate-slide-in-left"></div>
-        </div>
-        <div class="blog-sidebar animate-slide-in-right">
-          <h4>Recent Posts</h4>
-          <div id="recent-posts" class="recent-posts mt-24"></div>
-          
-          <h4 class="mt-40">Topics</h4>
-          <div class="blog-topics mt-16">
-            <span class="topic-tag">Web Security</span>
-            <span class="topic-tag">Red Teaming</span>
-            <span class="topic-tag">Hardware Hacking</span>
-            <span class="topic-tag">OPSEC</span>
-            <span class="topic-tag">Penetration Testing</span>
-          </div>
-        </div>
+      <!-- Full-width blog layout -->
+      <div class="blog-grid mt-32" id="blog-grid">
+        <!-- Dynamic blog posts will be loaded here -->
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container py-48" aria-labelledby="contact-heading">
-      <h3 id="contact-heading" class="animate-title">Secure Communications</h3>
-      <p class="section-subtitle mt-16 animate-fade-in">Multiple channels for encrypted collaboration</p>
+    <section id="contact" class="container py-16" aria-labelledby="contact-heading">
+      <h3 id="contact-heading" class="animate-title">Get In Touch</h3>
+      <p class="section-subtitle mt-4 animate-fade-in">Connect with me across platforms</p>
       
-      <!-- Multi-column contact layout -->
-      <div class="contact-grid mt-32">
-        <div class="contact-form-section animate-slide-in-left">
-          <h4>Send Encrypted Message</h4>
-          <form id="contactForm" class="contact-form card p-0 mt-24" novalidate>
-            <div class="card__body grid gap-24" style="grid-template-columns: 1fr 1fr;">
-              <div class="form-group flex flex-col">
-                <label for="name" class="form-label">Name</label>
-                <input id="name" name="name" type="text" class="form-control" required />
-              </div>
-              <div class="form-group flex flex-col">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" name="email" type="email" class="form-control" required />
-              </div>
-              <div class="form-group flex flex-col" style="grid-column: span 2;">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
-              </div>
-              <div class="flex items-center" style="grid-column: span 2;">
-                <button type="submit" class="btn btn--primary btn-glow">Send Securely</button>
-                <span id="form-status" class="status status--info ml-16 hidden">Sending...</span>
-              </div>
-            </div>
-          </form>
-        </div>
-        
-        <div class="contact-channels-section animate-slide-in-right">
-          <h4>Direct Channels</h4>
+      <!-- Centered contact layout -->
+      <div class="contact-centered mt-8">
+        <div class="contact-channels-main animate-slide-in-up">
           <ul class="contact__channels mt-24 flex flex-col gap-20" id="contact-channels"></ul>
-          
-          <div class="pgp-section mt-32">
-            <h4>PGP Details</h4>
-            <div class="pgp-info mt-16">
-              <p class="pgp-fingerprint">
-                <strong>Fingerprint:</strong><br>
-                <code class="pgp-code">A1B2 C3D4 E5F6 7890 1234<br>5678 9ABC DEF0 1234 5678</code>
-              </p>
-              <a href="#" class="btn btn--sm btn--outline mt-16">Download Public Key</a>
-            </div>
-          </div>
-          
-          <div class="security-notice mt-32">
-            <h4>OPSEC Notice</h4>
-            <p class="security-text">All communications are logged and encrypted. For sensitive discussions, use Signal or encrypted email with PGP.</p>
-          </div>
         </div>
       </div>
     </section>
