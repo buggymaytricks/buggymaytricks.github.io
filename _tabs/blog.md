@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Blog
-icon: fas fa-home
-order: 5
+icon: fas fa-blog
+order: 1
 permalink: /blog/
 ---
 

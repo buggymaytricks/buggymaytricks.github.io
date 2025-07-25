@@ -159,7 +159,43 @@ Always eager to learn new techniques, share knowledge with the community, and he
       "Forensics: Digital detective work",
       "Incident response: Racing against time",
       "Bug bounties: Ethical hacking pays",
-      "Purple teams: Where red meets blue"
+      "Purple teams: Where red meets blue",
+      "Information is power, access is everything",
+      "Every click tells a story",
+      "Security is not a product, it's a process",
+      "The weakest link is often human",
+      "Trust but verify, then verify again",
+      "Defense in depth, attack in breadth",
+      "Hackers don't break in, they log in",
+      "Your network is only as secure as its weakest password",
+      "Patch today, breathe easy tomorrow",
+      "Encryption: Making data unreadable to the wrong eyes",
+      "Firewalls: The digital castle walls",
+      "Malware analysis: Dissecting digital pathogens",
+      "Phishing: Fishing for credentials in human waters",
+      "APT: Advanced Persistent Threats require persistent defense",
+      "IoT: Internet of Things, Internet of Threats",
+      "Cloud security: Protecting data in someone else's computer",
+      "Mobile security: Pocket-sized attack vectors",
+      "BYOD: Bring Your Own Device, Bring Your Own Risk",
+      "Threat hunting: Proactive defense against reactive attacks",
+      "SIEM: Security Information and Event Management",
+      "SOC: Security Operations Center - The digital war room",
+      "Honeypots: Sweet traps for digital intruders",
+      "Sandboxing: Quarantining suspicious behavior",
+      "DLP: Data Loss Prevention - Keeping secrets secret",
+      "IAM: Identity and Access Management - You are who you prove to be",
+      "MFA: Multi-Factor Authentication - Something you know, have, and are",
+      "VPN: Virtual Private Networks - Tunneling through public danger",
+      "PKI: Public Key Infrastructure - The backbone of digital trust",
+      "OSINT: Open Source Intelligence - Hiding in plain sight",
+      "CTF: Capture The Flag - Gamifying security skills",
+      "Red team exercises: Authorized adversarial testing",
+      "Blue team defense: Monitoring, detecting, responding",
+      "Purple team collaboration: Breaking down silos",
+      "DevSecOps: Security baked into every code commit",
+      "Shift left: Security from the start, not as an afterthought",
+      "Zero trust: Never trust, always verify"
     ]
   };
 
@@ -288,9 +324,18 @@ Always eager to learn new techniques, share knowledge with the community, and he
     }
 
     console.log('✅ Starting quotes animation');
-    let currentQuoteIndex = 0;
+    let lastQuoteIndex = -1;
     let isTyping = false;
     const quotes = data.cybersec_quotes;
+    
+    // Function to get random quote index, ensuring it's different from the last one
+    function getRandomQuoteIndex() {
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * quotes.length);
+      } while (randomIndex === lastQuoteIndex && quotes.length > 1);
+      return randomIndex;
+    }
     
     function typewriterEffect(text, callback) {
       if (isTyping) return;
@@ -301,7 +346,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
       const backspaceSpeed = 30;
       const pauseDuration = 2000;
       
-      // Clear and setup
+      // Clear and setup with fixed height to prevent page movement
       quoteEl.innerHTML = `
         <div class="quote-text" style="
           font-style: italic; 
@@ -310,10 +355,14 @@ Always eager to learn new techniques, share knowledge with the community, and he
           line-height: 1.6; 
           max-width: 800px; 
           margin: 0 auto;
-          min-height: 2em;
+          min-height: 4.2em;
+          height: 4.2em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           opacity: 1;
           visibility: visible;
-          display: block;
+          overflow: hidden;
         ">
           <span id="typing-quote"></span><span class="cursor-blink">|</span>
         </div>
@@ -350,10 +399,11 @@ Always eager to learn new techniques, share knowledge with the community, and he
     }
     
     function showNextQuote() {
-      const quote = quotes[currentQuoteIndex];
-      console.log(`📝 Showing quote: ${quote}`);
+      const randomIndex = getRandomQuoteIndex();
+      lastQuoteIndex = randomIndex;
+      const quote = quotes[randomIndex];
+      console.log(`📝 Showing random quote: ${quote}`);
       typewriterEffect(quote, () => {
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         setTimeout(showNextQuote, 500);
       });
     }
