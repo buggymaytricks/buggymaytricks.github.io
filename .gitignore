@@ -117,6 +117,10 @@ coverage/
 .coverage
 test-results/
 
+# HTML-Proofer cache and reports
+.htmlproofer/
+htmlproofer-report.html
+
 # =======================================
 # Environment & Security
 # =======================================
