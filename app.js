@@ -351,7 +351,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
         <div class="quote-text" style="
           font-style: italic; 
           color: var(--color-primary); 
-          font-size: 1.3rem; 
+          font-size: 1.6rem; 
           line-height: 1.6; 
           max-width: 800px; 
           margin: 0 auto;

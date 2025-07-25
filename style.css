@@ -801,7 +801,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-bg-primary);
+  background: transparent;
   color: var(--color-text-primary);
   cursor: none;
   overflow-x: hidden;
@@ -849,7 +849,7 @@ a:hover {
   background-image: 
     linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-size: 20px 20px;
   animation: grid-move 20s linear infinite;
   z-index: -2;
 }
@@ -1143,7 +1143,7 @@ a:hover {
 .quote-text {
   font-style: italic;
   color: var(--color-text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
