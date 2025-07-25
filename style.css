@@ -575,7 +575,7 @@ pre code {
     margin-bottom: 0;
   }
   
-  /* Mobile-specific card improvements */
+  /* Mobile-specific enhanced card touch effects */
   .stat-card {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -584,24 +584,15 @@ pre code {
     transform: scale(0.95);
   }
   
-  /* Better touch targets for mobile */
-  .nav__link,
-  .btn,
-  .contact-card,
-  .project-card,
-  .blog-card {
-    position: relative;
-  }
-  
-  .nav__link:active,
-  .btn:active {
-    transform: scale(0.95);
-  }
-  
-  /* Mobile card hover effects */
   .project-card:active,
   .blog-card:active {
+    transform: scale(0.97);
     box-shadow: 0 6px 20px rgba(0, 212, 255, 0.15);
+  }
+  
+  .contact-card:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   }
 }
 
@@ -815,8 +806,12 @@ pre code {
   --animation-fast: 0.15s;
   --animation-normal: 0.3s;
   --animation-slow: 0.6s;
+  --animation-micro: 0.05s;
+  --animation-ultra-smooth: 0.08s;
   --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
   --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-typing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /****************************
@@ -1041,6 +1036,11 @@ a:hover {
   opacity: 0;
 }
 
+.animate-slide-in-up {
+  animation: slideInUp 0.6s var(--ease-out-cubic) forwards;
+  opacity: 0;
+}
+
 .animate-title {
   animation: titleReveal 1s var(--ease-out-cubic) forwards;
   opacity: 0;
@@ -1245,6 +1245,11 @@ a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-text 3s ease-in-out infinite;
+  /* Performance optimizations for smooth typing */
+  will-change: contents;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: opacity var(--animation-ultra-smooth) var(--ease-typing);
 }
 
 @keyframes gradient-text {
@@ -1254,8 +1259,11 @@ a:hover {
 
 .cursor { 
   color: var(--color-electric-blue);
-  animation: blink 1s infinite;
+  animation: smoothBlink 1.2s ease-in-out infinite;
   -webkit-text-fill-color: var(--color-electric-blue);
+  display: inline-block;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .intro {
@@ -1263,6 +1271,7 @@ a:hover {
   color: var(--color-text-secondary);
   max-width: 640px;
   line-height: 1.8;
+  transition: opacity var(--animation-micro) var(--ease-smooth);
 }
 
 .quotes-container {
@@ -1272,6 +1281,10 @@ a:hover {
   justify-content: center;
   overflow: visible;
   margin: 8px 0;
+  /* Optimizations for buttery smooth quote transitions */
+  will-change: contents;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .cyber-quote {
@@ -1279,6 +1292,10 @@ a:hover {
   opacity: 1;
   transform: translateY(0);
   width: 100%;
+  /* Enhanced performance for smooth typing */
+  will-change: contents, opacity;
+  backface-visibility: hidden;
+}
   text-align: center;
 }
 
@@ -1293,7 +1310,7 @@ a:hover {
 }
 
 .quote-text::before {
-  content: '"';
+  content: '';
   font-size: 2rem;
   color: var(--color-electric-blue);
   position: absolute;
@@ -1303,7 +1320,7 @@ a:hover {
 }
 
 .quote-text::after {
-  content: '"';
+  content: '';
   font-size: 2rem;
   color: var(--color-electric-blue);
   position: absolute;
@@ -1693,6 +1710,10 @@ a:hover {
   position: relative;
   transition: all var(--animation-normal) var(--ease-out-cubic);
   overflow: hidden;
+  /* Performance optimizations */
+  will-change: transform, box-shadow, border-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .card::before,
@@ -1713,6 +1734,7 @@ a:hover {
   transition: left 0.5s ease-out;
 }
 
+/* Enhanced card hover effects - optimized for all card types */
 .card:hover,
 .project-card:hover,
 .blog-card:hover,
@@ -1721,8 +1743,36 @@ a:hover {
 .skill-item:hover,
 .featured-post:hover {
   transform: translateY(-4px);
-  border-color: var(--color-border-secondary);
+  border-color: var(--color-electric-blue);
   box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+/* Special enhanced effects for project cards */
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-electric-blue);
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.25);
+}
+
+/* Special enhanced effects for blog cards */
+.blog-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-electric-blue);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+}
+
+/* Special enhanced effects for stat cards */
+.stat-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--color-electric-blue);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+}
+
+/* Tool item marquee hover effects */
+.tool-item-marquee:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-electric-blue);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.15);
 }
 
 /* Make project cards fully clickable */
@@ -1746,6 +1796,113 @@ a:hover {
 .skill-item:hover::before,
 .featured-post:hover::before {
   left: 100%;
+}
+
+/* Add glowing top border effect for all cards on hover */
+.card::after,
+.project-card::after,
+.blog-card::after,
+.stat-card::after,
+.tool-item-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-electric-blue), var(--color-neon-green), var(--color-electric-blue));
+  opacity: 0;
+  transition: opacity var(--animation-fast) var(--ease-out-cubic);
+}
+
+.card:hover::after,
+.project-card:hover::after,
+.blog-card:hover::after,
+.stat-card:hover::after,
+.tool-item-marquee:hover::after {
+  opacity: 1;
+}
+
+/****************************
+  ENHANCED CARD ANIMATIONS
+*****************************/
+
+/* Optimized entrance animations for different card types */
+@keyframes cardSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardFadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Enhanced card entrance classes */
+.card-entrance-up {
+  animation: cardSlideInUp 0.6s var(--ease-out-cubic) forwards;
+  opacity: 0;
+}
+
+.card-entrance-scale {
+  animation: cardFadeInScale 0.5s var(--ease-out-cubic) forwards;
+  opacity: 0;
+}
+
+.card-entrance-right {
+  animation: cardSlideInRight 0.7s var(--ease-out-cubic) forwards;
+  opacity: 0;
+}
+
+/* Staggered animation delays for card grids */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+.blog-card:nth-child(1) { animation-delay: 0.15s; }
+.blog-card:nth-child(2) { animation-delay: 0.25s; }
+.blog-card:nth-child(3) { animation-delay: 0.35s; }
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.15s; }
+.stat-card:nth-child(3) { animation-delay: 0.2s; }
+.stat-card:nth-child(4) { animation-delay: 0.25s; }
+
+.contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-card:nth-child(2) { animation-delay: 0.15s; }
+.contact-card:nth-child(3) { animation-delay: 0.2s; }
+.contact-card:nth-child(4) { animation-delay: 0.25s; }
+
+/* Tool items get individual stagger timing */
+.tool-item-marquee:nth-child(odd) { 
+  animation: float 6s ease-in-out infinite;
+}
+.tool-item-marquee:nth-child(even) { 
+  animation: toolFloatReverse 6.5s ease-in-out infinite;
 }
 
 /****************************
@@ -1913,17 +2070,28 @@ a:hover {
   padding: 24px;
   transition: all 0.3s ease;
   height: fit-content;
+  /* Performance optimizations */
+  will-change: transform, box-shadow, border-color;
+  backface-visibility: hidden;
 }
 
 .blog-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--color-electric-blue);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
 }
 
-.blog-header h4 a:hover {
+/* Enhanced blog card interactions */
+.blog-card:hover .blog-header h4 a {
   color: var(--color-electric-blue);
-  transition: color 0.3s ease;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover .blog-tag {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: var(--color-electric-blue);
+  transform: scale(1.05);
 }
 
 .blog-tags {
@@ -3074,12 +3242,64 @@ a:hover {
   }
 }
 
-/* Blinking cursor animation for quotes */
+/* Buttery smooth blinking cursor animation for quotes */
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes smoothBlink {
+  0%, 40% { 
+    opacity: 1; 
+    transform: scaleX(1);
+  }
+  45%, 55% { 
+    opacity: 0.3; 
+    transform: scaleX(0.8);
+  }
+  60%, 100% { 
+    opacity: 1; 
+    transform: scaleX(1);
+  }
 }
 
 .cursor-blink {
-  animation: blink 1s infinite;
+  animation: smoothBlink 1.2s ease-in-out infinite;
+  color: var(--color-electric-blue);
+  font-weight: 300;
+  display: inline-block;
+  transition: all 0.1s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Enhanced styles for buttery smooth typing */
+.quote-text {
+  font-style: italic;
+  transition: all var(--animation-ultra-smooth) var(--ease-smooth);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+#typing-quote, #typed-text {
+  transition: opacity var(--animation-micro) var(--ease-typing);
+  will-change: contents, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth text appearance optimization */
+.typing-char-enter {
+  animation: charFadeIn var(--animation-micro) var(--ease-typing) forwards;
+}
+
+@keyframes charFadeIn {
+  from {
+    opacity: 0.5;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

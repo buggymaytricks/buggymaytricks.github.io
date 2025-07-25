@@ -55,6 +55,47 @@ permalink: /
     h1 { font-size: 3rem; font-weight: 700; margin: 0; }
     .loading { opacity: 0; animation: fadeIn 0.5s ease forwards; }
     @keyframes fadeIn { to { opacity: 1; } }
+    
+    /* Ultra-fast cursor styles - inlined for instant rendering */
+    #cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: #00d4ff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+      display: block;
+      /* NO TRANSITIONS - immediate response */
+    }
+    #cursor-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #00d4ff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.55;
+      display: block;
+      /* NO TRANSITIONS - immediate response */
+    }
+    #cursor-trail {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: #ff4757;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9997;
+      opacity: 0.3;
+      display: block;
+      /* NO TRANSITIONS - immediate response */
+    }
+    @media (max-width: 768px) {
+      #cursor-dot, #cursor-ring, #cursor-trail { display: none !important; }
+    }
   </style>
   
   <link rel="stylesheet" href="/assets/css/jetbrains-mono.css">
@@ -64,85 +105,75 @@ permalink: /
   <link rel="preload" href="/assets/js/chart.umd.js" as="script">
   
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Immediate Cursor Initialization -->
-  <script>
-    // Immediate cursor functionality - runs before modules load
-    (function() {
-      // Check if mobile
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-      
-      if (isMobile) return; // Skip cursor on mobile
-      
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      
-      // Initialize cursor elements once DOM is ready
-      function initCursor() {
-        const dot = document.getElementById('cursor-dot');
-        const ring = document.getElementById('cursor-ring');
-        const trail = document.getElementById('cursor-trail');
-        
-        if (!dot || !ring || !trail) {
-          // Try again in 10ms if elements not ready
-          setTimeout(initCursor, 10);
-          return;
-        }
-        
-        // Show cursor elements
-        dot.style.display = 'block';
-        ring.style.display = 'block';
-        trail.style.display = 'block';
-        
-        // Mouse move handler
-        document.addEventListener('mousemove', function(e) {
-          mx = e.clientX;
-          my = e.clientY;
-          
-          // Update dot position immediately
-          dot.style.left = mx + 'px';
-          dot.style.top = my + 'px';
-        });
-        
-        // Smooth ring animation
-        function animateRing() {
-          rx += (mx - rx) * 0.15;
-          ry += (my - ry) * 0.15;
-          ring.style.left = (rx - 17) + 'px';
-          ring.style.top = (ry - 17) + 'px';
-          requestAnimationFrame(animateRing);
-        }
-        animateRing();
-        
-        // Hover effects
-        document.addEventListener('mouseenter', function(e) {
-          if (e.target.matches('a, button, .clickable')) {
-            ring.style.transform = 'scale(1.5)';
-            ring.style.opacity = '0.8';
-          }
-        }, true);
-        
-        document.addEventListener('mouseleave', function(e) {
-          if (e.target.matches('a, button, .clickable')) {
-            ring.style.transform = 'scale(1)';
-            ring.style.opacity = '1';
-          }
-        }, true);
-      }
-      
-      // Start initialization
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCursor);
-      } else {
-        initCursor();
-      }
-    })();
-  </script>
 </head>
 <body>
-  <!-- Custom Cursor Elements -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
-  <div id="cursor-trail"></div>
+  <!-- INSTANT Cursor - Executes as HTML parses -->
+  <script>
+    // IMMEDIATE execution - no checks, no delays!
+    if (window.innerWidth > 768) {
+      window.mx = 0; window.my = 0; window.rx = 0; window.ry = 0;
+      // Ultra-fast mouse handler - attached immediately
+      document.onmousemove = function(e) {
+        window.mx = e.clientX; window.my = e.clientY;
+        const dot = document.getElementById('cursor-dot');
+        const trail = document.getElementById('cursor-trail');
+        if (dot) { dot.style.left = window.mx + 'px'; dot.style.top = window.my + 'px'; }
+        if (trail) { trail.style.left = (window.mx - 2) + 'px'; trail.style.top = (window.my - 2) + 'px'; }
+      };
+    }
+  </script>
+
+  <!-- Custom Cursor Elements with INSTANT positioning -->
+  <div id="cursor-dot" style="left: 50px; top: 50px;"></div>
+  <script>
+    // Dot is ready - start tracking immediately if not mobile
+    if (window.innerWidth > 768 && window.mx !== undefined) {
+      const dot = document.getElementById('cursor-dot');
+      dot.style.left = window.mx + 'px';
+      dot.style.top = window.my + 'px';
+    }
+  </script>
+
+  <div id="cursor-ring" style="left: 33px; top: 33px;"></div>
+  <script>
+    // Ring animation - immediate start
+    if (window.innerWidth > 768) {
+      function animateRing() {
+        window.rx += (window.mx - window.rx) * 0.3; // Even faster
+        window.ry += (window.my - window.ry) * 0.3;
+        const ring = document.getElementById('cursor-ring');
+        if (ring) {
+          ring.style.left = (window.rx - 17) + 'px';
+          ring.style.top = (window.ry - 17) + 'px';
+        }
+        requestAnimationFrame(animateRing);
+      }
+      animateRing(); // Start immediately
+    }
+  </script>
+
+  <div id="cursor-trail" style="left: 48px; top: 48px;"></div>
+  <script>
+    // All elements ready - add hover effects immediately
+    if (window.innerWidth > 768) {
+      document.onmouseenter = function(e) {
+        if (e.target.matches && e.target.matches('a, button, .clickable, .logo-link, .nav__link')) {
+          const ring = document.getElementById('cursor-ring');
+          const dot = document.getElementById('cursor-dot');
+          if (ring) ring.style.transform = 'scale(1.5)';
+          if (dot) dot.style.transform = 'scale(1.2)';
+        }
+      };
+      document.onmouseleave = function(e) {
+        if (e.target.matches && e.target.matches('a, button, .clickable, .logo-link, .nav__link')) {
+          const ring = document.getElementById('cursor-ring');
+          const dot = document.getElementById('cursor-dot');
+          if (ring) ring.style.transform = 'scale(1)';
+          if (dot) dot.style.transform = 'scale(1)';
+        }
+      };
+    }
+  </script>
 
   <!-- Animated Background Grid -->
   <div class="bg-grid"></div>

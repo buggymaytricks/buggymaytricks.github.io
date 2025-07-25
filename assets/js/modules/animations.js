@@ -139,7 +139,7 @@ function addTrailEffects(dot, ring, trail) {
 }
 
 /**
- * Enhanced Typing Effect
+ * Enhanced Typing Effect - Buttery Smooth Version
  */
 export function initEnhancedTyping() {
   const textEl = qs('#typed-text');
@@ -150,7 +150,12 @@ export function initEnhancedTyping() {
   introEl.textContent = `${portfolioData.personal.title} specializing in offensive security and red team operations.`;
 
   let tagIdx = 0, charIdx = 0, deleting = false, pause = false;
-  const typeSpeed = 80, delSpeed = 30, wait = 2500;
+  
+  // Optimized speeds for buttery smooth animation
+  const typeSpeed = 60;      // Faster but smooth typing
+  const delSpeed = 25;       // Faster deletion
+  const wait = 2200;         // Slightly shorter pause
+  const variance = 15;       // Reduced variance for consistency
 
   function typeStep() {
     const current = portfolioData.taglines[tagIdx];
@@ -165,22 +170,36 @@ export function initEnhancedTyping() {
     }
 
     if (!deleting) {
-      textEl.textContent = current.slice(0, ++charIdx);
+      // Smooth character addition with micro-transitions
+      const nextChar = current.charAt(charIdx);
+      textEl.textContent = current.slice(0, charIdx + 1);
+      charIdx++;
+      
       if (charIdx === current.length) { 
         pause = true; 
       }
-      setTimeout(typeStep, typeSpeed + Math.random() * 50);
+      
+      // Use requestAnimationFrame for smoother timing
+      const delay = typeSpeed + (Math.random() * variance);
+      setTimeout(() => requestAnimationFrame(typeStep), delay);
     } else {
-      textEl.textContent = current.slice(0, --charIdx);
+      // Smooth character removal
+      textEl.textContent = current.slice(0, charIdx - 1);
+      charIdx--;
+      
       if (charIdx === 0) { 
         deleting = false; 
         tagIdx = (tagIdx + 1) % portfolioData.taglines.length; 
       }
-      setTimeout(typeStep, delSpeed + Math.random() * 30);
+      
+      // Use requestAnimationFrame for smoother deletion
+      const delay = delSpeed + (Math.random() * (variance * 0.5));
+      setTimeout(() => requestAnimationFrame(typeStep), delay);
     }
   }
   
-  setTimeout(typeStep, 800);
+  // Start with a small delay for page load
+  setTimeout(() => requestAnimationFrame(typeStep), 800);
 }
 
 /**
@@ -212,11 +231,13 @@ export function initAnimatedQuotes() {
     isTyping = true;
     
     let charIndex = 0;
-    const speed = 50;
-    const backspaceSpeed = 30;
-    const pauseDuration = 2000;
+    // Buttery smooth speeds with micro-timing variations
+    const speed = 35;              // Faster, smoother typing
+    const backspaceSpeed = 20;     // Quicker deletion
+    const pauseDuration = 1800;    // Shorter pause for better flow
+    const microVariance = 8;       // Small timing variance for realism
     
-    // Clear and setup with fixed height to prevent page movement
+    // Clear and setup with optimized transitions
     quoteEl.innerHTML = `
       <div class="quote-text" style="
         font-style: italic; 
@@ -233,8 +254,10 @@ export function initAnimatedQuotes() {
         opacity: 1;
         visibility: visible;
         overflow: hidden;
+        transition: opacity 0.1s ease-out;
+        will-change: opacity;
       ">
-        <span id="typing-quote"></span><span class="cursor-blink">|</span>
+        <span id="typing-quote" style="transition: opacity 0.05s ease-out;"></span><span class="cursor-blink">|</span>
       </div>
     `;
     
@@ -243,29 +266,58 @@ export function initAnimatedQuotes() {
     
     function typeChar() {
       if (charIndex < text.length) {
-        typingSpan.textContent += text.charAt(charIndex);
+        const nextChar = text.charAt(charIndex);
+        
+        // Add character with micro-fade for ultra-smooth appearance
+        typingSpan.style.opacity = '0.8';
+        typingSpan.textContent += nextChar;
+        
+        // Smooth opacity transition
+        requestAnimationFrame(() => {
+          typingSpan.style.opacity = '1';
+        });
+        
         charIndex++;
-        setTimeout(typeChar, speed + Math.random() * 20);
+        
+        // Dynamic speed based on character type for natural flow
+        let charSpeed = speed;
+        if (nextChar === ' ') charSpeed *= 0.7;      // Faster on spaces
+        if (nextChar === ',' || nextChar === '.') charSpeed *= 1.4;  // Pause on punctuation
+        if (nextChar === '!' || nextChar === '?') charSpeed *= 1.6;  // Longer pause on emphasis
+        
+        const delay = charSpeed + (Math.random() * microVariance);
+        setTimeout(() => requestAnimationFrame(typeChar), delay);
       } else {
-        setTimeout(startBackspace, pauseDuration);
+        setTimeout(() => requestAnimationFrame(startBackspace), pauseDuration);
       }
     }
     
     function startBackspace() {
       function deleteChar() {
         if (charIndex > 0) {
-          typingSpan.textContent = text.substring(0, charIndex - 1);
+          // Smooth character removal with micro-transitions
+          typingSpan.style.opacity = '0.7';
           charIndex--;
-          setTimeout(deleteChar, backspaceSpeed + Math.random() * 10);
+          typingSpan.textContent = text.substring(0, charIndex);
+          
+          requestAnimationFrame(() => {
+            typingSpan.style.opacity = '1';
+          });
+          
+          const delay = backspaceSpeed + (Math.random() * (microVariance * 0.5));
+          setTimeout(() => requestAnimationFrame(deleteChar), delay);
         } else {
           isTyping = false;
-          if (callback) callback();
+          if (callback) {
+            requestAnimationFrame(callback);
+          }
         }
       }
       deleteChar();
     }
     
-    typeChar();
+    // Start typing with requestAnimationFrame for perfect timing
+    requestAnimationFrame(typeChar);
   }
   
   function showNextQuote() {
