@@ -1,93 +1,196 @@
+# =======================================
+# Jekyll & Ruby
+# =======================================
 # Bundler cache
 .bundle
 vendor
 Gemfile.lock
 
-# Jekyll cache
+# Jekyll cache and build
 .jekyll-cache
 .jekyll-metadata
 _site
+.sass-cache
 
 # RubyGems
 *.gem
 
-# NPM dependencies
-node_modules
+# =======================================
+# Node.js & NPM
+# =======================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 package-lock.json
+yarn.lock
+.pnpm-debug.log*
 
-# IDE configurations
-.idea
+# =======================================
+# IDE & Editor configurations
+# =======================================
+.idea/
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
 !.vscode/tasks.json
+!.vscode/launch.json
+.fleet/
+*.sublime-project
+*.sublime-workspace
 
 # Development containers
 .devcontainer
 
-# Git files
+# =======================================
+# Version Control
+# =======================================
 .gitmodules
 .gitattributes
 
-# Editor config
-.editorconfig
-
-# Empty directories
-api/
-
-# Misc
+# =======================================
+# Build & Distribution
+# =======================================
+dist/
+build/
+out/
 _sass/vendors
 assets/js/dist
-*.log
-.DS_Store
-Thumbs.db
 
-# Backup files
+# CSS build artifacts
+assets/css/critical.css
+assets/css/critical-*.css
+assets/css/compiled.css
+assets/css/minified.css
+*.min.css.map
+
+# =======================================
+# Backup & Temporary files
+# =======================================
 *.backup
 *.orig
 *.rej
 *~
 .#*
 #*#
-
-# Temporary files
 *.tmp
 *.temp
 *.swp
 *.swo
 *.cache
+*_backup
+*_old
 
-# OS generated files
+# =======================================
+# Operating System files
+# =======================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-.Spotlight-V100
-.Trashes
-._*
+*.lnk
 
-# Development and debug files
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# =======================================
+# Development & Debug files
+# =======================================
 debug.js
 *.debug
 *.test.js
+*.spec.js
 coverage/
 .nyc_output/
+.coverage
+test-results/
 
-# Environment files
+# =======================================
+# Environment & Security
+# =======================================
 .env
+.env.*
+!.env.example
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Build artifacts
-dist/
-build/
-out/
+# API keys and secrets
+secrets.yml
+secrets.json
+*secret*
+*key*
+!skills-config.json
 
-# Archives
+# =======================================
+# Archives & Compressed files
+# =======================================
 *.tar
 *.tar.gz
+*.tgz
 *.rar
 *.zip
 *.7z
+*.bz2
+*.xz
+*.gz
+
+# =======================================
+# Logs
+# =======================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# =======================================
+# Performance & Analytics
+# =======================================
+# Lighthouse reports
+lighthouse-*.html
+lighthouse-*.json
+
+# Bundle analyzer
+bundle-analyzer-report.html
+stats.json
+
+# =======================================
+# Miscellaneous
+# =======================================
+# Empty directories (if needed)
+api/
+
+# Large media files (if any)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.webm
+*.iso
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Certificate files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx

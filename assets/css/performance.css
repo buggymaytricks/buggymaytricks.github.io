@@ -1,0 +1,111 @@
+/**
+ * Performance-related CSS
+ * Styles for reduced motion, power save, and optimization states
+ */
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cursor-trail,
+  .typing-animation {
+    display: none !important;
+  }
+}
+
+/* Slow connection optimizations */
+.reduced-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.reduced-motion .cursor-trail {
+  display: none !important;
+}
+
+/* Power save mode */
+.power-save {
+  --animation-duration: 0s;
+}
+
+.power-save *,
+.power-save *::before,
+.power-save *::after {
+  animation-duration: 0s !important;
+  transition-duration: 0.1s !important;
+}
+
+.power-save .cursor-trail,
+.power-save .particle-effect,
+.power-save .glow-effect {
+  display: none !important;
+}
+
+/* Loading states */
+.lazy-loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lazy-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skeleton loading for better perceived performance */
+.skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Optimized images */
+img {
+  loading: lazy;
+  decoding: async;
+}
+
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* Critical resource hints */
+.preload-critical {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 200px;
+}
+
+/* Performance debugging (development only) */
+@media screen and (max-width: 1px) {
+  .performance-debug {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+}

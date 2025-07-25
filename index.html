@@ -14,24 +14,129 @@ permalink: /
     font-src 'self'; 
     connect-src 'self' https://api.github.com;
     img-src 'self' data: https://*.githubusercontent.com;
-    frame-ancestors 'none';
     form-action 'self';
     base-uri 'self';
   ">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>buGGy | Cybersecurity Command Center</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🔐</text></svg>">
+  
+  <!-- DNS Prefetch for external resources -->
+  <link rel="dns-prefetch" href="//api.github.com">
   
   <!-- Self-hosted JetBrains Mono Font -->
   <link rel="preload" href="/assets/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="/style.css" as="style">
+  <link rel="preload" href="/assets/css/jetbrains-mono.css" as="style">
+  
+  <!-- Critical CSS inline (for LCP optimization) -->
+  <style>
+    /* Critical above-the-fold styles */
+    body { 
+      font-family: "JetBrains Mono", monospace; 
+      background: #0a0a0a; 
+      color: #e0e0e0; 
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .hero-section { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    h1 { font-size: 3rem; font-weight: 700; margin: 0; }
+    .loading { opacity: 0; animation: fadeIn 0.5s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+  </style>
+  
   <link rel="stylesheet" href="/assets/css/jetbrains-mono.css">
+  <link rel="stylesheet" href="/style.css">
   
   <!-- Self-hosted Chart.js -->
   <link rel="preload" href="/assets/js/chart.umd.js" as="script">
   
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Immediate Cursor Initialization -->
+  <script>
+    // Immediate cursor functionality - runs before modules load
+    (function() {
+      // Check if mobile
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+      
+      if (isMobile) return; // Skip cursor on mobile
+      
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      
+      // Initialize cursor elements once DOM is ready
+      function initCursor() {
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        const trail = document.getElementById('cursor-trail');
+        
+        if (!dot || !ring || !trail) {
+          // Try again in 10ms if elements not ready
+          setTimeout(initCursor, 10);
+          return;
+        }
+        
+        // Show cursor elements
+        dot.style.display = 'block';
+        ring.style.display = 'block';
+        trail.style.display = 'block';
+        
+        // Mouse move handler
+        document.addEventListener('mousemove', function(e) {
+          mx = e.clientX;
+          my = e.clientY;
+          
+          // Update dot position immediately
+          dot.style.left = mx + 'px';
+          dot.style.top = my + 'px';
+        });
+        
+        // Smooth ring animation
+        function animateRing() {
+          rx += (mx - rx) * 0.15;
+          ry += (my - ry) * 0.15;
+          ring.style.left = (rx - 17) + 'px';
+          ring.style.top = (ry - 17) + 'px';
+          requestAnimationFrame(animateRing);
+        }
+        animateRing();
+        
+        // Hover effects
+        document.addEventListener('mouseenter', function(e) {
+          if (e.target.matches('a, button, .clickable')) {
+            ring.style.transform = 'scale(1.5)';
+            ring.style.opacity = '0.8';
+          }
+        }, true);
+        
+        document.addEventListener('mouseleave', function(e) {
+          if (e.target.matches('a, button, .clickable')) {
+            ring.style.transform = 'scale(1)';
+            ring.style.opacity = '1';
+          }
+        }, true);
+      }
+      
+      // Start initialization
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCursor);
+      } else {
+        initCursor();
+      }
+    })();
+  </script>
 </head>
 <body>
   <!-- Custom Cursor Elements -->
@@ -84,10 +189,11 @@ permalink: /
     <section id="home" class="hero container flex flex-col items-center justify-center py-48" aria-labelledby="hero-heading">
       <h2 id="hero-heading" class="sr-only">buGGy – Cybersecurity Enthusiast & Red Team Operator</h2>
       
-      <p class="hero__typing animate-fade-in" aria-live="polite" style="animation-delay: 0.8s"><span id="typed-text"></span><span class="cursor">▌</span></p>
+      <!-- Immediate visible content for LCP -->
+      <p class="hero__typing animate-fade-in" aria-live="polite" style="animation-delay: 0.1s"><span id="typed-text">buGGy</span><span class="cursor">▌</span></p>
       
       <!-- Animated Cybersecurity Quotes -->
-      <div class="quotes-container mt-12 animate-fade-in" style="animation-delay: 1.2s">
+      <div class="quotes-container mt-12 animate-fade-in" style="animation-delay: 0.3s">
         <div id="cyber-quote" class="cyber-quote text-center"></div>
       </div>
       
@@ -163,8 +269,17 @@ permalink: /
     <a href="#home" class="btn btn--sm btn--outline btn-float" aria-label="Back to top">⌃</a>
   </footer>
 
-  <!-- Self-hosted dependencies -->
-  <script src="/assets/js/chart.umd.js" defer></script>
-  <script src="app.js" defer></script>
+  <!-- Self-hosted dependencies (loaded after LCP) -->
+  <script>
+    // Load Chart.js after LCP to avoid blocking
+    window.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.src = '/assets/js/chart.umd.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    });
+  </script>
+  <!-- Modular ES6 Application -->
+  <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>
