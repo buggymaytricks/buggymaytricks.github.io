@@ -215,6 +215,14 @@ Always eager to learn new techniques, share knowledge with the community, and he
     
     if (!dot || !ring || !trail) return;
     
+    // Disable cursor effects on mobile devices
+    if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+      dot.style.display = 'none';
+      ring.style.display = 'none';
+      trail.style.display = 'none';
+      return;
+    }
+    
     let mx = 0, my = 0, rx = 0, ry = 0, tx = 0, ty = 0;
     let trailHistory = [];
     
@@ -492,6 +500,8 @@ Always eager to learn new techniques, share knowledge with the community, and he
     // Enhanced Radar Chart
     const ctx = qs('#skills-chart');
     if (ctx) {
+      const isMobile = window.innerWidth <= 768;
+      
       new Chart(ctx, {
         type: 'radar',
         data: {
@@ -505,13 +515,21 @@ Always eager to learn new techniques, share knowledge with the community, and he
             pointBackgroundColor: '#ff0051',
             pointBorderColor: '#ffffff',
             borderWidth: 3,
-            pointRadius: 6,
-            pointHoverRadius: 8
+            pointRadius: isMobile ? 4 : 6,
+            pointHoverRadius: isMobile ? 6 : 8
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          layout: {
+            padding: {
+              top: 20,
+              bottom: 20,
+              left: 20,
+              right: 20
+            }
+          },
           animation: {
             duration: 2000,
             easing: 'easeOutQuart'
@@ -535,7 +553,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
                 color: '#b3b3b3', 
                 font: { 
                   family: 'JetBrains Mono', 
-                  size: 11,
+                  size: isMobile ? 9 : 11,
                   weight: '500'
                 }
               },
@@ -1011,7 +1029,7 @@ Always eager to learn new techniques, share knowledge with the community, and he
         const section = qs(targetId);
         
         if (section) {
-          const offset = 100;
+          const offset = window.innerWidth <= 768 ? 80 : 100; // Adjust offset for mobile
           const targetPosition = section.offsetTop - offset;
           
           window.scrollTo({
@@ -1020,13 +1038,26 @@ Always eager to learn new techniques, share knowledge with the community, and he
           });
         }
       });
+      
+      // Add touch feedback for mobile
+      if ('ontouchstart' in window) {
+        link.addEventListener('touchstart', () => {
+          link.style.backgroundColor = 'rgba(0, 212, 255, 0.2)';
+        });
+        
+        link.addEventListener('touchend', () => {
+          setTimeout(() => {
+            link.style.backgroundColor = '';
+          }, 150);
+        });
+      }
     });
 
     // Active link highlighting
     const sections = qsa('section[id]');
     
     function updateActiveLink() {
-      const scrollPos = window.scrollY + 150;
+      const scrollPos = window.scrollY + (window.innerWidth <= 768 ? 120 : 150);
       let current = '';
       
       sections.forEach(section => {
@@ -1093,10 +1124,89 @@ Always eager to learn new techniques, share knowledge with the community, and he
     
     window.addEventListener('load', () => {
       const loadTime = (performance.now() - startTime).toFixed(1);
+      const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+      
       console.log(`⚡ Enhanced Portfolio loaded in ${loadTime}ms`);
-      console.log('🎨 Rich animations and multi-column layouts active');
-      console.log('🖱️ Enhanced cursor with trailing effects enabled');
+      console.log(`🎨 Rich animations and multi-column layouts active`);
+      console.log(`📱 Mobile optimized: ${isMobile ? 'YES' : 'NO'}`);
+      
+      if (!isMobile) {
+        console.log('🖱️ Enhanced cursor with trailing effects enabled');
+      } else {
+        console.log('👆 Touch-optimized interface enabled');
+      }
     });
+  }
+
+  /*****************************************
+   * MOBILE NAVIGATION DROPDOWN
+   *****************************************/
+  function initMobileNavigation() {
+    const dropdownToggle = qs('.nav-dropdown-toggle');
+    const dropdownMenu = qs('.nav-dropdown-menu');
+    const navLinks = qsa('.nav-dropdown-menu .nav__link');
+    
+    if (!dropdownToggle || !dropdownMenu) return;
+    
+    // Toggle dropdown
+    dropdownToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+      
+      dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+      dropdownMenu.classList.toggle('active');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('active');
+      }
+    });
+    
+    // Close dropdown when navigation link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('active');
+      });
+    });
+    
+    // Handle keyboard navigation
+    dropdownToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dropdownToggle.click();
+      }
+    });
+  }
+
+  /*****************************************
+   * MOBILE VIEWPORT HANDLING
+   *****************************************/
+  function initMobileViewportHandling() {
+    // Handle mobile viewport height changes (iOS Safari)
+    function setViewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(setViewportHeight, 100);
+    });
+
+    // Prevent zoom on double tap for better mobile experience
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (event) => {
+      const now = (new Date()).getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, false);
   }
 
   /*****************************************
@@ -1104,6 +1214,10 @@ Always eager to learn new techniques, share knowledge with the community, and he
    *****************************************/
   function init() {
     console.log('🚀 Initializing Enhanced Cybersecurity Portfolio...');
+    
+    // Mobile optimizations first
+    initMobileViewportHandling();
+    initMobileNavigation();
     
     // Core functionality
     initEnhancedCursor();
