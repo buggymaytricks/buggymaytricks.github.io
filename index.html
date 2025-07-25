@@ -9,9 +9,9 @@ permalink: /
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self'; 
-    script-src 'self' https://cdn.jsdelivr.net; 
-    style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; 
-    font-src 'self' https://fonts.gstatic.com; 
+    script-src 'self'; 
+    style-src 'self' 'unsafe-inline'; 
+    font-src 'self'; 
     connect-src 'self' https://api.github.com;
     img-src 'self' data: https://*.githubusercontent.com;
     frame-ancestors 'none';
@@ -21,13 +21,17 @@ permalink: /
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <title>buGGy | Cybersecurity Command Center</title>
-  <!-- JetBrains Mono Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Self-hosted JetBrains Mono Font -->
+  <link rel="preload" href="/assets/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/jetbrains-mono.css">
+  
+  <!-- Self-hosted Chart.js -->
+  <link rel="preload" href="/assets/js/chart.umd.js" as="script">
+  
   <link rel="stylesheet" href="style.css" />
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- Custom Cursor Elements -->
@@ -159,6 +163,8 @@ permalink: /
     <a href="#home" class="btn btn--sm btn--outline btn-float" aria-label="Back to top">⌃</a>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- Self-hosted dependencies -->
+  <script src="/assets/js/chart.umd.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

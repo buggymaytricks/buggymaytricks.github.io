@@ -1,5 +1,43 @@
 // Enhanced Cybersecurity Portfolio with Rich Animations & Multi-Column Layouts
 document.addEventListener('DOMContentLoaded', () => {
+  // Wait for all scripts to load including Chart.js
+  if (document.readyState === 'loading') {
+    window.addEventListener('load', init);
+  } else {
+    // If already loaded, wait a bit for Chart.js
+    setTimeout(init, 100);
+  }
+  
+  function init() {
+    console.log('🚀 Initializing Enhanced Cybersecurity Portfolio...');
+    
+    // Mobile optimizations first
+    initMobileViewportHandling();
+    initMobileNavigation();
+    
+    // Core functionality
+    initEnhancedCursor();
+    initEnhancedTyping();
+    initAnimatedQuotes();
+    initAnimatedStats();
+    
+    // Delay skills chart to ensure Chart.js is ready
+    setTimeout(() => {
+      initSkillsWithAnimations();
+    }, 500);
+    
+    initMultiColumnTools();
+    initDynamicProjects();
+    initDynamicBlog();
+    initMultiColumnContact();
+    
+    // Interactive features
+    initSmoothNavigation();
+    initStaggeredRevealAnimations();
+    initPerformanceMonitoring();
+    
+    console.log('✅ All systems loaded and operational');
+  }
   /*****************************************
    * DATA DEFINITIONS
    *****************************************/
@@ -474,22 +512,34 @@ Always eager to learn new techniques, share knowledge with the community, and he
    * SKILLS RADAR & ANIMATED PROGRESS BARS
    *****************************************/
   async function initSkillsWithAnimations() {
+    // Check if Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+      console.error('❌ Chart.js not loaded - retrying in 500ms');
+      setTimeout(() => initSkillsWithAnimations(), 500);
+      return;
+    }
+    
+    console.log('✅ Chart.js available, initializing skills chart');
+    
     // Load skills from external config file ONLY
     let skillsData = [];
     
     try {
-      const skillsResponse = await fetch('/skills-config.json');
+      const cachedSkillsFetch = createCachedFetch('skills_config', 1440); // Cache for 1 day (1440 minutes)
+      const skillsResponse = await cachedSkillsFetch('/skills-config.json');
       if (skillsResponse.ok) {
         const skillsConfig = await skillsResponse.json();
         skillsData = skillsConfig.skills;
         console.log('✅ Skills loaded from config file:', skillsData.length, 'skills');
       } else {
-        console.error('❌ Failed to load skills-config.json');
-        return;
+        console.error('❌ Failed to load skills-config.json, using fallback data');
+        // Fallback to inline skills data
+        skillsData = data.skills;
       }
     } catch (error) {
-      console.error('❌ Error loading skills config:', error);
-      return;
+      console.error('❌ Error loading skills config, using fallback data:', error);
+      // Fallback to inline skills data
+      skillsData = data.skills;
     }
 
     if (skillsData.length === 0) {
@@ -500,70 +550,78 @@ Always eager to learn new techniques, share knowledge with the community, and he
     // Enhanced Radar Chart
     const ctx = qs('#skills-chart');
     if (ctx) {
+      console.log('✅ Canvas element found, creating chart');
       const isMobile = window.innerWidth <= 768;
       
-      new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: skillsData.map(s => s.name),
-          datasets: [{
-            label: 'Skill Level',
-            data: skillsData.map(s => s.level),
-            fill: true,
-            backgroundColor: 'rgba(0, 212, 255, 0.15)',
-            borderColor: '#00d4ff',
-            pointBackgroundColor: '#ff0051',
-            pointBorderColor: '#ffffff',
-            borderWidth: 3,
-            pointRadius: isMobile ? 4 : 6,
-            pointHoverRadius: isMobile ? 6 : 8
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          layout: {
-            padding: {
-              top: 20,
-              bottom: 20,
-              left: 20,
-              right: 20
-            }
+      try {
+        const chart = new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: skillsData.map(s => s.name),
+            datasets: [{
+              label: 'Skill Level',
+              data: skillsData.map(s => s.level),
+              fill: true,
+              backgroundColor: 'rgba(0, 212, 255, 0.15)',
+              borderColor: '#00d4ff',
+              pointBackgroundColor: '#ff0051',
+              pointBorderColor: '#ffffff',
+              borderWidth: 3,
+              pointRadius: isMobile ? 4 : 6,
+              pointHoverRadius: isMobile ? 6 : 8
+            }]
           },
-          animation: {
-            duration: 2000,
-            easing: 'easeOutQuart'
-          },
-          plugins: { 
-            legend: { display: false } 
-          },
-          scales: { 
-            r: { 
-              max: 100,
-              min: 0,
-              ticks: { 
-                display: false,
-                stepSize: 20
-              },
-              grid: { 
-                color: 'rgba(255,255,255,.08)',
-                lineWidth: 1
-              },
-              pointLabels: { 
-                color: '#b3b3b3', 
-                font: { 
-                  family: 'JetBrains Mono', 
-                  size: isMobile ? 9 : 11,
-                  weight: '500'
-                }
-              },
-              angleLines: {
-                color: 'rgba(255,255,255,.05)'
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+              padding: {
+                top: 20,
+                bottom: 20,
+                left: 20,
+                right: 20
               }
-            } 
+            },
+            animation: {
+              duration: 2000,
+              easing: 'easeOutQuart'
+            },
+            plugins: { 
+              legend: { display: false } 
+            },
+            scales: { 
+              r: { 
+                max: 100,
+                min: 0,
+                ticks: { 
+                  display: false,
+                  stepSize: 20
+                },
+                grid: { 
+                  color: 'rgba(255,255,255,.08)',
+                  lineWidth: 1
+                },
+                pointLabels: { 
+                  color: '#b3b3b3', 
+                  font: { 
+                    family: 'JetBrains Mono', 
+                    size: isMobile ? 9 : 11,
+                    weight: '500'
+                  }
+                },
+                angleLines: {
+                  color: 'rgba(255,255,255,.05)'
+                }
+              } 
+            }
           }
-        }
-      });
+        });
+        console.log('✅ Skills chart created successfully', chart);
+      } catch (error) {
+        console.error('❌ Error creating skills chart:', error);
+      }
+    } else {
+      console.error('❌ Canvas element #skills-chart not found');
     }
 
     // Skills list removed - only showing radar chart
@@ -649,6 +707,58 @@ Always eager to learn new techniques, share knowledge with the community, and he
   }
 
   /*****************************************
+   * GITHUB API CACHING HELPER
+   *****************************************/
+  function createCachedFetch(cacheKey, ttlMinutes = 60) {
+    return async function(url, options = {}) {
+      try {
+        // Check if we have cached data
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+          const { data, timestamp } = JSON.parse(cached);
+          const now = Date.now();
+          const cacheAge = (now - timestamp) / (1000 * 60); // Age in minutes
+          
+          if (cacheAge < ttlMinutes) {
+            console.log(`🔄 Using cached data for ${cacheKey} (${Math.round(cacheAge)}min old)`);
+            return { 
+              ok: true, 
+              json: () => Promise.resolve(data),
+              status: 200 
+            };
+          }
+        }
+        
+        // Cache miss or expired - fetch fresh data
+        console.log(`🌐 Fetching fresh data for ${cacheKey}`);
+        const response = await fetch(url, options);
+        
+        if (response.ok) {
+          const data = await response.json();
+          // Store in cache
+          localStorage.setItem(cacheKey, JSON.stringify({
+            data: data,
+            timestamp: Date.now()
+          }));
+          console.log(`💾 Cached data for ${cacheKey}`);
+          
+          // Return response that mimics fetch API
+          return {
+            ok: true,
+            json: () => Promise.resolve(data),
+            status: response.status
+          };
+        } else {
+          return response; // Return error response as-is
+        }
+      } catch (error) {
+        console.log(`❌ Cache/fetch error for ${cacheKey}:`, error);
+        throw error;
+      }
+    };
+  }
+
+  /*****************************************
    * DYNAMIC PROJECTS FROM GITHUB
    *****************************************/
   async function initDynamicProjects() {
@@ -673,7 +783,8 @@ Always eager to learn new techniques, share knowledge with the community, and he
       }
 
       // Fetch repositories from GitHub API with comprehensive details
-      const response = await fetch('https://api.github.com/users/buggymaytricks/repos?sort=updated&direction=desc&per_page=30');
+      const cachedReposFetch = createCachedFetch('github_repos', 1440); // Cache for 1 day (1440 minutes)
+      const response = await cachedReposFetch('https://api.github.com/users/buggymaytricks/repos?sort=updated&direction=desc&per_page=30');
       
       if (!response.ok) {
         console.log('❌ GitHub API failed with status:', response.status);
@@ -713,8 +824,9 @@ Always eager to learn new techniques, share knowledge with the community, and he
         const projectsWithDetails = await Promise.all(
           filteredRepos.map(async (repo) => {
             try {
-              // Fetch languages
-              const languagesResponse = await fetch(`https://api.github.com/repos/buggymaytricks/${repo.name}/languages`);
+              // Fetch languages with caching
+              const cachedLanguagesFetch = createCachedFetch(`github_languages_${repo.name}`, 14400); // Cache for 10 days (14400 minutes)
+              const languagesResponse = await cachedLanguagesFetch(`https://api.github.com/repos/buggymaytricks/${repo.name}/languages`);
               const languages = await languagesResponse.json();
               
               // Get all languages (not just top 4)
@@ -1208,36 +1320,4 @@ Always eager to learn new techniques, share knowledge with the community, and he
       lastTouchEnd = now;
     }, false);
   }
-
-  /*****************************************
-   * INITIALIZATION SEQUENCE
-   *****************************************/
-  function init() {
-    console.log('🚀 Initializing Enhanced Cybersecurity Portfolio...');
-    
-    // Mobile optimizations first
-    initMobileViewportHandling();
-    initMobileNavigation();
-    
-    // Core functionality
-    initEnhancedCursor();
-    initEnhancedTyping();
-    initAnimatedQuotes();
-    initAnimatedStats();
-    initSkillsWithAnimations();
-    initMultiColumnTools();
-    initDynamicProjects();
-    initDynamicBlog();
-    initMultiColumnContact();
-    
-    // Interactive features
-    initSmoothNavigation();
-    initStaggeredRevealAnimations();
-    initPerformanceMonitoring();
-    
-    console.log('✅ All systems loaded and operational');
-  }
-
-  // Start initialization
-  init();
 });
