@@ -6,6 +6,11 @@ order: 1
 permalink: /blog/
 ---
 
+<div class="mb-5">
+  <h1 class="text-center mb-3">buGGy's Blog</h1>
+  <p class="text-center text-muted">Engineering notes, cybersecurity insights, tutorials, and much more</p>
+</div>
+
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in site.posts %}
     <article class="card-wrapper card">
