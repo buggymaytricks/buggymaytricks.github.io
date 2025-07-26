@@ -15,6 +15,10 @@ _site
 # RubyGems
 *.gem
 
+# Jekyll drafts and future posts
+_drafts/
+_future/
+
 # =======================================
 # Node.js & NPM
 # =======================================
@@ -68,6 +72,7 @@ assets/css/minified.css
 # Backup & Temporary files
 # =======================================
 *.backup
+*.bak
 *.orig
 *.rej
 *~
@@ -80,6 +85,13 @@ assets/css/minified.css
 *.cache
 *_backup
 *_old
+*_copy
+*.draft
+feed.json.bak
+
+# Duplicate configuration files
+.excluded-repos
+_data/excluded_repos.yml
 
 # =======================================
 # Operating System files
@@ -109,6 +121,7 @@ $RECYCLE.BIN/
 # Development & Debug files
 # =======================================
 debug.js
+debug-*.js
 *.debug
 *.test.js
 *.spec.js
@@ -116,10 +129,17 @@ coverage/
 .nyc_output/
 .coverage
 test-results/
+cleanup-project.sh
 
 # HTML-Proofer cache and reports
 .htmlproofer/
 htmlproofer-report.html
+
+# SEO and performance analysis
+seo-report.html
+performance-report.html
+lighthouse-*.html
+lighthouse-*.json
 
 # =======================================
 # Environment & Security
@@ -172,6 +192,33 @@ lighthouse-*.json
 # Bundle analyzer
 bundle-analyzer-report.html
 stats.json
+
+# =======================================
+# Project-Specific Exclusions
+# =======================================
+# Unused font variations (if cleaned up)
+assets/fonts/JetBrainsMono-Thin*.woff2
+assets/fonts/JetBrainsMono-ExtraLight*.woff2
+assets/fonts/JetBrainsMono-Light*.woff2
+assets/fonts/JetBrainsMono-SemiBold*.woff2
+assets/fonts/JetBrainsMono-ExtraBold*.woff2
+
+# Development tools and scripts
+tools/dev-*
+tools/build-*
+analyze-*.sh
+compress-*.sh
+
+# Generated favicons (if using dynamic generation)
+assets/img/favicons/generated/
+
+# Skills configuration backup
+skills-config.*.json
+skills-data-backup.json
+
+# Blog content backups
+_posts/*.backup.md
+_posts/*.draft.md
 
 # =======================================
 # Miscellaneous
