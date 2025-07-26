@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "SQL Injection Fundamentals and Advanced Techniques"
+description: "Comprehensive guide to SQL injection attack vectors, exploitation techniques, and defensive strategies. Learn from basic concepts to advanced pentesting methods used by security professionals."
 date: 2025-07-21 10:00:00 +0000
 categories: [Web Security, Penetration Testing]
-tags: [sql-injection, web-security, testing, databases, burp-suite]
+tags: [sql-injection, web-security, testing, databases, burp-suite, owasp, pentesting, cybersecurity]
+image: https://avatars.githubusercontent.com/buggymaytricks?s=1200
+author: "buGGy (buggymaytricks)"
+sitemap:
+  priority: 0.8
+  changefreq: monthly
 ---
 
 # SQL Injection Fundamentals and Advanced Techniques

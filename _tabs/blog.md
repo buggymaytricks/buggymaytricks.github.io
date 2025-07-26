@@ -4,7 +4,14 @@ title: Blog
 icon: fas fa-blog
 order: 1
 permalink: /blog/
+sitemap:
+  priority: 0.9
+  changefreq: weekly
 ---
+
+<!-- SEO Enhancement for Blog Page -->
+<meta name="description" content="buGGy's blog featuring engineering notes, cybersecurity tutorials, penetration testing insights, academic content, and technical explorations. Latest posts on ethical hacking, red team operations, and security research.">
+<meta name="keywords" content="buGGy blog, buggymaytricks blog, cybersecurity blog, penetration testing tutorials, ethical hacking guides, engineering notes, academic content, security research, vulnerability research, red team tactics">
 
 <div class="mb-5">
   <h1 class="text-center mb-3">buGGy's Blog</h1>

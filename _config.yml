@@ -21,7 +21,15 @@ tagline: Engineering Notes, Cybersecurity & Tech Insights # it will display as t
 description: >- # used by seo meta and the atom feed
   A blog featuring engineering notes, cybersecurity tutorials, penetration testing insights,
   academic content, and technical explorations. From engineering syllabus notes to advanced
-  security concepts and everything in between.
+  security concepts and everything in between. Created by buGGy (buggymaytricks), a passionate
+  cybersecurity enthusiast and penetration tester.
+
+# SEO Keywords for the site
+keywords: >-
+  buGGy, buggymaytricks, buggy, cybersecurity, penetration testing, ethical hacking, red team,
+  offensive security, vulnerability research, security researcher, bug bounty, CTF, eJPT, OSCP,
+  infosec, engineering notes, academic content, technical tutorials, security tools, web security,
+  network security, vulnerability assessment, security testing, cyber defense
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -36,12 +44,14 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: buGGy
+  name: buGGy (buggymaytricks)
   email: contact@buggymaytricks.page # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/buggymaytricks # change to your Twitter homepage
     - https://github.com/buggymaytricks # change to your GitHub homepage
+    - https://buggymaytricks.github.io/blog
+    - https://linkedin.com/in/buggymaytricks
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username

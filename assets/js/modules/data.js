@@ -11,11 +11,7 @@ export const portfolioData = {
     experience_years: 2,
     vulnerabilities_found: 12,
     tools_mastered: 24,
-    bio: `Passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security. Currently pursuing advanced certifications while actively participating in bug bounty programs and CTF competitions.
-
-My journey began with a fascination for understanding how systems work and where they can fail. I specialize in web application security, network enumeration, and developing custom security tools. Through continuous learning and practical application, I've discovered 12+ vulnerabilities across various platforms and contributed to several open-source security projects.
-
-Always eager to learn new techniques, share knowledge with the community, and help organizations improve their security posture through ethical hacking practices.`
+    bio: "Hey, I’m buGGy — a cybersecurity enthusiast driven by an obsession with figuring out how things break and why they do.\nMy focus areas are web application security, network enumeration, OSINT, and red team tactics — the gritty, hands-on side of cybersecurity. I’ve done a couple of focused internships that gave me a taste of the real world, but most of my growth has come from experimenting, self-learning, and pushing limits on my own terms. From playing CTFs to poking around in bug bounty platforms, I’ve built a mindset that’s less about checklists and more about curiosity, edge cases, and creativity.\nI’m not tied to any fixed method or routine — I dive into whatever catches my eye, whether it’s a vulnerable API buried deep in a web app or an obscure enumeration path that others might overlook. Sometimes it’s exploring an idea that sounds too chaotic to be real — and that’s what makes it worth doing.\nThis site is a reflection of that process — a mix of deep dives, notes from the field, random obsessions, and battle scars from nights spent figuring things out the hard way. No fluff, no titles, just signal."
   },
   
   taglines: [

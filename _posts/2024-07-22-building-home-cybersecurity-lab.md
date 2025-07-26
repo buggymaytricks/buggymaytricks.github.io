@@ -1,9 +1,15 @@
 ---
 layout: post
 title: "Building a Home Cybersecurity Lab: Complete Setup Guide"
-date: 2024-07-22 16:30:00 +0000
-categories: [Lab Setup, Cybersecurity]
-tags: [homelab, virtualization, security-testing, kali-linux, metasploitable]
+description: "Step-by-step guide to building a comprehensive home cybersecurity lab for penetration testing, vulnerability research, and security training. Learn virtualization, networking, and tool setup."
+date: 2024-07-22 10:00:00 +0000
+categories: [Homelab, Cybersecurity]
+tags: [homelab, virtualization, security-testing, penetration-testing, vmware, virtualbox, kali-linux, metasploitable, cybersecurity-lab]
+image: https://avatars.githubusercontent.com/buggymaytricks?s=1200
+author: "buGGy (buggymaytricks)"
+sitemap:
+  priority: 0.9
+  changefreq: monthly
 ---
 
 # Building a Home Cybersecurity Lab: Complete Setup Guide

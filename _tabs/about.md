@@ -3,7 +3,14 @@
 title: About buGGy
 icon: fas fa-info-circle
 order: 5
+sitemap:
+  priority: 0.8
+  changefreq: monthly
 ---
+
+<!-- SEO Enhancement for About Page -->
+<meta name="description" content="Learn about buGGy (buggymaytricks), a passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security, ethical hacking, and red team operations.">
+<meta name="keywords" content="buGGy about, buggymaytricks about, cybersecurity enthusiast, penetration tester, ethical hacker, red team operator, security researcher, bug bounty hunter, vulnerability researcher">
 
 # About buGGy - Cybersecurity Enthusiast & Red Team Operator
 
