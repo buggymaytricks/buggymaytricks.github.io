@@ -1,10 +1,9 @@
 ---
-layout: blog
+layout: post
 title: F.E PPS Quick Notes
 date: 2025-06-04 12:00:00 +0800
 categories: [Programming, Tutorial]
 tags: [programming, paradigms, python, oop, pps, FE]
-pin: false
 ---
 
 ## Programming Paradigms (Compact Notes)
