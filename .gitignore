@@ -142,6 +142,42 @@ lighthouse-*.html
 lighthouse-*.json
 
 # =======================================
+# Security Testing & Assessment
+# =======================================
+# Security audit scripts and results
+security-audit.sh
+js-security-audit.sh
+security-mitigation.sh
+security-check.sh
+security-test-results/
+js-security-analysis/
+security-backup-*/
+
+# Security reports and documentation
+SECURITY-ASSESSMENT-REPORT.md
+SECURITY.md
+security-*.log
+security-*.txt
+security-*.json
+security-*.md
+
+# Penetration testing artifacts
+pentest-*/
+vulnerability-*/
+exploit-*/
+
+# Security scan outputs
+nikto-*.txt
+nmap-*.txt
+sslscan-*.txt
+*.nessus
+*.xml
+
+# Security backup files
+*.security.bak
+*-security-backup.*
+
+# =======================================
 # Environment & Security
 # =======================================
 .env
@@ -158,6 +194,18 @@ secrets.json
 *secret*
 *key*
 !skills-config.json
+
+# Security credentials and certificates (extended)
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+ssh_host_*
+id_rsa*
+id_ed25519*
+known_hosts
+authorized_keys
 
 # =======================================
 # Archives & Compressed files
@@ -239,9 +287,70 @@ api/
 *.sqlite
 *.sqlite3
 
-# Certificate files
-*.pem
-*.key
-*.crt
-*.p12
-*.pfx
+# Documentation and report backups
+README.md.backup
+*.md.backup
+
+# Temporary analysis files
+*.analysis
+*.report
+*.audit
+
+# Development artifacts
+.htaccess.bak
+robots.txt.backup
+sitemap.xml.backup
+
+# =======================================
+# IDE & Development Tools
+# =======================================
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =======================================
+# Testing & Quality Assurance
+# =======================================
+# Test outputs
+test-output/
+test-reports/
+e2e-results/
+screenshots/
+videos/
+
+# Code quality reports
+eslint-report.html
+jshint-report.html
+sonar-report.html
+
+# Performance benchmarks
+benchmarks/
+profiling/
