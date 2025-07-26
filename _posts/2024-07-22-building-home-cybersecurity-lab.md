@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a Home Cybersecurity Lab: Complete Setup Guide"
-date: 2025-07-22 16:30:00 +0000
+date: 2024-07-22 16:30:00 +0000
 categories: [Lab Setup, Cybersecurity]
 tags: [homelab, virtualization, security-testing, kali-linux, metasploitable]
 ---

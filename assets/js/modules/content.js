@@ -47,6 +47,42 @@ export async function initDynamicProjects() {
   const grid = qs('#projects-grid');
   if (!grid) return;
 
+  // Check for cached projects data first
+  const cachedProjects = localStorage.getItem('github_projects_processed');
+  if (cachedProjects) {
+    try {
+      const { data, timestamp } = JSON.parse(cachedProjects);
+      const cacheAge = (Date.now() - timestamp) / (1000 * 60); // Age in minutes
+      
+      // Shorter cache TTL: 2 hours for GitHub data (repos can be deleted/added frequently)
+      if (cacheAge < 120) { // Cache for 2 hours (120 minutes) instead of 24 hours
+        console.log(`🔄 Using cached projects data (${Math.round(cacheAge)}min old)`);
+        
+        // Quick validation: Check if we should force refresh
+        // You can force refresh by adding ?refresh=1 to URL or setting localStorage flag
+        const forceRefresh = window.location.search.includes('refresh=1') || 
+                           localStorage.getItem('force_projects_refresh') === 'true';
+        
+        if (forceRefresh) {
+          console.log('🔄 Force refresh requested, clearing cache');
+          localStorage.removeItem('github_projects_processed');
+          localStorage.removeItem('force_projects_refresh');
+          // Continue to API fetch
+        } else {
+          renderProjectsFromData(data, grid);
+          return;
+        }
+      } else {
+        console.log('🕐 Cached projects data expired (>2hrs), fetching fresh data');
+        // Clear expired cache
+        localStorage.removeItem('github_projects_processed');
+      }
+    } catch (error) {
+      console.log('⚠️ Error parsing cached projects data:', error);
+      localStorage.removeItem('github_projects_processed');
+    }
+  }
+
   try {
     // Load excluded repositories
     let excludedRepos = [];
@@ -70,7 +106,7 @@ export async function initDynamicProjects() {
     
     if (!response.ok) {
       console.log('❌ GitHub API failed with status:', response.status);
-      initStaticProjects();
+      initStaticProjectsFallback();
       return;
     }
     
@@ -134,48 +170,106 @@ export async function initDynamicProjects() {
         })
       );
 
-      const projectsHTML = projectsWithDetails.map((repo, i) => {
-        const description = repo.description || 'A repository by buGGy';
-        
-        return `
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-            <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
-              <div class="project-header mb-16">
-                <div class="flex justify-between items-start mb-8">
-                  <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${repo.name}</h4>
-                </div>
-                
-                <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
-                  <span>⭐ ${repo.stargazers_count}</span>
-                  <span>🍴 ${repo.forks_count}</span>
-                  ${repo.size_mb > 0 ? `<span>📦 ${repo.size_mb} MB</span>` : ''}
-                </div>
-                
-                <p style="color: var(--color-text-secondary); line-height: 1.6; margin: 0 0 12px 0; font-size: 0.95rem;">${description}</p>
-                
-                <div class="project-meta flex justify-between items-center" style="font-size: 0.7rem; color: var(--color-text-muted);">
-                  <span>Updated: ${repo.last_updated}</span>
-                </div>
-              </div>
-              
-              <div class="project-tech flex flex-wrap gap-8">
-                ${repo.languages.map(lang => `<span class="tech-badge" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue); font-family: 'JetBrains Mono', monospace;">${lang}</span>`).join('')}
-              </div>
-            </div>
-          </a>
-        `;
-      }).join('');
-      
-      grid.innerHTML = projectsHTML;
+      // Cache the processed projects data
+      localStorage.setItem('github_projects_processed', JSON.stringify({
+        data: projectsWithDetails,
+        timestamp: Date.now()
+      }));
+      console.log('💾 Cached processed projects data');
+
+      renderProjectsFromData(projectsWithDetails, grid);
       console.log('✅ Projects loaded with comprehensive details');
     } else {
-      // Fallback to static data if API fails
-      initStaticProjects();
+      // Fallback to static data if API response is invalid
+      console.log('❌ Invalid API response, using static fallback');
+      initStaticProjectsFallback();
     }
   } catch (error) {
     console.log('❌ GitHub API failed, using static projects:', error);
-    initStaticProjects();
+    initStaticProjectsFallback();
   }
+}
+
+/**
+ * Render projects from data (used for both cached and fresh data)
+ */
+function renderProjectsFromData(projectsData, grid) {
+  const projectsHTML = projectsData.map((repo, i) => {
+    const description = repo.description || 'A repository by buGGy';
+    
+    return `
+      <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+        <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+          <div class="project-header mb-16">
+            <div class="flex justify-between items-start mb-8">
+              <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${repo.name}</h4>
+            </div>
+            
+            <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
+              <span>⭐ ${repo.stargazers_count || 0}</span>
+              <span>🍴 ${repo.forks_count || 0}</span>
+              ${repo.size_mb > 0 ? `<span>📦 ${repo.size_mb} MB</span>` : ''}
+            </div>
+            
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin: 0 0 12px 0; font-size: 0.95rem;">${description}</p>
+            
+            <div class="project-meta flex justify-between items-center" style="font-size: 0.7rem; color: var(--color-text-muted);">
+              <span>Updated: ${repo.last_updated}</span>
+            </div>
+          </div>
+          
+          <div class="project-tech flex flex-wrap gap-8">
+            ${repo.languages.map(lang => `<span class="tech-badge" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue); font-family: 'JetBrains Mono', monospace;">${lang}</span>`).join('')}
+          </div>
+        </div>
+      </a>
+    `;
+  }).join('');
+  
+  grid.innerHTML = projectsHTML;
+}
+
+/**
+ * Static Projects Fallback (only Hash-Verify and Botnet Simulation)
+ */
+export function initStaticProjectsFallback() {
+  const grid = qs('#projects-grid');
+  if (!grid) return;
+  
+  console.log('📁 Loading static projects fallback (Hash-Verify and Botnet Simulation only)');
+  
+  // Filter to only include Hash-Verify and ECSIP Botnet Simulation
+  const fallbackProjects = portfolioData.projects.filter(project => 
+    project.name === 'Hash-Verify' || project.name === 'ECSIP Botnet Simulation'
+  );
+  
+  grid.innerHTML = fallbackProjects.map((project, i) => `
+    <a href="${project.github}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+      <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+        <div class="project-header mb-16">
+          <div class="flex justify-between items-start mb-8">
+            <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${project.name}</h4>
+          </div>
+          
+          <div class="project-stats flex gap-12 mb-12" style="font-size: 0.75rem; color: var(--color-text-muted);">
+            <span>⭐ --</span>
+            <span>🍴 --</span>
+            <span>📦 -- MB</span>
+          </div>
+          
+          <p style="color: var(--color-text-secondary); line-height: 1.6; margin: 0 0 12px 0; font-size: 0.95rem;">${project.description}</p>
+          
+          <div class="project-meta flex justify-between items-center" style="font-size: 0.7rem; color: var(--color-text-muted);">
+            <span>Static fallback data</span>
+          </div>
+        </div>
+        
+        <div class="project-tech flex flex-wrap gap-8">
+          ${project.tech.map(tech => `<span class="tech-badge" style="padding: 4px 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; font-size: 0.7rem; color: var(--color-electric-blue); font-family: 'JetBrains Mono', monospace;">${tech}</span>`).join('')}
+        </div>
+      </div>
+    </a>
+  `).join('');
 }
 
 /**
@@ -365,3 +459,46 @@ export function initMultiColumnContact() {
     </li>
   `).join('');
 }
+
+/**
+ * Cache Management Functions
+ * These can be called from browser console for debugging/manual cache control
+ */
+
+// Clear all projects cache
+window.clearProjectsCache = function() {
+  localStorage.removeItem('github_projects_processed');
+  localStorage.removeItem('github_repos');
+  console.log('🗑️ Projects cache cleared');
+  return 'Cache cleared! Refresh the page to fetch fresh data.';
+};
+
+// Force refresh projects on next load
+window.forceProjectsRefresh = function() {
+  localStorage.setItem('force_projects_refresh', 'true');
+  console.log('🔄 Force refresh flag set');
+  return 'Force refresh set! Refresh the page to fetch fresh data.';
+};
+
+// Check cache status
+window.checkProjectsCache = function() {
+  const cached = localStorage.getItem('github_projects_processed');
+  if (cached) {
+    try {
+      const { data, timestamp } = JSON.parse(cached);
+      const cacheAge = (Date.now() - timestamp) / (1000 * 60);
+      console.log(`📊 Cache Status:
+- Age: ${Math.round(cacheAge)} minutes
+- Projects: ${data.length}
+- Valid: ${cacheAge < 120 ? 'YES' : 'NO'}
+- Names: ${data.map(p => p.name).join(', ')}`);
+      return { age: cacheAge, count: data.length, projects: data.map(p => p.name) };
+    } catch (e) {
+      console.log('❌ Cache corrupted');
+      return 'Cache corrupted';
+    }
+  } else {
+    console.log('📊 No cache found');
+    return 'No cache';
+  }
+};

@@ -6,7 +6,7 @@ categories: [Programming, Notes, Engineering, SPPU, FE]
 tags: [programming, paradigms, python, oop, pps, FE]
 ---
 
-## Programming Paradigms (Compact Notes)
+## F.E Python and Problem Solving Notes, quick notes for recap.
 
 ### 1. Imperative Programming
 
