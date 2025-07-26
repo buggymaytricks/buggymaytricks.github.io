@@ -12,50 +12,15 @@ sitemap:
 <meta name="description" content="Learn about buGGy (buggymaytricks), a passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security, ethical hacking, and red team operations.">
 <meta name="keywords" content="buGGy about, buggymaytricks about, cybersecurity enthusiast, penetration tester, ethical hacker, red team operator, security researcher, bug bounty hunter, vulnerability researcher">
 
-# About buGGy - Cybersecurity Enthusiast & Red Team Operator
+# About buGGy
 
-Welcome to my cybersecurity journey! I'm buGGy, a passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security.
+Hey, I'm buGGy — a cybersecurity enthusiast driven by an obsession with figuring out how things break and why they do.
 
-## My Background
+My focus areas are web application security, network enumeration, OSINT, and red team tactics — the gritty, hands-on side of cybersecurity. I've done a couple of focused internships that gave me a taste of the real world, but most of my growth has come from experimenting, self-learning, and pushing limits on my own terms. From playing CTFs to poking around in bug bounty platforms, I've built a mindset that's less about checklists and more about curiosity, edge cases, and creativity.
 
-My journey began with a fascination for understanding how systems work and where they can fail. I specialize in:
+I'm not tied to any fixed method or routine — I dive into whatever catches my eye, whether it's a vulnerable API buried deep in a web app or an obscure enumeration path that others might overlook. Sometimes it's exploring an idea that sounds too chaotic to be real — and that's what makes it worth doing.
 
-- **Web Application Security** - Finding and exploiting vulnerabilities in web applications
-- **Network Penetration Testing** - Comprehensive network security assessments
-- **Red Team Operations** - Simulating real-world attack scenarios
-- **Vulnerability Research** - Discovering and responsibly disclosing security flaws
-- **Security Tool Development** - Creating custom tools for security testing
-
-## Experience & Achievements
-
-- **2+ Years** of active penetration testing experience
-- **12+ Vulnerabilities** discovered and responsibly disclosed
-- **24+ Security Tools** mastered across various categories
-- **Active participation** in bug bounty programs and CTF competitions
-- **Open source contributions** to security projects
-
-## Philosophy
-
-I believe in:
-- **Ethical hacking practices** and responsible disclosure
-- **Continuous learning** and staying updated with latest threats
-- **Knowledge sharing** with the cybersecurity community
-- **Building better defenses** through offensive understanding
-
-## Skills & Expertise
-
-My technical expertise spans across multiple domains:
-
-- **Programming**: Python, Bash, JavaScript
-- **Operating Systems**: Linux (Advanced), Windows
-- **Security Tools**: BurpSuite, Metasploit, Nmap, Wireshark, and many more
-- **Frameworks**: OWASP Top 10, PTES, NIST Cybersecurity Framework
-
-## Current Focus
-
-Currently pursuing advanced certifications including eJPT and planning for OSCP. Always eager to learn new techniques, share knowledge, and help organizations improve their security posture through ethical hacking practices.
-
-Feel free to connect with me through any of the platforms listed in my contact section!
+This site is a reflection of that process — a mix of deep dives, notes from the field, random obsessions, and battle scars from nights spent figuring things out the hard way. No fluff, no titles, just signal.
 
 ---
 
