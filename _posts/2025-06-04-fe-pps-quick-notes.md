@@ -2,7 +2,7 @@
 layout: post
 title: F.E PPS Quick Notes
 date: 2025-06-04 12:00:00 +0800
-categories: [Programming, Tutorial]
+categories: [Programming, Notes, Engineering, SPPU, FE]
 tags: [programming, paradigms, python, oop, pps, FE]
 ---
 
