@@ -1,0 +1,54 @@
+{
+  "skills": [
+    {
+      "name": "Web Application Security",
+      "level": 85,
+      "category": "Security Testing"
+    },
+    {
+      "name": "Network Penetration Testing",
+      "level": 50,
+      "category": "Network Security"
+    },
+    {
+      "name": "Linux Systems",
+      "level": 90,
+      "category": "Operating Systems"
+    },
+    {
+      "name": "Python Scripting",
+      "level": 85,
+      "category": "Programming"
+    },
+    {
+      "name": "OSINT & Reconnaissance",
+      "level": 75,
+      "category": "Intelligence Gathering"
+    },
+    {
+      "name": "Vulnerability Assessment",
+      "level": 50,
+      "category": "Security Analysis"
+    },
+    {
+      "name": "Bash Scripting",
+      "level": 85,
+      "category": "Automation"
+    },
+    {
+      "name": "Wireless Security",
+      "level": 70,
+      "category": "Network Security"
+    },
+    {
+      "name": "Social Engineering",
+      "level": 75,
+      "category": "Human Factors"
+    },
+    {
+      "name": "Digital Forensics",
+      "level": 65,
+      "category": "Investigation"
+    }
+  ]
+}
