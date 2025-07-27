@@ -8,12 +8,12 @@ export const portfolioData = {
     name: 'buGGy',
     handle: '@buggymaytricks',
     title: 'Cybersecurity Enthusiast & Penetration Tester',
-    experience_years: 2,
-    vulnerabilities_found: 12,
+    experience_years: 1,
+    vulnerabilities_found: 10,
     tools_mastered: 24,
     bio: "Hey, I’m buGGy — a cybersecurity enthusiast driven by an obsession with figuring out how things break and why they do.\nMy focus areas are web application security, network enumeration, OSINT, and red team tactics — the gritty, hands-on side of cybersecurity. I’ve done a couple of focused internships that gave me a taste of the real world, but most of my growth has come from experimenting, self-learning, and pushing limits on my own terms. From playing CTFs to poking around in bug bounty platforms, I’ve built a mindset that’s less about checklists and more about curiosity, edge cases, and creativity.\nI’m not tied to any fixed method or routine — I dive into whatever catches my eye, whether it’s a vulnerable API buried deep in a web app or an obscure enumeration path that others might overlook. Sometimes it’s exploring an idea that sounds too chaotic to be real — and that’s what makes it worth doing.\nThis site is a reflection of that process — a mix of deep dives, notes from the field, random obsessions, and battle scars from nights spent figuring things out the hard way. No fluff, no titles, just signal."
   },
-  
+
   taglines: [
     'Penetrating systems, not defenses',
     'Red teaming with precision',
@@ -22,7 +22,7 @@ export const portfolioData = {
     'Exploiting logic, not people',
     'Security through offensive thinking'
   ],
-  
+
   skills: [
     { name: 'Web Application Security', level: 80 },
     { name: 'Network Penetration Testing', level: 75 },
@@ -31,7 +31,7 @@ export const portfolioData = {
     { name: 'OSINT & Reconnaissance', level: 70 },
     { name: 'Vulnerability Assessment', level: 80 }
   ],
-  
+
   tools: [
     { name: 'BurpSuite Pro', level: 'Expert', icon: '🔍', category: 'Web Security' },
     { name: 'Nmap', level: 'Expert', icon: '🌐', category: 'Network' },
@@ -58,13 +58,13 @@ export const portfolioData = {
     { name: 'Subfinder', level: 'Advanced', icon: '🔍', category: 'Subdomain Enum' },
     { name: 'Amass', level: 'Intermediate', icon: '🌊', category: 'Asset Discovery' }
   ],
-  
+
   certifications: [
     { name: 'eJPT (eLearnSecurity)', status: 'In Progress', progress: 60, year: '2025' },
     { name: 'CEH (EC-Council)', status: 'Planned', progress: 25, year: '2025' },
     { name: 'OSCP (Offensive Security)', status: 'Goal', progress: 10, year: '2026' }
   ],
-  
+
   projects: [
     {
       name: 'Hash-Verify',
@@ -83,27 +83,9 @@ export const portfolioData = {
       tech: ['Python', 'Network Security', 'Research'],
       features: ['Botnet simulation', 'Network analysis', 'Security research', 'Educational framework'],
       github: 'https://github.com/buggymaytricks/ECSIP-botnet-sim-and-analysis'
-    },
-    {
-      name: 'Bug Bounty Blog List',
-      status: 'Forked',
-      status_color: '#ffaa00',
-      description: 'Curated collection of bug bounty blogs and security research resources.',
-      tech: ['Research', 'OSINT', 'Bug Bounty'],
-      features: ['Blog compilation', 'Security research', 'Community resources', 'OSINT gathering'],
-      github: 'https://github.com/buggymaytricks/bugbountybloglist'
-    },
-    {
-      name: 'Engineering Notes',
-      status: 'Personal',
-      status_color: '#0099ff',
-      description: 'Personal collection of engineering and cybersecurity notes and documentation.',
-      tech: ['Documentation', 'Notes', 'Learning'],
-      features: ['Technical notes', 'Learning resources', 'Personal documentation', 'Knowledge base'],
-      github: 'https://github.com/buggymaytricks/Engineering-Notes'
     }
   ],
-  
+
   blog_posts: [
     {
       slug: 'building-home-cybersecurity-lab',
@@ -113,22 +95,22 @@ export const portfolioData = {
       tags: ['homelab', 'virtualization', 'security-testing'],
       featured: true
     },
-    {
-      slug: 'sql-injection-fundamentals',
-      title: 'SQL Injection Fundamentals and Advanced Techniques',
-      date: '2025-07-21',
-      excerpt: 'Comprehensive guide to SQL injection attack vectors, exploitation techniques, and defensive strategies.',
-      tags: ['sql-injection', 'web-security', 'testing']
-    },
-    {
-      slug: 'essential-cybersecurity-tools',
-      title: 'Essential Cybersecurity Tools for Security Professionals',
-      date: '2025-07-20',
-      excerpt: 'Essential Cybersecurity Tools for Security Professionals',
-      tags: ['cybersecurity', 'tools', 'nmap', 'wireshark', 'burp-suite']
-    }
+    // {
+    //   slug: 'sql-injection-fundamentals',
+    //   title: 'SQL Injection Fundamentals and Advanced Techniques',
+    //   date: '2025-07-21',
+    //   excerpt: 'Comprehensive guide to SQL injection attack vectors, exploitation techniques, and defensive strategies.',
+    //   tags: ['sql-injection', 'web-security', 'testing']
+    // },
+    // {
+    //   slug: 'essential-cybersecurity-tools',
+    //   title: 'Essential Cybersecurity Tools for Security Professionals',
+    //   date: '2025-07-20',
+    //   excerpt: 'Essential Cybersecurity Tools for Security Professionals',
+    //   tags: ['cybersecurity', 'tools', 'nmap', 'wireshark', 'burp-suite']
+    // }
   ],
-  
+
   social: {
     twitter: '@buggymaytricks',
     github: 'buggymaytricks',
@@ -137,7 +119,7 @@ export const portfolioData = {
     discord: 'buggy#7823',
     signal: '+1-XXX-XXX-XXXX'
   },
-  
+
   cybersec_quotes: [
     "Breaking systems to build better defenses",
     "Security through offensive thinking",
