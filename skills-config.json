@@ -22,7 +22,7 @@
     },
     {
       "name": "OSINT & Reconnaissance",
-      "level": 75,
+      "level": 70,
       "category": "Intelligence Gathering"
     },
     {
@@ -32,22 +32,22 @@
     },
     {
       "name": "Bash Scripting",
-      "level": 85,
+      "level": 50,
       "category": "Automation"
     },
     {
       "name": "Wireless Security",
-      "level": 70,
+      "level": 40,
       "category": "Network Security"
     },
     {
       "name": "Social Engineering",
-      "level": 75,
+      "level": 80,
       "category": "Human Factors"
     },
     {
       "name": "Digital Forensics",
-      "level": 65,
+      "level": 60,
       "category": "Investigation"
     }
   ]
