@@ -12,7 +12,7 @@ import { portfolioData } from './data.js';
 export function initMultiColumnTools() {
   const grid = qs('#tools-grid');
   if (!grid) return;
-  
+
   // Create horizontal scrolling marquee with all tools
   const toolCards = portfolioData.tools.map((tool, i) => `
     <div class="tool-item-marquee" style="--delay: ${i};">
@@ -30,7 +30,7 @@ export function initMultiColumnTools() {
       </div>
     </div>
   `).join('');
-  
+
   // Create the marquee structure - duplicate tools for seamless loop
   grid.innerHTML = `
     <div class="tools-track">
@@ -53,16 +53,16 @@ export async function initDynamicProjects() {
     try {
       const { data, timestamp } = JSON.parse(cachedProjects);
       const cacheAge = (Date.now() - timestamp) / (1000 * 60); // Age in minutes
-      
+
       // Shorter cache TTL: 2 hours for GitHub data (repos can be deleted/added frequently)
       if (cacheAge < 120) { // Cache for 2 hours (120 minutes) instead of 24 hours
         console.log(`🔄 Using cached projects data (${Math.round(cacheAge)}min old)`);
-        
+
         // Quick validation: Check if we should force refresh
         // You can force refresh by adding ?refresh=1 to URL or setting localStorage flag
-        const forceRefresh = window.location.search.includes('refresh=1') || 
-                           localStorage.getItem('force_projects_refresh') === 'true';
-        
+        const forceRefresh = window.location.search.includes('refresh=1') ||
+          localStorage.getItem('force_projects_refresh') === 'true';
+
         if (forceRefresh) {
           console.log('🔄 Force refresh requested, clearing cache');
           localStorage.removeItem('github_projects_processed');
@@ -103,19 +103,19 @@ export async function initDynamicProjects() {
     // Fetch repositories from GitHub API with comprehensive details
     const cachedReposFetch = createCachedFetch('github_repos', 1440); // Cache for 1 day (1440 minutes)
     const response = await cachedReposFetch('https://api.github.com/users/buggymaytricks/repos?sort=updated&direction=desc&per_page=30');
-    
+
     if (!response.ok) {
       console.log('❌ GitHub API failed with status:', response.status);
       initStaticProjectsFallback();
       return;
     }
-    
+
     const repos = await response.json();
-    
+
     if (Array.isArray(repos)) {
       console.log('📦 Total repos fetched:', repos.length);
       console.log('🚫 Excluded repos list:', excludedRepos);
-      
+
       // Filter out excluded repos and get detailed info
       const filteredRepos = repos
         .filter(repo => {
@@ -146,12 +146,12 @@ export async function initDynamicProjects() {
             const cachedLanguagesFetch = createCachedFetch(`github_languages_${repo.name}`, 14400); // Cache for 10 days (14400 minutes)
             const languagesResponse = await cachedLanguagesFetch(`https://api.github.com/repos/buggymaytricks/${repo.name}/languages`);
             const languages = await languagesResponse.json();
-            
+
             // Get all languages (not just top 4)
             const sortedLanguages = Object.entries(languages)
-              .sort(([,a], [,b]) => b - a)
+              .sort(([, a], [, b]) => b - a)
               .map(([lang]) => lang);
-            
+
             return {
               ...repo,
               languages: sortedLanguages.length > 0 ? sortedLanguages : ['Repository'],
@@ -196,10 +196,10 @@ export async function initDynamicProjects() {
 function renderProjectsFromData(projectsData, grid) {
   const projectsHTML = projectsData.map((repo, i) => {
     const description = repo.description || 'A repository by buGGy';
-    
+
     return `
       <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-        <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+        <div class="project-card animate-slide-in-up" style="animation-delay: ${1.6 + (i * 0.15)}s;">
           <div class="project-header mb-16">
             <div class="flex justify-between items-start mb-8">
               <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${repo.name}</h4>
@@ -225,7 +225,7 @@ function renderProjectsFromData(projectsData, grid) {
       </a>
     `;
   }).join('');
-  
+
   grid.innerHTML = projectsHTML;
 }
 
@@ -235,17 +235,17 @@ function renderProjectsFromData(projectsData, grid) {
 export function initStaticProjectsFallback() {
   const grid = qs('#projects-grid');
   if (!grid) return;
-  
+
   console.log('📁 Loading static projects fallback (Hash-Verify and Botnet Simulation only)');
-  
+
   // Filter to only include Hash-Verify and ECSIP Botnet Simulation
-  const fallbackProjects = portfolioData.projects.filter(project => 
+  const fallbackProjects = portfolioData.projects.filter(project =>
     project.name === 'Hash-Verify' || project.name === 'ECSIP Botnet Simulation'
   );
-  
+
   grid.innerHTML = fallbackProjects.map((project, i) => `
     <a href="${project.github}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-      <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+      <div class="project-card animate-slide-in-up" style="animation-delay: ${1.6 + (i * 0.15)}s;">
         <div class="project-header mb-16">
           <div class="flex justify-between items-start mb-8">
             <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${project.name}</h4>
@@ -278,12 +278,12 @@ export function initStaticProjectsFallback() {
 export function initStaticProjects() {
   const grid = qs('#projects-grid');
   if (!grid) return;
-  
+
   console.log('📁 Loading static projects as fallback');
-  
+
   grid.innerHTML = portfolioData.projects.slice(0, 6).map((project, i) => `
     <a href="${project.github}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-      <div class="project-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
+      <div class="project-card animate-slide-in-up" style="animation-delay: ${1.6 + (i * 0.15)}s;">
         <div class="project-header mb-16">
           <div class="flex justify-between items-start mb-8">
             <h4 style="color: var(--color-text-primary); margin: 0; font-size: 1.2rem; line-height: 1.3;">${project.name}</h4>
@@ -321,7 +321,7 @@ export async function initDynamicBlog() {
     // Try to fetch recent posts from Jekyll blog
     const response = await fetch('/feed.json');
     let posts = [];
-    
+
     if (response.ok) {
       const feedData = await response.json();
       posts = feedData.items ? feedData.items.slice(0, 3) : [];
@@ -329,14 +329,14 @@ export async function initDynamicBlog() {
       // Fallback to static data
       posts = portfolioData.blog_posts.slice(0, 3);
     }
-    
+
     const blogHTML = posts.map((post, i) => {
       const title = post.title || post.title;
       const excerpt = post.content_text || post.excerpt || '';
       const date = post.date_published || post.date;
       const url = post.url || '/blog/';
       const tags = post.tags || ['cybersecurity'];
-      
+
       return `
         <div class="blog-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
           <div class="blog-header mb-16">
@@ -357,9 +357,9 @@ export async function initDynamicBlog() {
         </div>
       `;
     }).join('');
-    
+
     blogGrid.innerHTML = blogHTML;
-    
+
   } catch (error) {
     console.log('Blog API failed, using static posts:', error);
     initStaticBlog();
@@ -372,7 +372,7 @@ export async function initDynamicBlog() {
 export function initStaticBlog() {
   const blogGrid = qs('#blog-grid');
   if (!blogGrid) return;
-  
+
   const posts = portfolioData.blog_posts.slice(0, 3);
   const blogHTML = posts.map((post, i) => `
     <div class="blog-card animate-slide-in-up" style="animation-delay: ${i * 0.1}s;">
@@ -393,7 +393,7 @@ export function initStaticBlog() {
       <a href="/posts/${post.slug}/" class="btn btn--sm btn--outline">Read More →</a>
     </div>
   `).join('');
-  
+
   blogGrid.innerHTML = blogHTML;
 }
 
@@ -412,33 +412,33 @@ export function initMultiColumnContact() {
   // Define channels in chronological/priority order with proper icons
   const channels = [
     {
-      name: 'Email', 
-      handle: portfolioData.social.email, 
+      name: 'Email',
+      handle: portfolioData.social.email,
       url: `mailto:${portfolioData.social.email}`,
       icon: '📧',
       priority: 'Primary',
       description: 'Best for formal communications and inquiries'
     },
     {
-      name: 'GitHub', 
-      handle: `@${portfolioData.social.github}`, 
+      name: 'GitHub',
+      handle: `@${portfolioData.social.github}`,
       url: `https://github.com/${portfolioData.social.github}`,
       icon: '⚡',
       priority: 'Code',
       description: 'Open source projects and contributions'
     },
     {
-      name: 'LinkedIn', 
-      handle: `@${portfolioData.social.linkedin}`, 
+      name: 'LinkedIn',
+      handle: `@${portfolioData.social.linkedin}`,
       url: `https://linkedin.com/in/${portfolioData.social.linkedin}`,
       icon: '💼',
       priority: 'Professional',
       description: 'Professional networking and opportunities'
     },
     {
-      name: 'Twitter', 
-      handle: portfolioData.social.twitter, 
-      url: `https://twitter.com/${portfolioData.social.twitter.replace('@','')}`,
+      name: 'Twitter',
+      handle: portfolioData.social.twitter,
+      url: `https://twitter.com/${portfolioData.social.twitter.replace('@', '')}`,
       icon: '🐦',
       priority: 'Updates',
       description: 'Security insights and research updates'
@@ -466,7 +466,7 @@ export function initMultiColumnContact() {
  */
 
 // Clear all projects cache
-window.clearProjectsCache = function() {
+window.clearProjectsCache = function () {
   localStorage.removeItem('github_projects_processed');
   localStorage.removeItem('github_repos');
   console.log('🗑️ Projects cache cleared');
@@ -474,14 +474,14 @@ window.clearProjectsCache = function() {
 };
 
 // Force refresh projects on next load
-window.forceProjectsRefresh = function() {
+window.forceProjectsRefresh = function () {
   localStorage.setItem('force_projects_refresh', 'true');
   console.log('🔄 Force refresh flag set');
   return 'Force refresh set! Refresh the page to fetch fresh data.';
 };
 
 // Check cache status
-window.checkProjectsCache = function() {
+window.checkProjectsCache = function () {
   const cached = localStorage.getItem('github_projects_processed');
   if (cached) {
     try {
