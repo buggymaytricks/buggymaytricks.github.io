@@ -13,9 +13,9 @@ export function initEnhancedCursor() {
   const dot = qs('#cursor-dot');
   const ring = qs('#cursor-ring');
   const trail = qs('#cursor-trail');
-  
+
   if (!dot || !ring || !trail) return;
-  
+
   // Check if basic cursor is already initialized (from immediate script)
   if (dot.style.display === 'block') {
     console.log('✨ Enhancing existing cursor with trail effects');
@@ -23,7 +23,7 @@ export function initEnhancedCursor() {
     addTrailEffects(dot, ring, trail);
     return;
   }
-  
+
   // Disable cursor effects on mobile devices
   if (isMobile()) {
     dot.style.display = 'none';
@@ -31,18 +31,18 @@ export function initEnhancedCursor() {
     trail.style.display = 'none';
     return;
   }
-  
+
   let mx = 0, my = 0, rx = 0, ry = 0, tx = 0, ty = 0;
   let trailHistory = [];
-  
+
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
-    
+
     // Update dot position immediately
     dot.style.left = mx + 'px';
     dot.style.top = my + 'px';
-    
+
     // Add to trail history
     trailHistory.push({ x: mx, y: my, time: Date.now() });
     if (trailHistory.length > 10) trailHistory.shift();
@@ -54,19 +54,19 @@ export function initEnhancedCursor() {
     ry += (my - ry) * 0.15;
     ring.style.left = (rx - 17) + 'px';
     ring.style.top = (ry - 17) + 'px';
-    
+
     // Trail following with delay
     tx += (mx - tx) * 0.1;
     ty += (my - ty) * 0.1;
     trail.style.left = (tx - 2) + 'px';
     trail.style.top = (ty - 2) + 'px';
   });
-  
+
   cursorAnimation.start();
 
   // Interactive cursor states
   const interactiveElements = qsa('a, button, .card, .project-card, .blog-card, .stat-card, .tool-item, .skill-item, .nav__link');
-  
+
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.style.transform = 'scale(1.5)';
@@ -74,7 +74,7 @@ export function initEnhancedCursor() {
       dot.style.transform = 'scale(1.5)';
       dot.style.backgroundColor = '#ff0051';
     });
-    
+
     el.addEventListener('mouseleave', () => {
       ring.style.transform = 'scale(1)';
       ring.style.borderColor = '#00d4ff';
@@ -89,20 +89,20 @@ export function initEnhancedCursor() {
  */
 function addTrailEffects(dot, ring, trail) {
   if (isMobile()) return;
-  
+
   let trailHistory = [];
   let mx = 0, my = 0;
-  
+
   // Get current mouse position
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
-    
+
     // Add to trail history
     trailHistory.push({ x: mx, y: my, time: Date.now() });
     if (trailHistory.length > 10) trailHistory.shift();
   });
-  
+
   // Enhanced trail animation
   const trailAnimation = createAnimationLoop(() => {
     // Update trail with fade effect
@@ -113,7 +113,7 @@ function addTrailEffects(dot, ring, trail) {
       trail.style.opacity = '0.6';
     }
   });
-  
+
   // Enhanced hover effects for clickable elements
   qsa('a, button, .clickable, .logo-link, .nav__link').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -124,7 +124,7 @@ function addTrailEffects(dot, ring, trail) {
       dot.style.backgroundColor = '#00d4ff';
       trail.style.opacity = '0.8';
     });
-    
+
     el.addEventListener('mouseleave', () => {
       ring.style.transform = 'scale(1)';
       ring.style.borderColor = '#fff';
@@ -134,7 +134,7 @@ function addTrailEffects(dot, ring, trail) {
       trail.style.opacity = '0.6';
     });
   });
-  
+
   console.log('✨ Trail effects enhanced successfully');
 }
 
@@ -150,7 +150,7 @@ export function initEnhancedTyping() {
   introEl.textContent = `${portfolioData.personal.title} specializing in offensive security and red team operations.`;
 
   let tagIdx = 0, charIdx = 0, deleting = false, pause = false;
-  
+
   // Optimized speeds for buttery smooth animation
   const typeSpeed = 60;      // Faster but smooth typing
   const delSpeed = 25;       // Faster deletion
@@ -161,10 +161,10 @@ export function initEnhancedTyping() {
     const current = portfolioData.taglines[tagIdx];
 
     if (pause) {
-      setTimeout(() => { 
-        pause = false; 
-        deleting = true; 
-        typeStep(); 
+      setTimeout(() => {
+        pause = false;
+        deleting = true;
+        typeStep();
       }, wait);
       return;
     }
@@ -174,11 +174,11 @@ export function initEnhancedTyping() {
       const nextChar = current.charAt(charIdx);
       textEl.textContent = current.slice(0, charIdx + 1);
       charIdx++;
-      
-      if (charIdx === current.length) { 
-        pause = true; 
+
+      if (charIdx === current.length) {
+        pause = true;
       }
-      
+
       // Use requestAnimationFrame for smoother timing
       const delay = typeSpeed + (Math.random() * variance);
       setTimeout(() => requestAnimationFrame(typeStep), delay);
@@ -186,18 +186,18 @@ export function initEnhancedTyping() {
       // Smooth character removal
       textEl.textContent = current.slice(0, charIdx - 1);
       charIdx--;
-      
-      if (charIdx === 0) { 
-        deleting = false; 
-        tagIdx = (tagIdx + 1) % portfolioData.taglines.length; 
+
+      if (charIdx === 0) {
+        deleting = false;
+        tagIdx = (tagIdx + 1) % portfolioData.taglines.length;
       }
-      
+
       // Use requestAnimationFrame for smoother deletion
       const delay = delSpeed + (Math.random() * (variance * 0.5));
       setTimeout(() => requestAnimationFrame(typeStep), delay);
     }
   }
-  
+
   // Start with a small delay for page load
   setTimeout(() => requestAnimationFrame(typeStep), 800);
 }
@@ -216,7 +216,7 @@ export function initAnimatedQuotes() {
   let lastQuoteIndex = -1;
   let isTyping = false;
   const quotes = portfolioData.cybersec_quotes;
-  
+
   // Function to get random quote index, ensuring it's different from the last one
   function getRandomQuoteIndex() {
     let randomIndex;
@@ -225,18 +225,18 @@ export function initAnimatedQuotes() {
     } while (randomIndex === lastQuoteIndex && quotes.length > 1);
     return randomIndex;
   }
-  
+
   function typewriterEffect(text, callback) {
     if (isTyping) return;
     isTyping = true;
-    
+
     let charIndex = 0;
     // Buttery smooth speeds with micro-timing variations
     const speed = 35;              // Faster, smoother typing
     const backspaceSpeed = 20;     // Quicker deletion
     const pauseDuration = 1800;    // Shorter pause for better flow
     const microVariance = 8;       // Small timing variance for realism
-    
+
     // Clear and setup with optimized transitions
     quoteEl.innerHTML = `
       <div class="quote-text" style="
@@ -260,38 +260,38 @@ export function initAnimatedQuotes() {
         <span id="typing-quote" style="transition: opacity 0.05s ease-out;"></span><span class="cursor-blink">|</span>
       </div>
     `;
-    
+
     const typingSpan = qs('#typing-quote');
     if (!typingSpan) return;
-    
+
     function typeChar() {
       if (charIndex < text.length) {
         const nextChar = text.charAt(charIndex);
-        
+
         // Add character with micro-fade for ultra-smooth appearance
         typingSpan.style.opacity = '0.8';
         typingSpan.textContent += nextChar;
-        
+
         // Smooth opacity transition
         requestAnimationFrame(() => {
           typingSpan.style.opacity = '1';
         });
-        
+
         charIndex++;
-        
+
         // Dynamic speed based on character type for natural flow
         let charSpeed = speed;
         if (nextChar === ' ') charSpeed *= 0.7;      // Faster on spaces
         if (nextChar === ',' || nextChar === '.') charSpeed *= 1.4;  // Pause on punctuation
         if (nextChar === '!' || nextChar === '?') charSpeed *= 1.6;  // Longer pause on emphasis
-        
+
         const delay = charSpeed + (Math.random() * microVariance);
         setTimeout(() => requestAnimationFrame(typeChar), delay);
       } else {
         setTimeout(() => requestAnimationFrame(startBackspace), pauseDuration);
       }
     }
-    
+
     function startBackspace() {
       function deleteChar() {
         if (charIndex > 0) {
@@ -299,11 +299,11 @@ export function initAnimatedQuotes() {
           typingSpan.style.opacity = '0.7';
           charIndex--;
           typingSpan.textContent = text.substring(0, charIndex);
-          
+
           requestAnimationFrame(() => {
             typingSpan.style.opacity = '1';
           });
-          
+
           const delay = backspaceSpeed + (Math.random() * (microVariance * 0.5));
           setTimeout(() => requestAnimationFrame(deleteChar), delay);
         } else {
@@ -315,11 +315,11 @@ export function initAnimatedQuotes() {
       }
       deleteChar();
     }
-    
+
     // Start typing with requestAnimationFrame for perfect timing
     requestAnimationFrame(typeChar);
   }
-  
+
   function showNextQuote() {
     const randomIndex = getRandomQuoteIndex();
     lastQuoteIndex = randomIndex;
@@ -329,7 +329,7 @@ export function initAnimatedQuotes() {
       setTimeout(showNextQuote, 500);
     });
   }
-  
+
   // Start immediately
   setTimeout(showNextQuote, 1000);
 }
@@ -343,9 +343,9 @@ export function initAnimatedStats() {
 
   const stats = [
     { val: portfolioData.personal.experience_years, label: 'Years Experience', suffix: '+', color: '#00d4ff' },
-    { val: portfolioData.personal.vulnerabilities_found, label: 'Vulns Found', suffix: '', color: '#ff0051' },
-    { val: portfolioData.personal.tools_mastered, label: 'Tools Mastered', suffix: '+', color: '#00ff41' },
-    { val: 99.9, label: 'Uptime %', suffix: '', color: '#ffaa00' }
+    { val: portfolioData.personal.thm_rooms, label: 'THM Rooms', suffix: '+', color: '#ff0051' },
+    { val: portfolioData.personal.internships_done, label: 'Internships Done', suffix: '', color: '#00ff41' },
+    { val: portfolioData.personal.certs, label: 'Certs', suffix: '', color: '#ffaa00' }
   ];
 
   grid.innerHTML = stats.map((s, i) => `
@@ -360,13 +360,13 @@ export function initAnimatedStats() {
   const observer = createObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      
+
       qsa('.stat-value', grid).forEach((valEl, index) => {
         const target = parseFloat(valEl.dataset.target);
         const suffix = valEl.dataset.suffix;
         let current = 0;
         const increment = target / 60;
-        
+
         const counter = setInterval(() => {
           current += increment;
           if (current >= target) {
@@ -380,7 +380,7 @@ export function initAnimatedStats() {
       observer.disconnect();
     });
   }, { threshold: 0.3 });
-  
+
   observer.observe(grid);
 }
 
@@ -389,7 +389,7 @@ export function initAnimatedStats() {
  */
 export function initStaggeredRevealAnimations() {
   const revealElements = qsa('.animate-fade-in, .animate-slide-up, .animate-slide-in-left, .animate-slide-in-right, .animate-title');
-  
+
   const revealObserver = createObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -397,11 +397,11 @@ export function initStaggeredRevealAnimations() {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { 
+  }, {
     threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
   });
-  
+
   revealElements.forEach(el => {
     el.style.animationPlayState = 'paused';
     revealObserver.observe(el);
