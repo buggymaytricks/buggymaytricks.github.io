@@ -22,23 +22,13 @@
     },
     {
       "name": "OSINT & Reconnaissance",
-      "level": 70,
+      "level": 65,
       "category": "Intelligence Gathering"
     },
     {
       "name": "Vulnerability Assessment",
       "level": 50,
       "category": "Security Analysis"
-    },
-    {
-      "name": "Bash Scripting",
-      "level": 50,
-      "category": "Automation"
-    },
-    {
-      "name": "Wireless Security",
-      "level": 40,
-      "category": "Network Security"
     },
     {
       "name": "Social Engineering",
