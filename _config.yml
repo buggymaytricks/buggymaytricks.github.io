@@ -50,7 +50,7 @@ social:
     # The first element serves as the copyright owner's link
     - https://twitter.com/buggymaytricks # change to your Twitter homepage
     - https://github.com/buggymaytricks # change to your GitHub homepage
-    - https://buggymaytricks.github.io/blog
+    - https://buggymaytricks.page/blog
     - https://linkedin.com/in/buggymaytricks
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -58,7 +58,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: # Add your Google Search Console verification code here
+  google: 9BL9HCkehHZxgOezFQmpPHSCb7sdBr0dP8R7noOh4S0
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
