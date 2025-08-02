@@ -355,3 +355,10 @@ sonar-report.html
 # Performance benchmarks
 benchmarks/
 profiling/
+
+
+# =======================================
+# Upcoming Posts & Drafts
+# =======================================
+
+_~drafts/
