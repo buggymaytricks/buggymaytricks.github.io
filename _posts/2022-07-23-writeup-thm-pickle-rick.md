@@ -12,8 +12,8 @@ sitemap:
   changefreq: monthly
 ---
 
-
- Link to the room : https://tryhackme.com/room/picklerick
+## Tryhackme pickle rick step by step writeup
+Link to the room : https://tryhackme.com/room/picklerick
 
 
 This is the http page for the machine! :-
