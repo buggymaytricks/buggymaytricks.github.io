@@ -6,7 +6,7 @@ date: 2022-07-23 10:00:00 +0000
 categories: [Cybersecurity, Writeups, Tryhackme]
 tags: [cybersecurity, tryhackme, thm, picklerick,  gobuster, dirb, ssh, nc, nmap, kali-linux, ctf]
 image: https://i.imgur.com/o9pyhyU.jpg
-author: "buGGy (buggymaytricks)"
+author: buGGy (buggymaytricks)
 sitemap:
   priority: 0.8
   changefreq: monthly
