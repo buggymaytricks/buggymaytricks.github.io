@@ -1,32 +1,42 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://buggymaytricks.github.io/sitemap.xml
-Sitemap: https://buggymaytricks.github.io/feed.xml
-
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Priority pages for SEO
+# High-priority pages for SEO crawling
 Allow: /blog/
+Allow: /posts/
 Allow: /about/
-Allow: /projects/
 Allow: /categories/
 Allow: /tags/
 Allow: /archives/
 
-# Allow important assets
-Allow: /assets/
+# Important static content
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/img/
 Allow: /favicon.ico
 
-# Block potential private/sensitive paths (if any exist)
-# Disallow: /private/
-# Disallow: /admin/
+# Sitemaps - Critical for indexing
+Sitemap: https://buggymaytricks.page/sitemap.xml
+Sitemap: https://buggymaytricks.page/feed.xml
 
-# Block common bot traps
+# Crawl optimization
+Crawl-delay: 1
+
+# Block unnecessary paths to focus crawler budget
+Disallow: /tools/
+Disallow: /_site/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /vendor/
+Disallow: /Gemfile*
+Disallow: /*.config.js
+Disallow: /package*.json
+
+# Block bot traps and private content
 Disallow: /trap/
 Disallow: /honeypot/
+Disallow: /private/
+Disallow: /admin/
 
-# Additional crawling hints
-# Host: https://buggymaytricks.github.io
+# Specify host for clarity
+Host: https://buggymaytricks.page
