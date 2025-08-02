@@ -33,8 +33,6 @@ class PortfolioApp {
   async init() {
     if (this.initialized) return;
     
-    console.log('🚀 Initializing Enhanced Cybersecurity Portfolio...');
-    
     try {
       // Wait for Chart.js to be available
       await this.waitForDependencies();
@@ -45,11 +43,8 @@ class PortfolioApp {
       // Mark as initialized
       this.initialized = true;
       
-      const loadTime = (performance.now() - this.startTime).toFixed(1);
-      console.log(`✅ All systems loaded and operational in ${loadTime}ms`);
-      
     } catch (error) {
-      console.error('❌ Initialization failed:', error);
+      // Silent error handling
     }
   }
 
@@ -68,9 +63,9 @@ class PortfolioApp {
       }
       
       if (typeof Chart === 'undefined') {
-        console.warn('⚠️ Chart.js not loaded, skills chart will be skipped');
+        // Chart.js not loaded, skip
       } else {
-        console.log('✅ Chart.js dependency ready');
+        // Chart.js dependency ready
       }
     }
   }
@@ -152,15 +147,15 @@ class PortfolioApp {
       try {
         await this.runModule(name, module);
       } catch (error) {
-        console.error(`❌ Critical module '${name}' failed:`, error);
+        // Silent error handling
       }
     }
     
     // Run async modules in parallel
     const asyncPromises = asyncModules.map(({ name, module }) => 
-      this.runModule(name, module).catch(error => 
-        console.error(`❌ Module '${name}' failed:`, error)
-      )
+      this.runModule(name, module).catch(error => {
+        // Silent error handling
+      })
     );
     
     await Promise.allSettled(asyncPromises);
@@ -179,8 +174,6 @@ class PortfolioApp {
         await new Promise(resolve => setTimeout(resolve, module.delay));
       }
       
-      console.log(`🔄 Initializing ${name}...`);
-      
       if (module.async) {
         await module.init();
       } else {
@@ -188,10 +181,8 @@ class PortfolioApp {
       }
       
       module.initialized = true;
-      console.log(`✅ ${name} initialized`);
       
     } catch (error) {
-      console.error(`❌ ${name} failed:`, error);
       throw error;
     }
   }

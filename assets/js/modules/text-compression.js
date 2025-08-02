@@ -19,7 +19,7 @@ export function initTextCompression() {
   // 4. Optimize text delivery
   optimizeTextDelivery();
   
-  console.log('🗜️ Text compression optimizations initialized');
+  // Text compression optimizations initialized
 }
 
 /**
@@ -132,7 +132,7 @@ function monitorCompression() {
       const length = response.headers.get('content-length');
       
       if (encoding && length) {
-        console.log(`🗜️ Resource compressed with ${encoding}: ${length} bytes`);
+        // Resource compressed
       }
       
       return response;
@@ -199,13 +199,7 @@ function compressStringPrototype() {
 function reportCompressionStats() {
   const stats = analyzePageCompression();
   
-  console.group('🗜️ Text Compression Report');
-  console.log(`📊 Total HTML: ${formatBytes(stats.html.original)} → ${formatBytes(stats.html.compressed)}`);
-  console.log(`📊 Total CSS: ${formatBytes(stats.css.original)} → ${formatBytes(stats.css.compressed)}`);
-  console.log(`📊 Total JS: ${formatBytes(stats.js.original)} → ${formatBytes(stats.js.compressed)}`);
-  console.log(`📊 Overall ratio: ${stats.overallRatio}%`);
-  console.log(`💾 Bandwidth saved: ${formatBytes(stats.totalSaved)}`);
-  console.groupEnd();
+  // Text compression analysis completed
   
   return stats;
 }

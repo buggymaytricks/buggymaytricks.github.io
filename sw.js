@@ -21,42 +21,34 @@ const STATIC_ASSETS = [
 
 // Install event - cache static assets
 self.addEventListener('install', event => {
-  console.log('Service Worker: Installing...');
-  
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Service Worker: Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
-        console.log('Service Worker: Static assets cached');
         return self.skipWaiting();
       })
       .catch(error => {
-        console.error('Service Worker: Failed to cache static assets', error);
+        // Silent error handling
       })
   );
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
-  console.log('Service Worker: Activating...');
-  
   event.waitUntil(
     caches.keys()
       .then(cacheNames => {
         return Promise.all(
           cacheNames.map(cacheName => {
             if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
-              console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
             }
           })
         );
       })
       .then(() => {
-        console.log('Service Worker: Activated');
         return self.clients.claim();
       })
   );
@@ -81,7 +73,6 @@ self.addEventListener('fetch', event => {
     caches.match(request)
       .then(cachedResponse => {
         if (cachedResponse) {
-          console.log('Service Worker: Serving from cache', request.url);
           return cachedResponse;
         }
         
@@ -99,15 +90,12 @@ self.addEventListener('fetch', event => {
             // Cache dynamic content
             caches.open(DYNAMIC_CACHE)
               .then(cache => {
-                console.log('Service Worker: Caching dynamic asset', request.url);
                 cache.put(request, responseToCache);
               });
             
             return networkResponse;
           })
           .catch(error => {
-            console.error('Service Worker: Fetch failed', error);
-            
             // Return offline fallback for HTML pages
             if (request.headers.get('accept').includes('text/html')) {
               return caches.match('/offline.html');
@@ -141,11 +129,10 @@ async function syncContactForm() {
       
       if (response.ok) {
         await clearStoredFormData();
-        console.log('Service Worker: Contact form synced successfully');
       }
     }
   } catch (error) {
-    console.error('Service Worker: Failed to sync contact form', error);
+    // Silent error handling
   }
 }
 

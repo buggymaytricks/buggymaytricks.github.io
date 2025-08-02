@@ -41,7 +41,7 @@ export function optimizeLCP() {
     });
   });
 
-  console.log('🎯 LCP optimization applied');
+  // LCP optimization applied
 }
 
 /**
@@ -141,5 +141,5 @@ export function initLCPOptimizations() {
     optimizeMainThread();
   }
   
-  console.log('🚀 LCP optimizations initialized');
+  // LCP optimizations initialized
 }

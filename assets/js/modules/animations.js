@@ -18,7 +18,7 @@ export function initEnhancedCursor() {
 
   // Check if basic cursor is already initialized (from immediate script)
   if (dot.style.display === 'block') {
-    console.log('✨ Enhancing existing cursor with trail effects');
+    // Enhancing existing cursor with trail effects
     // Just add the trail effects to the existing cursor
     addTrailEffects(dot, ring, trail);
     return;
@@ -135,7 +135,7 @@ function addTrailEffects(dot, ring, trail) {
     });
   });
 
-  console.log('✨ Trail effects enhanced successfully');
+  // Trail effects enhanced successfully
 }
 
 /**
@@ -208,11 +208,11 @@ export function initEnhancedTyping() {
 export function initAnimatedQuotes() {
   const quoteEl = qs('#cyber-quote');
   if (!quoteEl) {
-    console.log('❌ Quote element not found');
+    // Quote element not found
     return;
   }
 
-  console.log('✅ Starting quotes animation');
+  // Starting quotes animation
   let lastQuoteIndex = -1;
   let isTyping = false;
   const quotes = portfolioData.cybersec_quotes;
@@ -324,7 +324,7 @@ export function initAnimatedQuotes() {
     const randomIndex = getRandomQuoteIndex();
     lastQuoteIndex = randomIndex;
     const quote = quotes[randomIndex];
-    console.log(`📝 Showing random quote: ${quote}`);
+    // Showing random quote
     typewriterEffect(quote, () => {
       setTimeout(showNextQuote, 500);
     });

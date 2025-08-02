@@ -30,30 +30,28 @@ export function initAdvancedPerformanceMonitoring() {
       const observer = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
           if (entry.entryType === 'largest-contentful-paint') {
-            console.log(`🎯 LCP: ${entry.startTime.toFixed(1)}ms`);
+            // LCP measurement
           }
           if (entry.entryType === 'first-input') {
-            console.log(`⚡ FID: ${entry.processingStart - entry.startTime.toFixed(1)}ms`);
+            // FID measurement
           }
         }
       });
       
       observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
     } catch (error) {
-      console.log('Performance Observer not fully supported');
+      // Performance Observer not fully supported
     }
   }
 
   window.addEventListener('load', () => {
     const loadTime = (performance.now() - startTime).toFixed(1);
-    console.log(`⚡ Portfolio loaded in ${loadTime}ms`);
+    // Portfolio load time measurement
     
     // Report navigation timing
     const navigation = performance.getEntriesByType('navigation')[0];
     if (navigation) {
-      console.log(`🔄 DNS: ${(navigation.domainLookupEnd - navigation.domainLookupStart).toFixed(1)}ms`);
-      console.log(`🔗 Connect: ${(navigation.connectEnd - navigation.connectStart).toFixed(1)}ms`);
-      console.log(`📄 DOM: ${(navigation.domContentLoadedEventEnd - navigation.navigationStart).toFixed(1)}ms`);
+      // DNS, Connect, and DOM timing measurements
     }
   });
 }
@@ -106,14 +104,14 @@ export async function loadChartJsDynamically() {
     // Return promise that resolves when script loads
     return new Promise((resolve, reject) => {
       script.onload = () => {
-        console.log('📊 Chart.js loaded dynamically');
+        // Chart.js loaded dynamically
         resolve();
       };
       script.onerror = reject;
       document.head.appendChild(script);
     });
   } catch (error) {
-    console.error('Failed to load Chart.js dynamically:', error);
+    // Failed to load Chart.js dynamically
     throw error;
   }
 }
@@ -150,11 +148,11 @@ export function monitorMemoryUsage() {
       const total = (memory.totalJSHeapSize / 1048576).toFixed(1);
       const limit = (memory.jsHeapSizeLimit / 1048576).toFixed(1);
       
-      console.log(`🧠 Memory: ${used}MB / ${total}MB (limit: ${limit}MB)`);
+      // Memory monitoring
       
       // Warn if memory usage is high
       if (memory.usedJSHeapSize / memory.jsHeapSizeLimit > 0.8) {
-        console.warn('⚠️ High memory usage detected');
+        // High memory usage detected
       }
     }, 5000);
     
@@ -178,12 +176,12 @@ export function detectNetworkQuality() {
       saveData: connection.saveData
     };
     
-    console.log('🌐 Network:', quality);
+    // Network quality assessment
     
     // Adjust performance based on connection
     if (quality.effectiveType === 'slow-2g' || quality.effectiveType === '2g' || quality.saveData) {
       document.documentElement.classList.add('reduced-motion');
-      console.log('🐌 Slow connection detected - reducing animations');
+      // Slow connection detected - reduce animations
     }
     
     return quality;
@@ -201,7 +199,7 @@ export function initBatteryAwarePerformance() {
       const checkBattery = () => {
         if (battery.level < 0.2 && !battery.charging) {
           document.documentElement.classList.add('power-save');
-          console.log('🔋 Low battery - enabling power save mode');
+          // Low battery - enable power save mode
         } else {
           document.documentElement.classList.remove('power-save');
         }
@@ -245,10 +243,10 @@ export function registerServiceWorker() {
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('/sw.js')
       .then(registration => {
-        console.log('🔄 Service Worker registered:', registration.scope);
+        // Service Worker registered
       })
       .catch(error => {
-        console.log('Service Worker registration failed:', error);
+        // Service Worker registration failed
       });
   }
 }
@@ -271,7 +269,7 @@ export function initFPSMonitor(debug = false) {
     
     // Only warn about low FPS after some frames and not too frequently
     if (fpsCheckCount > 60 && fpsCheckCount % 120 === 0 && fps < 25) {
-      console.warn(`⚠️ Low FPS detected: ${fps.toFixed(1)}`);
+      // Low FPS detected
     }
     
     requestAnimationFrame(countFPS);

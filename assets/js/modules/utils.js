@@ -24,7 +24,7 @@ export function createCachedFetch(cacheKey, ttlMinutes = 60) {
         const cacheAge = (now - timestamp) / (1000 * 60); // Age in minutes
         
         if (cacheAge < ttlMinutes) {
-          console.log(`🔄 Using cached data for ${cacheKey} (${Math.round(cacheAge)}min old)`);
+          // Using cached data
           return { 
             ok: true, 
             json: () => Promise.resolve(data),
@@ -34,7 +34,7 @@ export function createCachedFetch(cacheKey, ttlMinutes = 60) {
       }
       
       // Cache miss or expired - fetch fresh data
-      console.log(`🌐 Fetching fresh data for ${cacheKey}`);
+      // Fetching fresh data
       const response = await fetch(url, options);
       
       if (response.ok) {
@@ -44,7 +44,7 @@ export function createCachedFetch(cacheKey, ttlMinutes = 60) {
           data: data,
           timestamp: Date.now()
         }));
-        console.log(`💾 Cached data for ${cacheKey}`);
+        // Cached data
         
         // Return response that mimics fetch API
         return {
@@ -56,7 +56,7 @@ export function createCachedFetch(cacheKey, ttlMinutes = 60) {
         return response; // Return error response as-is
       }
     } catch (error) {
-      console.log(`❌ Cache/fetch error for ${cacheKey}:`, error);
+      // Cache/fetch error
       throw error;
     }
   };

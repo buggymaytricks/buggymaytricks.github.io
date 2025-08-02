@@ -14,7 +14,7 @@ export async function initDynamicChartLoading() {
   
   const chartObserver = createLazyLoader(async (element) => {
     try {
-      console.log('🔄 Loading skills chart...');
+      // Loading skills chart...
       
       // Mark as loading to prevent double initialization
       element.dataset.chartLoaded = 'true';
@@ -30,11 +30,11 @@ export async function initDynamicChartLoading() {
       // Initialize the chart
       await initSkillsWithAnimations();
       
-      console.log('✅ Skills chart loaded and initialized');
+      // Skills chart loaded and initialized
       chartObserver.unobserve(element);
       
     } catch (error) {
-      console.error('❌ Failed to load skills chart:', error);
+      // Failed to load skills chart
     }
   }, { rootMargin: '200px' });
   
@@ -66,7 +66,7 @@ export function initDynamicAnimations() {
   
   // Skip heavy animations on slow devices/connections
   if (prefersReducedMotion || isSlowConnection) {
-    console.log('⚡ Skipping heavy animations for better performance');
+    // Skipping heavy animations for better performance
     return;
   }
   
@@ -102,7 +102,7 @@ export function initDynamicAnimations() {
       
       animationObserver.unobserve(element);
     } catch (error) {
-      console.error(`Failed to load animation ${animationType}:`, error);
+      // Failed to load animation
     }
   }, { rootMargin: '100px' });
   
@@ -126,19 +126,19 @@ export function initProgressiveContentLoading() {
     
     const contentObserver = createLazyLoader(async (el) => {
       try {
-        console.log(`🔄 Loading ${selector} content...`);
+        // Loading content...
         
         const moduleExports = await import(`./${module}.js`);
         const initFunction = moduleExports[functionName];
         
         if (initFunction) {
           await initFunction();
-          console.log(`✅ ${selector} content loaded`);
+          // Content loaded
         }
         
         contentObserver.unobserve(el);
       } catch (error) {
-        console.error(`Failed to load ${selector}:`, error);
+        // Failed to load content
       }
     }, { rootMargin: '300px' });
     
@@ -181,9 +181,9 @@ export function initConditionalFeatures() {
     setTimeout(async () => {
       try {
         await feature.load();
-        console.log(`✅ ${feature.name} loaded`);
+        // Feature loaded
       } catch (error) {
-        console.error(`Failed to load ${feature.name}:`, error);
+        // Failed to load feature
       }
     }, index * 100);
   });
@@ -223,5 +223,5 @@ export function initAllDynamicLoading() {
   // Prefetch resources after initial load
   setTimeout(initResourcePrefetching, 2000);
   
-  console.log('🚀 Dynamic loading initialized');
+  // Dynamic loading initialized
 }

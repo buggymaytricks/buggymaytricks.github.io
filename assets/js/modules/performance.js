@@ -15,16 +15,6 @@ export function initPerformanceMonitoring() {
     const loadTime = (performance.now() - startTime).toFixed(1);
     const mobile = isMobile();
     
-    console.log(`⚡ Enhanced Portfolio loaded in ${loadTime}ms`);
-    console.log(`🎨 Rich animations and multi-column layouts active`);
-    console.log(`📱 Mobile optimized: ${mobile ? 'YES' : 'NO'}`);
-    
-    if (!mobile) {
-      console.log('🖱️ Enhanced cursor with trailing effects enabled');
-    } else {
-      console.log('👆 Touch-optimized interface enabled');
-    }
-    
     // Report Core Web Vitals
     if ('web-vital' in window) {
       reportWebVitals();
@@ -39,14 +29,14 @@ function reportWebVitals() {
   // This would integrate with web-vitals library if loaded
   try {
     if (typeof webVitals !== 'undefined') {
-      webVitals.getCLS(console.log);
-      webVitals.getFID(console.log);
-      webVitals.getFCP(console.log);
-      webVitals.getLCP(console.log);
-      webVitals.getTTFB(console.log);
+      webVitals.getCLS(() => {});
+      webVitals.getFID(() => {});
+      webVitals.getFCP(() => {});
+      webVitals.getLCP(() => {});
+      webVitals.getTTFB(() => {});
     }
   } catch (error) {
-    console.log('Web Vitals not available');
+    // Silent error handling
   }
 }
 
@@ -110,11 +100,7 @@ export function loadCriticalResources(resources) {
 export function monitorMemory() {
   if ('memory' in performance) {
     const memory = performance.memory;
-    console.log('📊 Memory Usage:', {
-      used: `${(memory.usedJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
-      total: `${(memory.totalJSHeapSize / 1024 / 1024).toFixed(2)} MB`,
-      limit: `${(memory.jsHeapSizeLimit / 1024 / 1024).toFixed(2)} MB`
-    });
+    // Silent memory monitoring
   }
 }
 
@@ -124,17 +110,10 @@ export function monitorMemory() {
 export function detectConnection() {
   if ('connection' in navigator) {
     const connection = navigator.connection;
-    console.log('🌐 Connection:', {
-      type: connection.effectiveType,
-      downlink: `${connection.downlink} Mbps`,
-      rtt: `${connection.rtt}ms`,
-      saveData: connection.saveData
-    });
     
     // Adjust features based on connection
     if (connection.saveData || connection.effectiveType === 'slow-2g') {
       document.body.classList.add('save-data');
-      console.log('💾 Save-Data mode enabled');
     }
   }
 }
@@ -151,10 +130,9 @@ export function monitorFrameRate() {
     
     if (currentTime >= lastTime + 1000) {
       const fps = Math.round((frames * 1000) / (currentTime - lastTime));
-      console.log(`🎬 Frame Rate: ${fps} FPS`);
       
       if (fps < 30) {
-        console.warn('⚠️ Low frame rate detected, consider optimizing animations');
+        // Low frame rate detected - could optimize animations
       }
       
       frames = 0;
@@ -181,6 +159,6 @@ export function reportBundleSize() {
       }
     });
     
-    console.log(`📦 Total Resources: ${(totalSize / 1024).toFixed(2)} KB`);
+    // Silent bundle size calculation
   }
 }

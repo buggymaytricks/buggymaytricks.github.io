@@ -11,21 +11,22 @@ import { portfolioData } from './data.js';
  */
 let skillsChart = null; // Track chart instance
 
-export async function initSkillsWithAnimations() {
-  // Prevent double initialization
-  if (skillsChart) {
-    console.log('🔄 Skills chart already initialized');
+export function initSkillsWithAnimations() {
+  // Check if chart is already initialized
+  if (window.skillsChart) {
     return;
   }
 
+  // Check if Chart.js is available
   if (typeof Chart === 'undefined') {
-    console.warn('⚠️ Chart.js not available, skipping skills chart');
     return;
   }
-  
-  console.log('✅ Chart.js available, initializing skills chart');
-  
-  // Load skills from external config file ONLY
+
+  // Initialize chart
+  initializeSkillsChart();
+}
+
+async function initializeSkillsChart() {
   let skillsData = [];
   
   try {
@@ -34,27 +35,23 @@ export async function initSkillsWithAnimations() {
     if (skillsResponse.ok) {
       const skillsConfig = await skillsResponse.json();
       skillsData = skillsConfig.skills;
-      console.log('✅ Skills loaded from config file:', skillsData.length, 'skills');
     } else {
-      console.error('❌ Failed to load skills-config.json, using fallback data');
       // Fallback to inline skills data
       skillsData = portfolioData.skills;
     }
   } catch (error) {
-    console.error('❌ Error loading skills config, using fallback data:', error);
+    // Fallback to inline skills data
     // Fallback to inline skills data
     skillsData = portfolioData.skills;
   }
 
   if (skillsData.length === 0) {
-    console.error('❌ No skills data available');
     return;
   }
 
   // Enhanced Radar Chart
   const ctx = qs('#skills-chart');
   if (ctx) {
-    console.log('✅ Canvas element found, creating chart');
     
     // Destroy existing chart if it exists
     if (skillsChart) {
@@ -128,18 +125,16 @@ export async function initSkillsWithAnimations() {
         }
       });
       
-      console.log('✅ Skills chart created successfully', skillsChart);
-      
       // Animate chart on creation
       setTimeout(() => {
         skillsChart.update('active');
       }, 500);
       
     } catch (error) {
-      console.error('❌ Error creating skills chart:', error);
+      // Silent error handling
     }
   } else {
-    console.error('❌ Canvas element #skills-chart not found');
+    // Canvas element #skills-chart not found
   }
 
   // Skills list removed - only showing radar chart

@@ -56,7 +56,7 @@ export async function initDynamicProjects() {
 
       // Shorter cache TTL: 2 hours for GitHub data (repos can be deleted/added frequently)
       if (cacheAge < 120) { // Cache for 2 hours (120 minutes) instead of 24 hours
-        console.log(`🔄 Using cached projects data (${Math.round(cacheAge)}min old)`);
+        // Using cached projects data
 
         // Quick validation: Check if we should force refresh
         // You can force refresh by adding ?refresh=1 to URL or setting localStorage flag
