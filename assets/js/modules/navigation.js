@@ -88,47 +88,12 @@ export function initSmoothNavigation() {
 }
 
 /**
- * Mobile Navigation Dropdown
+ * Mobile Navigation - Simple Blog Link
  */
 export function initMobileNavigation() {
-  const dropdownToggle = qs('.nav-dropdown-toggle');
-  const dropdownMenu = qs('.nav-dropdown-menu');
-  const navLinks = qsa('.nav-dropdown-menu .nav__link');
-  
-  if (!dropdownToggle || !dropdownMenu) return;
-  
-  // Toggle dropdown
-  dropdownToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-    
-    dropdownToggle.setAttribute('aria-expanded', !isExpanded);
-    dropdownMenu.classList.toggle('active');
-  });
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownToggle.setAttribute('aria-expanded', 'false');
-      dropdownMenu.classList.remove('active');
-    }
-  });
-  
-  // Close dropdown when navigation link is clicked
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      dropdownToggle.setAttribute('aria-expanded', 'false');
-      dropdownMenu.classList.remove('active');
-    });
-  });
-  
-  // Handle keyboard navigation
-  dropdownToggle.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      dropdownToggle.click();
-    }
-  });
+  // No complex dropdown needed - just a simple blog link
+  // The mobile nav is now just a single blog link, no JavaScript needed
+  return;
 }
 
 /**
