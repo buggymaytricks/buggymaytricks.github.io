@@ -5,7 +5,6 @@ description: "Tryhackme pickle rick step by step writeup"
 date: 2022-07-23 10:00:00 +0000
 categories: [Cybersecurity, Writeups, Tryhackme]
 tags: [cybersecurity, tryhackme, thm, picklerick,  gobuster, dirb, ssh, nc, nmap, kali-linux, ctf]
-# author: buGGy (buggymaytricks)
 image: https://i.imgur.com/o9pyhyU.jpg
 sitemap:
   priority: 0.8
