@@ -1,22 +1,25 @@
 /**
  * Service Worker for Enhanced Portfolio
  * Provides offline capabilities and caching strategies
+ * Works in harmony with Cloudflare CDN for optimal performance
  */
 
-const CACHE_NAME = 'portfolio-cache-v1';
-const STATIC_CACHE = 'portfolio-static-v1';
-const DYNAMIC_CACHE = 'portfolio-dynamic-v1';
+const CACHE_NAME = 'portfolio-cache-v2'; // Updated version for Cloudflare optimization
+const STATIC_CACHE = 'portfolio-static-v2';
+const DYNAMIC_CACHE = 'portfolio-dynamic-v2';
 
-// Assets to cache immediately
+// Assets to cache immediately (optimized for Cloudflare)
 const STATIC_ASSETS = [
-  '/',
-  '/style.css',
-  '/assets/js/main.js',
-  '/assets/js/chart.umd.js',
-  '/assets/fonts/JetBrainsMono-Regular.woff2',
-  '/assets/fonts/JetBrainsMono-Medium.woff2',
-  '/assets/fonts/JetBrainsMono-Bold.woff2',
-  '/assets/css/jetbrains-mono.css'
+  '/', // Homepage
+  '/style.css', // Main styles
+  '/assets/js/main.js', // Core functionality
+  '/assets/js/chart.umd.js', // Charts library
+  '/assets/fonts/JetBrainsMono-Regular.woff2', // Primary font
+  '/assets/fonts/JetBrainsMono-Medium.woff2', // Medium weight
+  '/assets/fonts/JetBrainsMono-Bold.woff2', // Bold weight
+  '/assets/css/jetbrains-mono.css', // Font styles
+  '/blog/', // Blog page
+  '/about/' // About page
 ];
 
 // Install event - cache static assets
