@@ -6,14 +6,7 @@
   {% include seo-schema.html %}
 {% endif %}
 
-{% if site.analytics.google.id %}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.id }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{ site.analytics.google.id }}');
-  </script>
+<!-- Cloudflare Web Analytics -->
+{% if site.analytics.cloudflare.id %}
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.analytics.cloudflare.id }}"}'></script>
 {% endif %}
