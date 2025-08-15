@@ -6,6 +6,7 @@ ignore_status_codes: [0, 500, 999]
 ignore_urls:
   - ""
   - "#"
+  - !ruby/regexp '/\/_posts\/attachments\/.*/'
 enforce_https: false
 check_external_hash: false
 check_internal_hash: false
