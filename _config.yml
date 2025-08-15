@@ -223,6 +223,7 @@ compress_html:
 
 include:
   - .excluded-repos
+  - _posts/attachments
 
 exclude:
   - "*.gem"
