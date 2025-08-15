@@ -4,7 +4,7 @@ title: "TryHackMe Light Walkthrough - SQL Injection Challenge"
 description: "Complete step-by-step walkthrough for TryHackMe's Light room featuring SQLite injection techniques, database enumeration, and admin credential extraction. Perfect for beginners learning SQL injection fundamentals."
 date: 2025-08-15 10:00:00 +0000
 categories: [Cybersecurity, Writeups, Tryhackme]
-tags: [tryhackme, thm, sql-injection, sqlite, database, enumeration, ctf, beginner-friendly]
+tags: [tryhackme, thm, sql-injection, sqlite, database, enumeration, ctf, easy]
 image: https://tryhackme-images.s3.amazonaws.com/room-icons/618b3fa52f0acc0061fb0172-1737140605838
 sitemap:
   priority: 0.8
@@ -26,12 +26,12 @@ Lets start the machine and wait for 2-3 minutes, let the machine get fully funct
 
 As usual running a full port scan for identifying potential entry points.
 `nmap -p- -T4 MACHINE-IP -vv`
-![[_posts/attachments/Pasted image 20250816001828.png]]
+![Nmap scan results](/_posts/attachments/Pasted%20image%2020250816001828.png)
 
 Meanwhile lets try connecting to the port 1337
 `nc MACHINE-IP 1337`
 Lets try the username provided `smokey`
-![[_posts/attachments/Pasted image 20250816002133.png]]
+![Testing with username smokey](/_posts/attachments/Pasted%20image%2020250816002133.png)
 Alright!
 
 So, I guess we can try brute-forcing a wordlist of usernames, but we cannot use ffuf...
@@ -72,28 +72,28 @@ for user in usernames:
 I tried few wordlists but didn't find anything.
 
 Got back to the nmap scan and LOL!, its gonna take forever so its not the way in for sure!
-![[_posts/attachments/Pasted image 20250816003201.png]]
+![Nmap scan taking too long](/_posts/attachments/Pasted%20image%2020250816003201.png)
 
 What else can we do? Found no `http` pages, where can we even use the credentials we've got earlier?
 Lets try to change the approach.
 
 Lets try putting in some random input, my mind is getting a little idea of where it is going _maybe_.
-![[_posts/attachments/Pasted image 20250816003925.png]]
+![Testing random input](/_posts/attachments/Pasted%20image%2020250816003925.png)
 Its more of an Injection vulnerability I see
 Its been a long I have not dealt with a SQLi, now quickly digging through my notes for revising required methods.
 
 From the responses below
-![[_posts/attachments/Pasted image 20250816004841.png]]
+![SQL injection response](/_posts/attachments/Pasted%20image%2020250816004841.png)
 I can imagine of a SQL query
 `select pass from users where user='<input>' limit 30`
 
 Now we'll try creating some SQL payloads based on the payloads I already have in my notes.
 `'union select 1'`
-![[_posts/attachments/Pasted image 20250816005530.png]]
+![Union select blocked](/_posts/attachments/Pasted%20image%2020250816005530.png)
 Okhayy!
 They might be blocking some keywords most probably as an easy way out. 
 Here might be a logic error lets try `'UnIOn sElecT 1'`
-![[_posts/attachments/Pasted image 20250816005739.png]]
+![Bypassing keyword filter](/_posts/attachments/Pasted%20image%2020250816005739.png)
 as a developer I would also blacklist these keywords as its an easy fix(not a fix really). Laziness is a problem frr.
 I love these kinda logic based errors!
 
@@ -106,35 +106,35 @@ Refer this https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%2
 This one worked
 `'Union Select sqlite_version()'`
 Its sqlite database version: 3.31.1
-![[_posts/attachments/Pasted image 20250816010644.png]]
+![SQLite version](/_posts/attachments/Pasted%20image%2020250816010644.png)
 
 Using the [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md#sqlite-enumeration) Repository for reference!
 
 `'Union Select sql from sqlite_master'`
-![[_posts/attachments/Pasted image 20250816010906.png]]
+![Database schema](/_posts/attachments/Pasted%20image%2020250816010906.png)
 
 Now we know the table name, column names.
 Enough to craft useful payloads.
 
-> You can use [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md#sqlite-enumeration)and suitable LLM for crafting payloads
+> You can use [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md#sqlite-enumeration) and suitable LLM for crafting payloads
 
 `'Union Select username from admintable where id='1`
-![[_posts/attachments/Pasted image 20250816011619.png]]
+![Admin username](/_posts/attachments/Pasted%20image%2020250816011619.png)
 If needed we could've dumped all but in this case we don't need the whole database.
 
-![[_posts/attachments/Pasted image 20250816011809.png]]
+![Question 1 answer](/_posts/attachments/Pasted%20image%2020250816011809.png)
 
 `Q2 What is the password to the username mentioned in question 1?`
 `'Union Select password from admintable where username='<admin-user>`
-![[_posts/attachments/Pasted image 20250816012001.png]]
+![Admin password](/_posts/attachments/Pasted%20image%2020250816012001.png)
 
-![[_posts/attachments/Pasted image 20250816012439.png]]
+![Question 2 answer](/_posts/attachments/Pasted%20image%2020250816012439.png)
 
 `Q3 What is the flag?`
 Till now you could've figured it out, we have already got the id for the user flag, so most probably its password will be the final flag.
 Little modifications to the previous payload will get you the flag.
 
-![[_posts/attachments/Pasted image 20250816012516.png]]
+![Question 3 flag](/_posts/attachments/Pasted%20image%2020250816012516.png)
 
 
 
