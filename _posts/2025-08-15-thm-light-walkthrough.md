@@ -79,21 +79,25 @@ Lets try to change the approach.
 
 Lets try putting in some random input, my mind is getting a little idea of where it is going _maybe_.
 ![Testing random input](/assets/img/Pasted image 20250816003925.png)
+
 Its more of an Injection vulnerability I see
 Its been a long I have not dealt with a SQLi, now quickly digging through my notes for revising required methods.
 
 From the responses below
 ![SQL injection response](/assets/img/Pasted image 20250816004841.png)
+
 I can imagine of a SQL query
 `select pass from users where user='<input>' limit 30`
 
 Now we'll try creating some SQL payloads based on the payloads I already have in my notes.
 `'union select 1'`
 ![Union select blocked](/assets/img/Pasted image 20250816005530.png)
+
 Okhayy!
 They might be blocking some keywords most probably as an easy way out. 
 Here might be a logic error lets try `'UnIOn sElecT 1'`
 ![Bypassing keyword filter](/assets/img/Pasted image 20250816005739.png)
+
 as a developer I would also blacklist these keywords as its an easy fix(not a fix really). Laziness is a problem frr.
 I love these kinda logic based errors!
 
@@ -120,6 +124,7 @@ Enough to craft useful payloads.
 
 `'Union Select username from admintable where id='1`
 ![Admin username](/assets/img/Pasted image 20250816011619.png)
+
 If needed we could've dumped all but in this case we don't need the whole database.
 
 ![Question 1 answer](/assets/img/Pasted image 20250816011809.png)
