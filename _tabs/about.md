@@ -14,9 +14,9 @@ sitemap:
 
 ## Who I Am
 
-I'm a cybersecurity enthusiast with **2+ years** of hands-on experience in offensive security. Currently pursuing my Bachelor's in Computer Engineering while actively honing my skills through labs, CTFs, and real-world security research.
+I'm a cybersecurity enthusiast with **2+ years** of dedicated learning in offensive & defensive security, complemented by **2 internships** focused on training and hands-on projects. Currently pursuing my Bachelor's in Computer Engineering while actively honing my skills through labs, CTFs, and security research.
 
-My core focus areas include **web application penetration testing**, **Active Directory attacks**, and **privilege escalation**. I approach security with an attacker's mindset — understanding how systems break to help build better defenses.
+My core focus areas include **network penetration testing**, **Active Directory attacks**, and **SOC operations/threat detection**. I approach security from both attacker and defender perspectives — understanding how systems break and how to detect & respond to threats.
 
 ---
 
@@ -35,8 +35,8 @@ My core focus areas include **web application penetration testing**, **Active Di
 
 - ✅ **CAP** — Certified AppSec Practitioner (The SecOps Group)
 - ✅ **TCM PEH** — Practical Ethical Hacking (TCM Security)
-- 🎯 **CJCA** — Cisco Junior Cybersecurity Analyst *(In Progress)*
-- 🎯 **CPTS** — HackTheBox Certified Penetration Testing Specialist *(Target)*
+- 🎯 **HTB CJCA** — HackTheBox Certified Junior Cybersecurity Analyst *(In Progress)*
+- 🎯 **HTB CPTS** — HackTheBox Certified Penetration Testing Specialist *(Target)*
 
 ---
 
@@ -44,9 +44,11 @@ My core focus areas include **web application penetration testing**, **Active Di
 
 **Languages:** Python, Java, Bash/Shell, SQL
 
-**Offensive Tools:** Nmap, Burp Suite, Metasploit, BloodHound, Gobuster, SQLMap, Hydra, Hashcat
+**Offensive Tools:** Nmap, Burp Suite, Metasploit, BloodHound, Mimikatz, CrackMapExec, Gobuster, Hashcat, Responder
 
-**Specializations:** Web App Testing, Active Directory Exploitation, Linux/Windows Privilege Escalation, OSINT
+**Defensive Tools:** Wireshark, Splunk, ELK Stack, Snort, Volatility
+
+**Specializations:** Network Pentesting, Active Directory Exploitation, SOC Operations, Traffic Analysis, Threat Detection, DFIR
 
 ---
 

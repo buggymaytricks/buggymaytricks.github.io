@@ -83,11 +83,15 @@ Update `_config.yml` for:
 
 Aspiring Red Team Operator | Top 2% on TryHackMe | B.E. Computer Engineering
 
-Specializing in:
-- Offensive Security & Penetration Testing
-- Web Application Security
+**Certifications:**
+- ✅ TCM-PEH (Practical Ethical Hacking)
+- 🎯 HTB-CJCA (HTB Certified Junior Cybersecurity Analyst) - In Progress
+
+**Specializing in:**
+- Network Penetration Testing
 - Active Directory Exploitation
-- Security Tool Development
+- Security Operations (SOC) & DFIR
+- Privilege Escalation
 
 ## 📝 License
 
