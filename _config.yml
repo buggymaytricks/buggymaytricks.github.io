@@ -9,27 +9,19 @@ theme: jekyll-theme-chirpy
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+timezone: Asia/Kolkata
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
 title: buGGy's Blog # the main title
 
-tagline: Engineering Notes, Cybersecurity & Tech Insights # it will display as the subtitle
+tagline: Cybersecurity Writeups, CTF Solutions & Penetration Testing Insights # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A blog featuring engineering notes, cybersecurity tutorials, penetration testing insights,
-  academic content, and technical explorations. From engineering syllabus notes to advanced
-  security concepts and everything in between. Created by buGGy (buggymaytricks), a passionate
-  cybersecurity enthusiast and penetration tester.
-
-# SEO Keywords for the site
-keywords: >-
-  buGGy, buggymaytricks, buggy, cybersecurity, penetration testing, ethical hacking, red team,
-  offensive security, vulnerability research, security researcher, bug bounty, CTF, eJPT, OSCP,
-  infosec, engineering notes, academic content, technical tutorials, security tools, web security,
-  network security, vulnerability assessment, security testing, cyber defense
+  Cybersecurity blog by buGGy — Top 2% on TryHackMe. CTF writeups, penetration testing tutorials, 
+  web application security guides, and ethical hacking insights. Learn offensive security techniques 
+  and red team tactics from hands-on experience.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -56,39 +48,16 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-# Site Verification Settings
-webmaster_verifications:
-  google: 9BL9HCkehHZxgOezFQmpPHSCb7sdBr0dP8R7noOh4S0
-  google_github: 9BL9HCkehHZxgOezFQmpPHSCb7sdBr0dP8R7noOh4S0 # Add your GitHub.io verification code here when you get it
-  bing: # fill in your Bing verification code
-  alexa: # fill in your Alexa verification code
-  yandex: # fill in your Yandex verification code
-  baidu: # fill in your Baidu verification code
-  facebook: # fill in your Facebook verification code
-
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-# Web Analytics Settings  
-analytics:
-  google:
-    id: # Removed Google Analytics - using Cloudflare instead
-  goatcounter:
-    id: # fill in your GoatCounter ID
-  umami:
-    id: # fill in your Umami ID
-    domain: # fill in your Umami domain
-  matomo:
-    id: # fill in your Matomo ID
-    domain: # fill in your Matomo domain
-  cloudflare:
-    id: 89bf9f249fc84f3da7de1b859947e08e
-  fathom:
-    id: # fill in your Fathom Site ID
-
-# Page views settings
-pageviews:
-  provider: # now only supports 'goatcounter'
+# Security headers (for Jekyll/GitHub Pages)
+webrick:
+  headers:
+    X-Frame-Options: DENY
+    X-Content-Type-Options: nosniff
+    X-XSS-Protection: "1; mode=block"
+    Referrer-Policy: strict-origin-when-cross-origin
 
 # Prefer color scheme setting.
 #
@@ -154,14 +123,7 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: false # Disabled - Cloudflare handles caching more efficiently
-  cache:
-    enabled: false # Using Cloudflare's superior caching instead
-    # Paths defined here will be excluded from the PWA cache.
-    # Usually its value is the `baseurl` of another website that
-    # shares the same domain name as the current website.
-    deny_paths:
-      # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
+  enabled: false
 
 paginate: 10
 
@@ -244,11 +206,3 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-
-# Security headers (for GitHub Pages)
-webrick:
-  headers:
-    X-Frame-Options: DENY
-    X-Content-Type-Options: nosniff
-    X-XSS-Protection: "1; mode=block"
-    Referrer-Policy: strict-origin-when-cross-origin

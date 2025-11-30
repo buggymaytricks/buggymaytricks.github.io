@@ -8,20 +8,68 @@ sitemap:
   changefreq: monthly
 ---
 
-<!-- SEO Enhancement for About Page -->
-<meta name="description" content="Learn about buGGy (buggymaytricks), a passionate cybersecurity enthusiast and penetration tester with 2+ years of hands-on experience in offensive security, ethical hacking, and red team operations.">
-<meta name="keywords" content="buGGy about, buggymaytricks about, cybersecurity enthusiast, penetration tester, ethical hacker, red team operator, security researcher, bug bounty hunter, vulnerability researcher">
-
-# About buGGy
-
-Hey, I'm buGGy — a cybersecurity enthusiast driven by an obsession with figuring out how things break and why they do.
-
-My focus areas are web application security, network enumeration, OSINT, and red team tactics — the gritty, hands-on side of cybersecurity. I've done a couple of focused internships that gave me a taste of the real world, but most of my growth has come from experimenting, self-learning, and pushing limits on my own terms. From playing CTFs to poking around in bug bounty platforms, I've built a mindset that's less about checklists and more about curiosity, edge cases, and creativity.
-
-I'm not tied to any fixed method or routine — I dive into whatever catches my eye, whether it's a vulnerable API buried deep in a web app or an obscure enumeration path that others might overlook. Sometimes it's exploring an idea that sounds too chaotic to be real — and that's what makes it worth doing.
-
-This site is a reflection of that process — a mix of deep dives, notes from the field, random obsessions, and battle scars from nights spent figuring things out the hard way. No fluff, no titles, just signal.
+**Aspiring Red Team Operator** · Top 2% on TryHackMe · B.E. Computer Engineering
 
 ---
 
-*"Security through offensive thinking - Understanding attacks to build better defenses."*
+## Who I Am
+
+I'm a cybersecurity enthusiast with **2+ years** of hands-on experience in offensive security. Currently pursuing my Bachelor's in Computer Engineering while actively honing my skills through labs, CTFs, and real-world security research.
+
+My core focus areas include **web application penetration testing**, **Active Directory attacks**, and **privilege escalation**. I approach security with an attacker's mindset — understanding how systems break to help build better defenses.
+
+---
+
+## By the Numbers
+
+| Achievement | Details |
+|-------------|---------|
+| 🏆 **TryHackMe Ranking** | Top 2% globally |
+| 🧪 **Labs Completed** | 120+ hands-on labs |
+| 🎯 **Hackfinity 2.0 CTF** | Rank 229 / 4,309 teams |
+| 🥇 **Rise Get Set Hack** | Rank 85 / 22,000+ participants |
+
+---
+
+## Certifications & Training
+
+- ✅ **CAP** — Certified AppSec Practitioner (The SecOps Group)
+- ✅ **TCM PEH** — Practical Ethical Hacking (TCM Security)
+- 🎯 **CJCA** — Cisco Junior Cybersecurity Analyst *(In Progress)*
+- 🎯 **CPTS** — HackTheBox Certified Penetration Testing Specialist *(Target)*
+
+---
+
+## Technical Arsenal
+
+**Languages:** Python, Java, Bash/Shell, SQL
+
+**Offensive Tools:** Nmap, Burp Suite, Metasploit, BloodHound, Gobuster, SQLMap, Hydra, Hashcat
+
+**Specializations:** Web App Testing, Active Directory Exploitation, Linux/Windows Privilege Escalation, OSINT
+
+---
+
+## What You'll Find Here
+
+This blog is my digital notebook — a collection of:
+
+- 🔓 **CTF Writeups** — Detailed walkthroughs of challenges I've solved
+- 📚 **Technical Notes** — Quick references and cheat sheets
+- 🛠️ **Tool Guides** — How I use various security tools
+- 💡 **Research** — Deep dives into vulnerabilities and attack techniques
+
+No fluff, just practical content from someone actively learning and breaking things.
+
+---
+
+## Let's Connect
+
+- 💻 [GitHub](https://github.com/buggymaytricks)
+- 🐦 [Twitter/X](https://twitter.com/buggymaytricks)
+- 💼 [LinkedIn](https://linkedin.com/in/buggymaytricks)
+- 📧 [Email](mailto:contact@buggymaytricks.page)
+
+---
+
+*"The quieter you become, the more you are able to hear."* — Kali Linux
