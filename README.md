@@ -1,86 +1,104 @@
-# Personal Portfolio & Blog
+# buGGy's Portfolio & Blog
 
-A personal cybersecurity portfolio and blog built with Jekyll and vanilla JavaScript. Features a dynamic portfolio homepage with GitHub integration and a Jekyll-powered blog.
+A cybersecurity portfolio and blog featuring a modern glassmorphism UI design with an orange/amber theme.
 
 🌐 **Live Site:** [buggymaytricks.github.io](https://buggymaytricks.github.io)
 
-## Quick Setup
+## ✨ Features
+
+- **Glassmorphism Design** - Modern frosted glass aesthetic with backdrop blur effects
+- **Single Page Application** - Smooth navigation without page reloads
+- **Dynamic Content** - GitHub API integration for real-time project display
+- **Cybersecurity Quotes** - Rotating collection of 60+ security-themed quotes
+- **Resume Modal** - Built-in PDF resume viewer
+- **Responsive Layout** - Optimized for desktop viewing
+- **Jekyll Blog** - Integrated blog with Chirpy theme for writeups and tutorials
+- **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, and JSON-LD structured data
+
+## 🎨 Design
+
+- **Theme:** Orange/Amber (`#ff6b35`, `#f7931e`, `#ffa500`)
+- **Style:** Glassmorphism with animated gradient background
+- **Typography:** Inter font family via Google Fonts
+- **Animations:** Floating cards, smooth transitions, typing effects
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Ruby (3.0+) and Jekyll
+- Ruby (3.0+) and Bundler
 - Git
 
-### Clone and Run
+### Installation
 
-1. **Fork this repository** to your GitHub account
+```bash
+# Clone the repository
+git clone https://github.com/buggymaytricks/buggymaytricks.github.io.git
+cd buggymaytricks.github.io
 
-2. **Clone your fork:**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-   cd YOUR-REPO-NAME
-   ```
+# Install dependencies
+bundle install
 
-3. **Install dependencies:**
-   ```bash
-   bundle install
-   ```
+# Run locally
+bundle exec jekyll serve
+```
 
-4. **Run locally:**
-   ```bash
-   ./tools/run.sh
-   # Or: bundle exec jekyll serve
-   ```
+Visit `http://localhost:4000` to view the site.
 
-## Customization for Your Portfolio
+## 📁 Project Structure
 
-### 1. Update Personal Data
-Edit `assets/js/modules/data.js` to replace my information with yours:
-- Personal details (name, title, bio)
-- Skills and tools
-- Social media links
-- Project information
+```
+├── index.html          # Main portfolio page (self-contained CSS/JS)
+├── _config.yml         # Jekyll configuration
+├── _posts/             # Blog posts (markdown)
+├── _tabs/              # Navigation pages (About, Archives, etc.)
+├── _data/              # Site data files
+├── assets/
+│   ├── img/favicons/   # Site favicons
+│   └── fonts/          # Font files
+└── Gemfile             # Ruby dependencies
+```
 
-### 2. Configure Jekyll
-Update `_config.yml` with your site details:
+## ✏️ Customization
+
+### Personal Info
+Edit `index.html` to update:
+- Name and title in the hero section
+- About me content
+- Social links and contact info
+- Skills and certifications
+
+### Blog Posts
+Add markdown files to `_posts/` following the naming convention:
+```
+YYYY-MM-DD-post-title.md
+```
+
+### Configuration
+Update `_config.yml` for:
 - Site title and description
-- Your GitHub username
 - Social media handles
+- SEO settings
 
-### 3. Add Your Content
-- **Blog posts:** Add `.md` files to `_posts/` 
-- **About page:** Edit `_tabs/about.md`
-- **Projects:** Will auto-load from your GitHub repos (or edit the data manually)
+## 🔐 About Me
 
-### 4. Customize Styling
-- Main styles in `style.css`
-- Modular JS components in `assets/js/modules/`
+Aspiring Red Team Operator | Top 2% on TryHackMe | B.E. Computer Engineering
 
-## Key Integrations
+Specializing in:
+- Offensive Security & Penetration Testing
+- Web Application Security
+- Active Directory Exploitation
+- Security Tool Development
 
-- **GitHub API** - Automatically displays your repositories
-- **Jekyll Blog** - Chirpy theme with SEO optimization  
-- **Chart.js** - Skills visualization
-- **Service Worker** - Offline functionality and caching
+## 📝 License
 
-## Deployment
+This project is open source under the [MIT License](LICENSE).
 
-1. **GitHub Pages:** Enable Pages in your repo settings (source: GitHub Actions)
-2. **Custom Domain:** Add your domain to `CNAME` file
-3. **Auto-deploy:** Pushes to main branch trigger automatic builds
+## 🤝 Connect
 
-## Contributing & Feedback
-
-Found a bug or have a suggestion? 
-- Open an [issue](https://github.com/buggymaytricks/buggymaytricks.github.io/issues)
-- Submit a pull request
-- Reach out on social media
-
-**Ideas for improvements:**
-- Performance optimizations
-- Mobile responsiveness enhancements  
-- Accessibility improvements
-- New features or integrations
+- **GitHub:** [@buggymaytricks](https://github.com/buggymaytricks)
+- **TryHackMe:** [buggymaytricks](https://tryhackme.com/p/buggymaytricks)
+- **LinkedIn:** [buggymaytricks](https://linkedin.com/in/buggymaytricks)
 
 ---
 
-⭐ **If this template helps you, consider giving it a star!**
+⭐ **If you find this helpful, consider giving it a star!**
