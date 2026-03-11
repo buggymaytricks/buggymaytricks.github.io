@@ -86,7 +86,7 @@ Aspiring Red Team Operator | Top 2% on TryHackMe | B.E. Computer Engineering
 **Certifications:**
 - ✅ CAP (Certified AppSec Practitioner)
 - ✅ TCM-PEH (Practical Ethical Hacking)
-- ✅ HTB-CJCA (HTB Certified Junior Cybersecurity Analyst)
+- ✅ HTB-CJCA (HTB Certified Junior Cybersecurity Associate)
 - 🎯 HTB-CWES (HTB Certified Web Exploitation Specialist) - In Progress
 - 🎯 HTB-CPTS (Certified Penetration Testing Specialist) - Target
 
