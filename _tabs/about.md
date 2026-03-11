@@ -35,7 +35,8 @@ My core focus areas include **network penetration testing**, **Active Directory 
 
 - ✅ **CAP** — Certified AppSec Practitioner (The SecOps Group)
 - ✅ **TCM PEH** — Practical Ethical Hacking (TCM Security)
-- 🎯 **HTB CJCA** — HackTheBox Certified Junior Cybersecurity Analyst *(In Progress)*
+- ✅ **HTB CJCA** — HackTheBox Certified Junior Cybersecurity Analyst
+- 🎯 **HTB CWES** — HackTheBox Certified Web Exploitation Specialist *(In Progress)*
 - 🎯 **HTB CPTS** — HackTheBox Certified Penetration Testing Specialist *(Target)*
 
 ---

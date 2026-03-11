@@ -84,8 +84,11 @@ Update `_config.yml` for:
 Aspiring Red Team Operator | Top 2% on TryHackMe | B.E. Computer Engineering
 
 **Certifications:**
+- ✅ CAP (Certified AppSec Practitioner)
 - ✅ TCM-PEH (Practical Ethical Hacking)
-- 🎯 HTB-CJCA (HTB Certified Junior Cybersecurity Analyst) - In Progress
+- ✅ HTB-CJCA (HTB Certified Junior Cybersecurity Analyst)
+- 🎯 HTB-CWES (HTB Certified Web Exploitation Specialist) - In Progress
+- 🎯 HTB-CPTS (Certified Penetration Testing Specialist) - Target
 
 **Specializing in:**
 - Network Penetration Testing
