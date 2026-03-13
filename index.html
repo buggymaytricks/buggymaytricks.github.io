@@ -11,8 +11,8 @@ permalink: /
   <!-- Primary Meta Tags -->
   <title>buGGy | Cybersecurity Portfolio - Penetration Tester & Red Team Operator</title>
   <meta name="title" content="buGGy | Cybersecurity Portfolio - Penetration Tester & Red Team Operator">
-  <meta name="description" content="Aspiring Red Team Operator ranked in Top 2% on TryHackMe with 120+ labs completed. Specializing in network penetration testing, Active Directory exploitation, and security operations. B.E. Computer Engineering student holding CAP, TCM-PEH & HTB-CJCA certifications, pursuing HTB-CWES.">
-  <meta name="keywords" content="buGGy, cybersecurity, penetration testing, ethical hacking, red team, TryHackMe, CTF, Active Directory, SOC analyst, DFIR, network security, buggymaytricks, security researcher, infosec">
+  <meta name="description" content="Offensive security enthusiast and aspiring Red Team Operator ranked in Top 2% on TryHackMe with 120+ labs completed. B.E. Computer Engineering student and HTB CJCA holder, currently pursuing HTB CPTS and actively focusing on HTB CWES with emphasis on web exploitation, system enumeration, privilege escalation, and post-exploitation, while also exploring lightweight security automation and agent-driven workflows.">
+  <meta name="keywords" content="buGGy, cybersecurity, penetration testing, ethical hacking, red team, TryHackMe, CTF, Active Directory, web exploitation, system enumeration, privilege escalation, post-exploitation, network security, buggymaytricks, infosec">
   <meta name="author" content="buGGy">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
@@ -23,7 +23,7 @@ permalink: /
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://buggymaytricks.github.io/">
   <meta property="og:title" content="buGGy | Cybersecurity Portfolio - Penetration Tester & Red Team Operator">
-  <meta property="og:description" content="Aspiring Red Team Operator ranked in Top 2% on TryHackMe. Specializing in network penetration testing, Active Directory exploitation, and security operations.">
+  <meta property="og:description" content="Offensive security enthusiast ranked in Top 2% on TryHackMe, HTB CJCA holder, currently pursuing CPTS and CWES with focus on pentesting and web exploitation.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/buggymaytricks?s=400">
   <meta property="og:image:alt" content="buGGy - Cybersecurity Portfolio">
   <meta property="og:site_name" content="buGGy Portfolio">
@@ -33,7 +33,7 @@ permalink: /
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://buggymaytricks.github.io/">
   <meta name="twitter:title" content="buGGy | Cybersecurity Portfolio - Penetration Tester & Red Team Operator">
-  <meta name="twitter:description" content="Aspiring Red Team Operator ranked in Top 2% on TryHackMe. Specializing in network penetration testing, Active Directory exploitation, and security operations.">
+  <meta name="twitter:description" content="Offensive security enthusiast ranked in Top 2% on TryHackMe, HTB CJCA holder, currently pursuing CPTS and CWES with focus on pentesting and web exploitation.">
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/buggymaytricks?s=400">
   <meta name="twitter:creator" content="@buggymaytricks">
   <meta name="twitter:site" content="@buggymaytricks">
@@ -68,14 +68,14 @@ permalink: /
     "url": "https://buggymaytricks.github.io",
     "image": "https://avatars.githubusercontent.com/buggymaytricks?s=400",
     "jobTitle": "Aspiring Red Team Operator",
-    "description": "Cybersecurity enthusiast specializing in network penetration testing, Active Directory exploitation, and security operations (SOC/DFIR). Top 2% on TryHackMe.",
+    "description": "Offensive security enthusiast specializing in penetration testing, web exploitation, Active Directory attacks, and post-exploitation. Top 2% on TryHackMe and HTB CJCA certified.",
     "sameAs": [
       "https://github.com/buggymaytricks",
       "https://twitter.com/buggymaytricks",
       "https://linkedin.com/in/buggymaytricks",
       "https://tryhackme.com/p/buggymaytricks"
     ],
-    "knowsAbout": ["Penetration Testing", "Active Directory", "Security Operations", "DFIR", "CTF", "Ethical Hacking", "Network Security", "Python", "Cybersecurity"],
+    "knowsAbout": ["Penetration Testing", "Web Exploitation", "System Enumeration", "Privilege Escalation", "Post-Exploitation", "Active Directory", "CTF", "Ethical Hacking", "Network Security", "Python", "Cybersecurity"],
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "SPPU - B.E. Computer Engineering"
@@ -318,6 +318,16 @@ permalink: /
       align-items: center;
       opacity: 1;
       transform: translateY(0);
+    }
+
+    #certificates.page.active {
+      justify-content: flex-start;
+      align-items: stretch;
+      padding-top: 1rem;
+    }
+
+    #certificates .page-inner {
+      align-items: flex-start;
     }
     
     .page-inner {
@@ -999,7 +1009,53 @@ permalink: /
       max-width: 900px;
       width: 100%;
     }
-    
+
+    .certs-grid {
+      width: 100%;
+      max-width: 1320px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .cert-card {
+      display: block;
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--glass-bg);
+      text-decoration: none;
+      color: var(--text-primary);
+      min-width: 0;
+    }
+
+    .cert-media {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      display: block;
+      background: rgba(255,255,255,0.02);
+    }
+
+    img.cert-media {
+      object-fit: contain;
+      padding: 0.35rem;
+    }
+
+    .cert-card-body {
+      padding: 0.75rem 0.9rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .cert-card-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
     .project-card {
       background: var(--glass-bg);
       backdrop-filter: blur(20px);
@@ -1501,6 +1557,10 @@ permalink: /
       .about-stats {
         justify-content: center;
       }
+
+      .certs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
     
     @media (max-width: 768px) {
@@ -1701,6 +1761,14 @@ permalink: /
         flex-direction: column;
         gap: 0.75rem;
         width: 100%;
+      }
+
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-media {
+        height: 220px;
       }
       
       .project-card {
@@ -2013,6 +2081,7 @@ permalink: /
       <ul class="nav-links">
         <li><a onclick="showPage('home')" class="active" data-page="home">Home</a></li>
         <li><a onclick="showPage('about')" data-page="about">About</a></li>
+        <li><a onclick="showPage('certificates')" data-page="certificates">Certificates</a></li>
         <li><a onclick="showPage('projects')" data-page="projects">Projects</a></li>
         <li><a onclick="showPage('blog')" data-page="blog">Blog</a></li>
         <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
@@ -2030,6 +2099,7 @@ permalink: /
     <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
     <a onclick="showPage('home'); toggleMobileMenu()">Home</a>
     <a onclick="showPage('about'); toggleMobileMenu()">About</a>
+    <a onclick="showPage('certificates'); toggleMobileMenu()">Certificates</a>
     <a onclick="showPage('projects'); toggleMobileMenu()">Projects</a>
     <a onclick="showPage('blog'); toggleMobileMenu()">Blog</a>
     <a onclick="showPage('contact'); toggleMobileMenu()">Contact</a>
@@ -2051,10 +2121,10 @@ permalink: /
               Hi, I'm <span class="highlight">buGGy</span>
             </h1>
             <p class="hero-subtitle">
-              Aspiring Red Team Operator · Top 2% on TryHackMe · B.E. Computer Engineering
+              Aspiring Red Team Operator · HTB CJCA · Top 2% on TryHackMe
             </p>
             <p class="hero-subtitle" style="margin-top: 0.5rem; font-size: 0.95em; opacity: 0.85;">
-              Specializing in network penetration testing, Active Directory attacks, and security operations.
+              Focused on web exploitation, system enumeration, privilege escalation, and post-exploitation, with current emphasis on CWES-aligned web security practice and lightweight agent-driven security automation workflows.
             </p>
             <div class="hero-cta">
               <button onclick="showPage('projects')" class="btn btn-primary">
@@ -2109,9 +2179,9 @@ permalink: /
             <span class="section-tag">About Me</span>
             <h2 class="section-title" style="text-align: left;">Aspiring Red Team Operator</h2>
             <p class="about-bio">
-              Cybersecurity enthusiast with <strong style="color: var(--primary);">2+ years</strong> of dedicated learning in offensive & defensive security, including <strong style="color: var(--primary);">2 internships</strong>. 
-              Currently pursuing B.E. in Computer Engineering while maintaining a <strong style="color: var(--primary);">Top 2% ranking on TryHackMe</strong> 
-              with 120+ completed labs. Core focus areas include network penetration testing, Active Directory exploitation, and security monitoring/DFIR.
+              Offensive security enthusiast with <strong style="color: var(--primary);">2+ years</strong> of hands-on practice across labs, CTFs, and practical security environments, including <strong style="color: var(--primary);">2 internships</strong>. 
+              Currently pursuing B.E. in Computer Engineering with a <strong style="color: var(--primary);">Top 2% ranking on TryHackMe</strong> and 120+ completed labs. 
+              HTB <strong style="color: var(--primary);">CJCA certified</strong>, currently advancing through <strong style="color: var(--primary);">CPTS</strong> and <strong style="color: var(--primary);">CWES</strong> paths.
             </p>
             <div class="about-stats">
               <div class="stat-item">
@@ -2124,19 +2194,15 @@ permalink: /
               </div>
               <div class="stat-item">
                 <span class="stat-number">2</span>
-                <span class="stat-label">Internships</span>
+                <span class="stat-label">Internships (Remote)</span>
               </div>
             </div>
             
-            <!-- Certifications -->
-            <div class="certifications" style="margin-top: 1.5rem;">
-              <span class="category-label" style="display: block; margin-bottom: 0.75rem;">Certifications & Training</span>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="skill-tag" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1)); border: 1px solid rgba(34, 197, 94, 0.3);">✅ CAP — Certified AppSec Practitioner</span>
-                <span class="skill-tag" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1)); border: 1px solid rgba(34, 197, 94, 0.3);">✅ TCM PEH — Practical Ethical Hacking</span>
-                <span class="skill-tag" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1)); border: 1px solid rgba(34, 197, 94, 0.3);">✅ HTB CJCA — HTB Certified Junior Cybersecurity Associate</span>
-                <span class="skill-tag" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.1)); border: 1px solid rgba(255, 165, 0, 0.3);">🎯 HTB CWES — HTB Certified Web Exploitation Specialist (In Progress)</span>
-                <span class="skill-tag" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.1)); border: 1px solid rgba(255, 107, 53, 0.3);">🎯 HTB CPTS — Certified Penetration Testing Specialist (Target)</span>
+            <div style="margin-top: 1.5rem;">
+              <span class="category-label" style="display: block; margin-bottom: 0.75rem;">Certifications & Badges</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <button onclick="showPage('certificates')" class="btn btn-secondary">View Certificates</button>
+                <a href="https://www.credly.com/users/pranav-more.558f12df" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Credly Badges</a>
               </div>
             </div>
           </div>
@@ -2148,6 +2214,8 @@ permalink: /
                 <span class="category-label">Programming Languages</span>
                 <div class="category-items">
                   <span class="skill-tag">🐍 Python</span>
+                  <span class="skill-tag">🧠 C</span>
+                  <span class="skill-tag">⚙️ C++</span>
                   <span class="skill-tag">☕ Java</span>
                   <span class="skill-tag">💻 Bash/Shell</span>
                   <span class="skill-tag">🗄️ SQL</span>
@@ -2159,16 +2227,20 @@ permalink: /
                   <span class="skill-tag">🔍 Nmap</span>
                   <span class="skill-tag">🕷️ Burp Suite</span>
                   <span class="skill-tag">🗡️ Metasploit</span>
-                  <span class="skill-tag">🐕 BloodHound</span>
+                  <span class="skill-tag">🩺 Nessus</span>
+                  <span class="skill-tag">⚡ FFUF</span>
+                  <span class="skill-tag">🧬 BloodHound</span>
+                  <span class="skill-tag">🧰 Impacket</span>
                 </div>
               </div>
               <div class="skill-category">
                 <span class="category-label">Core Specializations</span>
                 <div class="category-items">
+                  <span class="skill-tag">🌐 Web Exploitation</span>
+                  <span class="skill-tag">🧭 System Enumeration</span>
                   <span class="skill-tag">🏢 Active Directory Attacks</span>
                   <span class="skill-tag">🔓 Privilege Escalation</span>
-                  <span class="skill-tag">🛡️ Security Operations (SOC)</span>
-                  <span class="skill-tag">🔍 DFIR & Threat Detection</span>
+                  <span class="skill-tag">🧨 Post-Exploitation</span>
                 </div>
               </div>
             </div>
@@ -2183,6 +2255,51 @@ permalink: /
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATES PAGE -->
+    <div id="certificates" class="page">
+      <div class="page-inner">
+        <div class="section-content" style="display: flex; flex-direction: column; align-items: center;">
+          <div class="projects-header" style="width: 100%;">
+            <span class="section-tag">Credentials</span>
+            <h2 class="section-title">Certificates & Badges</h2>
+            <p class="section-subtitle">Professional certifications and earned badges</p>
+          </div>
+
+          {% assign cert_assets = site.static_files | where_exp: "file", "file.path contains '/assets/img/certificates/' or file.path contains '/assets/img/badges/'" %}
+          {% assign cert_assets = cert_assets | sort: 'modified_time' | reverse %}
+
+          {% if cert_assets.size > 0 %}
+            <div class="certs-grid">
+              {% for asset in cert_assets %}
+                {% assign ext = asset.extname | downcase %}
+                {% if ext == '.png' or ext == '.jpg' or ext == '.jpeg' or ext == '.webp' or ext == '.gif' or ext == '.svg' or ext == '.pdf' %}
+                  <a href="{{ asset.path | relative_url }}" target="_blank" rel="noopener noreferrer" class="cert-card">
+                    {% if ext == '.pdf' %}
+                      <iframe
+                        src="{{ asset.path | relative_url }}#view=FitH"
+                        title="{{ asset.name }}"
+                        loading="lazy"
+                        class="cert-media"
+                      ></iframe>
+                    {% else %}
+                      <img src="{{ asset.path | relative_url }}" alt="{{ asset.name }}" loading="lazy" class="cert-media">
+                    {% endif %}
+                    <div class="cert-card-body">
+                      <div class="cert-card-meta">{% if asset.path contains '/assets/img/badges/' %}Badge{% else %}Certificate{% endif %} · {{ ext | remove: '.' | upcase }}</div>
+                    </div>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="loading" style="animation: none;">
+              No certificates found yet. Upload files to /assets/img/certificates/ or /assets/img/badges/.
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>

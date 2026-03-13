@@ -8,15 +8,15 @@ sitemap:
   changefreq: monthly
 ---
 
-**Aspiring Red Team Operator** · Top 2% on TryHackMe · B.E. Computer Engineering
+**Cybersecurity Enthusiast** · Aspiring Red Team Operator · HTB CJCA
 
 ---
 
 ## Who I Am
 
-I'm a cybersecurity enthusiast with **2+ years** of dedicated learning in offensive & defensive security, complemented by **2 internships** focused on training and hands-on projects. Currently pursuing my Bachelor's in Computer Engineering while actively honing my skills through labs, CTFs, and security research.
+I'm an offensive security enthusiast with **2+ years** of hands-on experience in penetration testing labs, CTFs, and practical security environments, complemented by **2 remote internships**. I'm currently pursuing my Bachelor's in Computer Engineering while actively building red team skills through labs, competitions, and security research.
 
-My core focus areas include **network penetration testing**, **Active Directory attacks**, and **SOC operations/threat detection**. I approach security from both attacker and defender perspectives — understanding how systems break and how to detect & respond to threats.
+My core focus areas include **web exploitation**, **system enumeration**, **privilege escalation**, and **post-exploitation**, along with **network penetration testing** and **Active Directory attacks**.
 
 ---
 
@@ -26,6 +26,7 @@ My core focus areas include **network penetration testing**, **Active Directory 
 |-------------|---------|
 | 🏆 **TryHackMe Ranking** | Top 2% globally |
 | 🧪 **Labs Completed** | 120+ hands-on labs |
+| 🎓 **Current Degree** | B.E. Computer Engineering (2024–2028) |
 | 🎯 **Hackfinity 2.0 CTF** | Rank 229 / 4,309 teams |
 | 🥇 **Rise Get Set Hack** | Rank 85 / 22,000+ participants |
 
@@ -33,23 +34,25 @@ My core focus areas include **network penetration testing**, **Active Directory 
 
 ## Certifications & Training
 
-- ✅ **CAP** — Certified AppSec Practitioner (The SecOps Group)
-- ✅ **TCM PEH** — Practical Ethical Hacking (TCM Security)
-- ✅ **HTB CJCA** — HackTheBox Certified Junior Cybersecurity Associate
-- 🎯 **HTB CWES** — HackTheBox Certified Web Exploitation Specialist *(In Progress)*
-- 🎯 **HTB CPTS** — HackTheBox Certified Penetration Testing Specialist *(Target)*
+- ✅ **CAP (2024)** — Certified AppSec Practitioner (The SecOps Group)
+- ✅ **TCM PEH (2024)** — Practical Ethical Hacking (TCM Security)
+- ✅ **HTB CJCA (2026)** — HackTheBox Certified Junior Cybersecurity Associate
+- 🎯 **HTB CWES** — HackTheBox Certified Web Exploitation Specialist *(Currently Pursuing)*
+- 🎯 **HTB CPTS** — HackTheBox Certified Penetration Testing Specialist *(In Progress)*
 
 ---
 
 ## Technical Arsenal
 
-**Languages:** Python, Java, Bash/Shell, SQL
+**Languages:** Python, C, C++, Java, Bash/Shell, SQL
 
-**Offensive Tools:** Nmap, Burp Suite, Metasploit, BloodHound, Mimikatz, CrackMapExec, Gobuster, Hashcat, Responder
+**Security Tools:** Nmap, Nessus, Metasploit, Burp Suite, Nikto, FFUF, BloodHound, Impacket, CrackMapExec, Responder, Wireshark
 
-**Defensive Tools:** Wireshark, Splunk, ELK Stack, Snort, Volatility
+**Recon & OSINT:** Shodan, Recon-ng, theHarvester, Maltego
 
-**Specializations:** Network Pentesting, Active Directory Exploitation, SOC Operations, Traffic Analysis, Threat Detection, DFIR
+**Operating Systems:** Linux (Kali, Parrot, Ubuntu, Mint), Windows Server
+
+**Specializations:** Web Application Testing, Network Penetration Testing, Active Directory Attacks, Privilege Escalation, Post-Exploitation
 
 ---
 
