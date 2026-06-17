@@ -74,7 +74,7 @@ No fluff, just practical content from someone actively learning and breaking thi
 - 💻 [GitHub](https://github.com/buggymaytricks)
 - 🐦 [Twitter/X](https://twitter.com/buggymaytricks)
 - 💼 [LinkedIn](https://linkedin.com/in/buggymaytricks)
-- 📧 [Email](mailto:contact@buggymaytricks.page)
+- 📧 [Email](mailto:buggymaytricks@proton.me)
 
 ---
 
