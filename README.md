@@ -2,9 +2,9 @@
 
 A cybersecurity portfolio and blog featuring a modern glassmorphism UI design with an orange/amber theme.
 
-🌐 **Live Site:** [buggymaytricks.github.io](https://buggymaytricks.github.io)
+**Live Site:** [buggymaytricks.me](https://buggymaytricks.me)
 
-## ✨ Features
+## Features
 
 - **Glassmorphism Design** - Modern frosted glass aesthetic with backdrop blur effects
 - **Single Page Application** - Smooth navigation without page reloads
@@ -15,14 +15,14 @@ A cybersecurity portfolio and blog featuring a modern glassmorphism UI design wi
 - **Jekyll Blog** - Integrated blog with Chirpy theme for writeups and tutorials
 - **SEO Optimized** - Meta tags, Open Graph, Twitter Cards, and JSON-LD structured data
 
-## 🎨 Design
+## Design
 
 - **Theme:** Orange/Amber (`#ff6b35`, `#f7931e`, `#ffa500`)
 - **Style:** Glassmorphism with animated gradient background
 - **Typography:** Inter font family via Google Fonts
 - **Animations:** Floating cards, smooth transitions, typing effects
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Ruby (3.0+) and Bundler
@@ -44,7 +44,7 @@ bundle exec jekyll serve
 
 Visit `http://localhost:4000` to view the site.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── index.html          # Main portfolio page (self-contained CSS/JS)
@@ -58,7 +58,7 @@ Visit `http://localhost:4000` to view the site.
 └── Gemfile             # Ruby dependencies
 ```
 
-## ✏️ Customization
+## Customization
 
 ### Personal Info
 Edit `index.html` to update:
@@ -79,33 +79,35 @@ Update `_config.yml` for:
 - Social media handles
 - SEO settings
 
-## 🔐 About Me
+## About Me
 
-Cybersecurity Enthusiast | Aspiring Red Team Operator | HTB CJCA | Top 2% on TryHackMe
+Application Security | Web & API Security | Offensive Security
+
+**Current Focus:**
+- Web application and API security
+- Vulnerability discovery and exploitation
+- OWASP Top 10 and access control testing
+- Offensive security research and red-team lab work
 
 **Certifications:**
-- ✅ CAP (Certified AppSec Practitioner) — 2024
-- ✅ TCM-PEH (Practical Ethical Hacking) — 2024
-- ✅ HTB-CJCA (HTB Certified Junior Cybersecurity Associate) — 2026
-- 🎯 HTB-CWES (HTB Certified Web Exploitation Specialist) — Currently Pursuing
-- 🎯 HTB-CPTS (Certified Penetration Testing Specialist) — In Progress
+- HTB-CWES (Certified Web Exploitation Specialist) — 2026
+- HTB-CJCA (Certified Junior Cybersecurity Associate) — 2026
+- TCM-PEH (Practical Ethical Hacking) — 2024
+- CAP (Certified AppSec Practitioner) — 2024
 
-**Specializing in:**
-- Web Exploitation
-- System Enumeration
-- Privilege Escalation & Post-Exploitation
-- Network Penetration Testing
-- Active Directory Attacks
-- Privilege Escalation
+**Education:**
+- Sinhgad Academy of Engineering
+- B.E. Computer Engineering
+- Pune, Maharashtra
+- September 2024 – May 2028
 
-## 📝 License
+## License
 
 This project is open source under the [MIT License](LICENSE).
 
-## 🤝 Connect
+## Connect
 
 - **GitHub:** [@buggymaytricks](https://github.com/buggymaytricks)
-- **TryHackMe:** [buggymaytricks](https://tryhackme.com/p/buggymaytricks)
 - **LinkedIn:** [buggymaytricks](https://linkedin.com/in/buggymaytricks)
 
 ---

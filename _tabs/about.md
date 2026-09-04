@@ -8,15 +8,24 @@ sitemap:
   changefreq: monthly
 ---
 
-**Cybersecurity Enthusiast** · Aspiring Red Team Operator · HTB CJCA
+**Application Security** · **Web & API Security** · **Offensive Security**
 
 ---
 
 ## Who I Am
 
-I'm an offensive security enthusiast with **2+ years** of hands-on experience in penetration testing labs, CTFs, and practical security environments, complemented by **2 remote internships**. I'm currently pursuing my Bachelor's in Computer Engineering while actively building red team skills through labs, competitions, and security research.
+I'm an offensive security enthusiast focused on **web application and API security**, **vulnerability discovery**, **exploitation**, and **adversarial testing**. I hold **HTB CWES** and **HTB CJCA**, with hands-on experience across **security internships**, **CTFs**, **labs**, and **security research projects**.
 
-My core focus areas include **web exploitation**, **system enumeration**, **privilege escalation**, and **post-exploitation**, along with **network penetration testing** and **Active Directory attacks**.
+My core focus areas include **web application security**, **API security**, **OWASP Top 10 risks**, **authentication and authorization**, **access control**, **injection**, **XSS**, **SSRF**, **file uploads**, and **business logic flaws**.
+
+---
+
+## Education
+
+- **Sinhgad Academy of Engineering**
+- **B.E. Computer Engineering**
+- **Pune, Maharashtra**
+- **September 2024 – May 2028**
 
 ---
 
@@ -24,21 +33,18 @@ My core focus areas include **web exploitation**, **system enumeration**, **priv
 
 | Achievement | Details |
 |-------------|---------|
-| 🏆 **TryHackMe Ranking** | Top 2% globally |
-| 🧪 **Labs Completed** | 120+ hands-on labs |
-| 🎓 **Current Degree** | B.E. Computer Engineering (2024–2028) |
-| 🎯 **Hackfinity 2.0 CTF** | Rank 229 / 4,309 teams |
-| 🥇 **Rise Get Set Hack** | Rank 85 / 22,000+ participants |
+| **Red Team Labs** | 120+ labs completed |
+| **Current Degree** | B.E. Computer Engineering (2024–2028) |
+| **CTF Highlights** | Hackfinity CTF Rank 229/4,309; Rise Get Set Hack Rank 85/22,000+ |
 
 ---
 
 ## Certifications & Training
 
-- ✅ **CAP (2024)** — Certified AppSec Practitioner (The SecOps Group)
-- ✅ **TCM PEH (2024)** — Practical Ethical Hacking (TCM Security)
-- ✅ **HTB CJCA (2026)** — HackTheBox Certified Junior Cybersecurity Associate
-- 🎯 **HTB CWES** — HackTheBox Certified Web Exploitation Specialist *(Currently Pursuing)*
-- 🎯 **HTB CPTS** — HackTheBox Certified Penetration Testing Specialist *(In Progress)*
+- **HTB CWES (2026)** — HackTheBox Certified Web Exploitation Specialist
+- **HTB CJCA (2026)** — HackTheBox Certified Junior Cybersecurity Associate
+- **TCM PEH (2024)** — Practical Ethical Hacking (TCM Security)
+- **CAP (2024)** — Certified AppSec Practitioner (The SecOps Group)
 
 ---
 
@@ -60,10 +66,10 @@ My core focus areas include **web exploitation**, **system enumeration**, **priv
 
 This blog is my digital notebook — a collection of:
 
-- 🔓 **CTF Writeups** — Detailed walkthroughs of challenges I've solved
-- 📚 **Technical Notes** — Quick references and cheat sheets
-- 🛠️ **Tool Guides** — How I use various security tools
-- 💡 **Research** — Deep dives into vulnerabilities and attack techniques
+- **CTF Writeups** — Detailed walkthroughs of challenges I've solved
+- **Technical Notes** — Quick references and cheat sheets
+- **Tool Guides** — How I use various security tools
+- **Research** — Deep dives into vulnerabilities and attack techniques
 
 No fluff, just practical content from someone actively learning and breaking things.
 
@@ -71,10 +77,10 @@ No fluff, just practical content from someone actively learning and breaking thi
 
 ## Let's Connect
 
-- 💻 [GitHub](https://github.com/buggymaytricks)
-- 🐦 [Twitter/X](https://twitter.com/buggymaytricks)
-- 💼 [LinkedIn](https://linkedin.com/in/buggymaytricks)
-- 📧 [Email](mailto:buggymaytricks@proton.me)
+- [GitHub](https://github.com/buggymaytricks)
+- [Twitter/X](https://twitter.com/buggymaytricks)
+- [LinkedIn](https://linkedin.com/in/buggymaytricks)
+- [Email](mailto:buggymaytricks@proton.me)
 
 ---
 

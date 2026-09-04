@@ -10,3 +10,24 @@
 {% if site.analytics.cloudflare.id %}
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.analytics.cloudflare.id }}"}'></script>
 {% endif %}
+
+<style>
+  /* Remove theme-generated Font Awesome / SVG icon clutter from Jekyll pages */
+  #sidebar .nav-link i,
+  #sidebar .sidebar-bottom a i,
+  #sidebar .profile-wrapper i,
+  .card-wrapper .card-body i,
+  .post-meta i,
+  .post-tail .icon i,
+  .post-content i,
+  .page-content i,
+  .tag i,
+  .category i,
+  .breadcrumb i,
+  .toc i,
+  .btn i,
+  .search-results i,
+  .panel i {
+    display: none !important;
+  }
+</style>

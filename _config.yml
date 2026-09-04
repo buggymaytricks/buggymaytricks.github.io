@@ -16,16 +16,16 @@ timezone: Asia/Kolkata
 
 title: buGGy's Blog # the main title
 
-tagline: Cybersecurity Writeups, CTF Solutions & Penetration Testing Insights # it will display as the subtitle
+tagline: Application Security, Web & API Security, Offensive Security # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Cybersecurity blog by buGGy — HTB CJCA certified and Top 2% on TryHackMe. CTF writeups,
-  penetration testing tutorials, web application security guides, and ethical hacking insights
-  from hands-on offensive security labs and practical research.
+  Cybersecurity blog by buGGy — application security enthusiast focused on web application
+  and API security, vulnerability discovery, exploitation, and offensive security research.
+  CTF writeups, security notes, and practical lab-driven insights.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://buggymaytricks.page"
+url: "https://buggymaytricks.me"
 
 github:
   username: buggymaytricks # change to your GitHub username
@@ -40,9 +40,9 @@ social:
   email: buggymaytricks@proton.me # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/buggymaytricks # change to your Twitter homepage
+    - https://buggymaytricks.me
     - https://github.com/buggymaytricks # change to your GitHub homepage
-    - https://buggymaytricks.page/blog
+    - https://buggymaytricks.me/blog
     - https://linkedin.com/in/buggymaytricks
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -80,14 +80,14 @@ theme_mode: dark # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://avatars.githubusercontent.com/buggymaytricks?s=400
+avatar: https://avatars.githubusercontent.com/buggymaytricks?s=160
 
 # Site favicon - uses GitHub profile picture
 favicon: https://avatars.githubusercontent.com/buggymaytricks?s=32
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: https://avatars.githubusercontent.com/buggymaytricks?s=1200
+social_preview_image: https://avatars.githubusercontent.com/buggymaytricks?s=512
 
 # boolean type, the global switch for TOC in posts.
 toc: true
