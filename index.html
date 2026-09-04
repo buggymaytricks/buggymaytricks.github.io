@@ -2351,7 +2351,7 @@ permalink: /
           </div>
 
           {% assign cert_assets = site.static_files | where_exp: "file", "file.path contains '/assets/img/certificates/' or file.path contains '/assets/img/badges/'" %}
-          {% assign cert_assets = cert_assets | sort: 'modified_time' | reverse %}
+          {% assign cert_assets = cert_assets | sort: 'basename' | reverse %}
 
           {% if cert_assets.size > 0 %}
             <div class="certs-grid">
