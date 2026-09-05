@@ -16,8 +16,8 @@ Allow: /assets/img/
 Allow: /favicon.ico
 
 # Sitemaps - Critical for indexing
-Sitemap: https://buggymaytricks.page/sitemap.xml
-Sitemap: https://buggymaytricks.page/feed.xml
+Sitemap: https://buggymaytricks.me/sitemap.xml
+Sitemap: https://buggymaytricks.me/feed.xml
 
 # Crawl optimization
 Crawl-delay: 1
@@ -39,4 +39,4 @@ Disallow: /private/
 Disallow: /admin/
 
 # Specify host for clarity
-Host: https://buggymaytricks.page
+Host: https://buggymaytricks.me
